@@ -9,9 +9,9 @@ const Home = ({ navigation }) => {
             <Text style={styles.title}>Welcome </Text>
             <Text style={styles.textUser}>User63914</Text>
             <Button title="See my flights"
-            style={styles.button}
+            
             onPress={() => navigation.navigate('Flights')}
-            color= {colors.text} />
+             />
         </View>
     );
 };

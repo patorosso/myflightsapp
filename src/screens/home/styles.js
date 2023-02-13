@@ -4,12 +4,12 @@ import { colors } from "../../constants";
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: colors.secondary,
         alignItems: 'center',
     },
     title: {
         fontSize: 22,
-        color: colors.secondary,
+        color: colors.white,
         fontStyle: "italic",
         marginBottom: 20,
         marginTop: 100,
@@ -20,5 +20,6 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 150,
     },
+    
     
 });

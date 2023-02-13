@@ -11,15 +11,16 @@ const ShopNavigator = () => {
             name='Home' component={Home} 
             options={{title: 'MyFlightsApp', 
                 headerStyle: {
-                backgroundColor: colors.primary,
+                backgroundColor: colors.white,
                 },
-                headerTintColor: colors.white,
-                headerTitleStyle: {
-                  fontWeight: 'bold',
-                }
+                headerTintColor: colors.primary,
+                
+                headerTitleAlign: 'center',
               }}/>
-            <Stack.Screen name='Flights' component={Flights} />
-            <Stack.Screen name='FlightDetail' component={FlightDetail} />
+            <Stack.Screen name='Flights' component={Flights} 
+            options= {{headerTintColor: colors.primary,}}/>
+            <Stack.Screen name='FlightDetail' component={FlightDetail}
+            options= {{headerTintColor: colors.primary,}} />
         </Stack.Navigator>
     )
 }
