@@ -1,14 +1,16 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
+import {  TouchableHighlight, Text,View } from "react-native";
+import { colors } from "../../constants";
 import { styles } from "./styles";
+
 
 const Flights = ({navigation}) => {
     return (
         <View style={styles.container}>
-            <Text>Flights</Text>
-            <Button title="Go to details"
-            onPress={() => navigation.navigate('FlightDetail')}
-            color='black'/>
+        <TouchableHighlight 
+            style={styles.itemContainer} underlayColor={colors.white}  activeOpacity={0.1}  onPress={() => navigation.navigate('FlightDetail')}>
+          <Text style={styles.itemList}>ITA AZ-681</Text>
+        </TouchableHighlight>
         </View>
     );
 };

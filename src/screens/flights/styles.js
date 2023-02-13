@@ -1,10 +1,27 @@
 import { StyleSheet } from "react-native";
+import { colors } from "../../constants";
 
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: colors.secondary,
         justifyContent: 'center',
         alignItems: 'center',
     },
+    itemContainer: {
+        width: '70%',
+        paddingVertical: 20,
+
+        borderRadius: 10,
+        borderColor: colors.white,
+        borderWidth: 2,
+        alignItems: 'center',
+      },
+      itemList: {
+        fontSize: 14,
+        color: colors.white,
+        fontFamily: 'Nunito-Bold',
+        
+        
+      }
 });

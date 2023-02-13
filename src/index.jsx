@@ -20,7 +20,13 @@ const App = () => {
   )
 
   return (
-    <AppNavigator />
+    
+    
+      <AppNavigator />
+      
+    
+    
+    
     
   );
 }
