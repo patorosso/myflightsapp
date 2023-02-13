@@ -1,3 +1,3 @@
-export {default as Categories} from './home';
-export {default as Products} from './flights';
-export {default as ProductDetail} from './flight-details';
+export {default as Home} from './home';
+export {default as Flights} from './flights';
+export {default as FlightDetail} from './flight-detail';

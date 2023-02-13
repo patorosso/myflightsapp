@@ -1,16 +1,16 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Categories, ProductDetail, Products } from "../screens/index";
+import { Home, Flights, FlightDetail } from "../screens/index";
 
 const Stack = createNativeStackNavigator();
 
 const ShopNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName="Categories">
+        <Stack.Navigator initialRouteName="Home">
             <Stack.Screen 
-            name='Categories' component={Categories} 
-            options={{headerShown: false, title: 'Categories'}}/>
-            <Stack.Screen name='Products' component={Products} />
-            <Stack.Screen name='ProductDetail' component={ProductDetail} />
+            name='Home' component={Home} 
+            options={{headerShown: false, title: 'Home'}}/>
+            <Stack.Screen name='Flights' component={Flights} />
+            <Stack.Screen name='FlightDetail' component={FlightDetail} />
         </Stack.Navigator>
     )
 }
