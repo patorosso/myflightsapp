@@ -1,8 +1,11 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { FontAwesome } from '@expo/vector-icons'; 
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { colors } from '../constants';
 
-import ShopNavigator from './shop';
+import HomeNavigator from './home';
+import UserNavigator from './user';
 import SettingsNavigator from './settings';
 
 
@@ -12,25 +15,41 @@ const Tabs = () => {
   
   return (
     <BottomTab.Navigator
-      initialRouteName="ShopTab"
+      initialRouteName="HomeTab"
       screenOptions={{
         headerShown: false,
         tabBarLabelStyle: {
-          fontFamily: 'Bitter-Regular',
+          fontFamily: 'Nunito-Regular',
           fontSize: 12,
         },
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.gray,
+        tabBarShowLabel: false,
       }}>
-      <BottomTab.Screen
-        name="ShopTab"
-        component={ShopNavigator}
+        <BottomTab.Screen
+        name="UserTab"
+        component={UserNavigator}
         options={{
-          title: 'Shop',
+          title: 'User',
+          tabBarIcon: ({ focused }) => (
+            <FontAwesome
+              name={focused ? 'user' : 'user-o'}
+              size={30}
+              color={colors.primary}
+            />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="HomeTab"
+        component={HomeNavigator}
+        options={{
+          title: 'none',
+          
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name={focused ? 'home' : 'home-outline'}
-              size={22}
+              size={30}
               color={colors.primary}
             />
           ),
@@ -40,16 +59,17 @@ const Tabs = () => {
         name="SettingsTab"
         component={SettingsNavigator}
         options={{
-          title: 'Orders',
+          title: 'Settings',
           tabBarIcon: ({ focused }) => (
-            <Ionicons
-              name={focused ? 'file-tray' : 'file-tray-outline'}
-              size={22}
+            <MaterialCommunityIcons
+              name={focused? 'cog' : 'cog-outline' }
+              size={33}
               color={colors.primary}
             />
           ),
         }}
       />
+      
     </BottomTab.Navigator>
   );
 };

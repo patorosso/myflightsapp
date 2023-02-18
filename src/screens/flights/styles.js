@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     itemContainer: {
         width: '70%',
         paddingVertical: 20,
-
+        backgroundColor: colors.primary,
         borderRadius: 10,
         borderColor: colors.white,
         borderWidth: 2,

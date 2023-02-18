@@ -4,7 +4,7 @@ import { colors } from "../constants";
 
 const Stack = createNativeStackNavigator();
 
-const ShopNavigator = () => {
+const HomeNavigator = () => {
     return (
         <Stack.Navigator initialRouteName="Home">
             <Stack.Screen 
@@ -25,4 +25,4 @@ const ShopNavigator = () => {
     )
 }
 
-export default ShopNavigator;
+export default HomeNavigator;
