@@ -6,7 +6,7 @@ import { colors } from "../../constants";
 const Home = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Welcome </Text>
+            
             <Text style={styles.textUser}>User63914</Text>
             <Button title="See my flights"
             
