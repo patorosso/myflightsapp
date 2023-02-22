@@ -19,7 +19,7 @@ export const FLIGHTS = [
       arrival: '05:59 (Tuesday 28)',
       terminal: 'Awaiting',
       gate: 'Awaiting',
-      confirmationNumber: 'YJZGQA',
+      confirmationNumber: 'QSDZAQ',
     },
     
   ];
