@@ -1,7 +1,7 @@
 import { FLIGHTS} from '../../constants/data/index';
 import { flightsTypes } from '../types';
 
-const { SELECT_FLIGHTS } = flightsTypes;
+const { SELECT_FLIGHT } = flightsTypes;
 
 const initialState = {
   flights: FLIGHTS,

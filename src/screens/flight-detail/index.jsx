@@ -1,21 +1,23 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { styles } from "./styles";
+import { useSelector, useDispatch } from 'react-redux';
 
 const FlightDetail = () => {
+    const flight = useSelector((state) => state.flights.selected);
+    
     return (
         <View style={styles.container}>
-            <Text style={styles.textContainer}>
-            EZE - FCO {"\n"}
-            Buenos Aires - Roma {"\n"}
-            Confirmation Number:YJZGQA {"\n"}
-            Departure: 13:38 (Monday 20){"\n"}
-            Arrival: 06:15 (Tuesday 21) {"\n"}
-            Terminal: C {"\n"}
-            Gate: Awaiting ...
-            </Text>
+            <Text style={styles.title}>{flight?.title}</Text>
+            <Text style={styles.title}>{flight?.description}</Text>
+            <Text style={styles.title}>{flight?.airport}</Text>
+            <Text style={styles.title}>{flight?.arrival}</Text>
         </View>
     );
 };
 
 export default FlightDetail;
+
+
+
+

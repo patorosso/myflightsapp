@@ -1,6 +1,8 @@
 import { View, ActivityIndicator } from 'react-native';
 import { useFonts } from 'expo-font';
 import { styles } from './styles';
+import store from './store';
+import { Provider } from 'react-redux';
 import AppNavigator from './navigation';
 
 const App = () => {
@@ -22,9 +24,9 @@ const App = () => {
 
   return (
     
-    
+      <Provider store={store}>
       <AppNavigator />
-      
+      </Provider>
     
     
     

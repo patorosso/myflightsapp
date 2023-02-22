@@ -8,7 +8,7 @@ import {
 } from './reducers';
 
 const rootReducer = combineReducers({
-  flights: flightReducer,
+  flight: flightReducer,
   
 });
 

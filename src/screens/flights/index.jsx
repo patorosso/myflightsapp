@@ -1,18 +1,38 @@
-import React from "react";
-import {  TouchableHighlight, Text,View } from "react-native";
-import { colors } from "../../constants";
-import { styles } from "./styles";
+import { SafeAreaView, FlatList } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { styles } from './styles';
+import { FlightItem } from '../../components';
+import { selectFlight } from '../../store/actions';
 
-const Flights = ({navigation}) => {
-    return (
-        <View style={styles.container}>
-        <TouchableHighlight 
-            style={styles.itemContainer} underlayColor={colors.white}  activeOpacity={0.1}  onPress={() => navigation.navigate('FlightDetail')}>
-          <Text style={styles.itemList}>ITA AZ-681</Text>
-        </TouchableHighlight>
-        </View>
-    );
+const Flights = ({ navigation }) => {
+  const dispatch = useDispatch();
+  const flights = useSelector((state) => state.flight.flights);
+  
+
+  const onSelected = (item) => {
+    dispatch(selectFlight(item.id));
+    navigation.navigate('FlightDetail', {
+      title: item.title,
+      airports: item.airports,
+    });
+  };
+
+  const renderItem = ({ item }) => <FlightItem item={item} onSelected={onSelected} />;
+  const keyExtractor = (item) => item.id.toString();
+
+  
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={flights}
+        renderItem={renderItem}
+        keyExtractor={keyExtractor}
+        style={styles.contentList}
+      />
+    </SafeAreaView>
+  );
 };
 
 export default Flights;
