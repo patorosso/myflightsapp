@@ -15,6 +15,7 @@ const Flights = ({ navigation }) => {
     navigation.navigate('FlightDetail', {
       title: item.title,
       airports: item.airports,
+      arrival: item.arrival,
     });
   };
 

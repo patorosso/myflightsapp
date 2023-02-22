@@ -10,6 +10,17 @@ export const FLIGHTS = [
       gate: 'Awaiting',
       confirmationNumber: 'YJZGQA',
     },
+    {
+      id: 2,
+      title: 'AZ-483',
+      airports: 'FCO - EZE',
+      description: 'Roma - Buenos Aires',
+      departure: '16:23 (Monday 27)',
+      arrival: '05:59 (Tuesday 28)',
+      terminal: 'Awaiting',
+      gate: 'Awaiting',
+      confirmationNumber: 'YJZGQA',
+    },
     
   ];
 
