@@ -1,20 +1,19 @@
-import { PRODUCTS } from '../../constants/data/index';
-import { productsTypes } from '../types';
+import { FLIGHTS} from '../../constants/data/index';
+import { flightsTypes } from '../types';
 
-const { SELECT_PRODUCT } = productsTypes;
+const { SELECT_FLIGHTS } = flightsTypes;
 
 const initialState = {
-  products: FLIGHTS,
-  filteredProducts: [],
+  flights: FLIGHTS,
   selected: null,
 };
 
-const productReducer = (state = initialState, action) => {
+const flightReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SELECT_PRODUCT: {
+    case SELECT_FLIGHT: {
       return {
         ...state,
-        selected: state.products.find((product) => product.id === action.productId),
+        selected: state.flights.find((flight) => flight.id === action.flightId),
       };
     }
     
@@ -23,4 +22,4 @@ const productReducer = (state = initialState, action) => {
   }
 };
 
-export default productReducer;
+export default flightReducer;
