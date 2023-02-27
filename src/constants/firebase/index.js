@@ -1,0 +1,1 @@
+export const REALTIME_DATABASE_URL = 'https://myflightsapp-f7f3b-default-rtdb.firebaseio.com';
