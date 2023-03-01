@@ -15,7 +15,7 @@ const Tabs = () => {
   
   return (
     <BottomTab.Navigator
-      initialRouteName="HomeTab"
+      initialRouteName="UserTab"
       screenOptions={{
         headerShown: false,
         tabBarLabelStyle: {
