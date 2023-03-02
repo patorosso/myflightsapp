@@ -12,6 +12,7 @@ const App = () => {
     'Nunito-Medium': require('../assets/fonts/Nunito-Medium.ttf'),
     'Nunito-Regular': require('../assets/fonts/Nunito-Regular.ttf'),
     'Nunito-Italic': require('../assets/fonts/Nunito-Italic.ttf'),
+    'Nunito-Light': require('../assets/fonts/Nunito-Light.ttf'),
   });
 
 
