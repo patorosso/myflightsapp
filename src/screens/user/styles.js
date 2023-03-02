@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
         borderBottomColor: colors.black,
         borderBottomWidth: 1,
         minWidth: 70,
-        fontSize: 22,
+        fontSize: 18,
         paddingVertical: 10,
         textAlign: "center",
         marginBottom: 30,
@@ -27,8 +27,8 @@ export const styles = StyleSheet.create({
         
         borderBottomColor: colors.black,
         borderBottomWidth: 1,
-        minWidth: 70,
-        fontSize: 22,
+        
+        fontSize: 18,
         paddingVertical: 10,
         textAlign: "center",
         marginBottom: 30,
