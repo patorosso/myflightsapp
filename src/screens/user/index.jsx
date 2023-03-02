@@ -1,13 +1,42 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { useState } from "react";
+import { View, Button, TextInput } from "react-native";
 import { styles } from "./styles";
+import { colors } from "../../constants";
 
 const User = () => {
+    
+        const [enteredName, setEnteredName] = useState("");
+        const [enteredLastName, setEnteredLastName] = useState("");
+        
+        const  onHandlerChangeName = (text) => {
+        setEnteredName(text);
+    }
+
+    const  onHandlerChangeLastName = (text) => {
+        setEnteredLastName(text);
+    }
+          
+
     return (
         <View style={styles.container}>
-            <Text style={styles.textContainer}>
-            user
-            </Text>
+            <TextInput 
+                 value={enteredName}
+                 keyboardType="ascii-capable"
+                 style= {styles.inputName} 
+                 placeholder="Enter name" 
+                 onChangeText={onHandlerChangeName}
+                 
+                 />
+            <TextInput 
+                 value={enteredLastName}
+                 keyboardType="ascii-capable"
+                 style= {styles.inputLast} 
+                 placeholder="Enter Last Name" 
+                 onChangeText={onHandlerChangeLastName}
+                 
+                 />
+            <Button title= "Create User"  color={colors.primary}/>
         </View>
     );
 };
