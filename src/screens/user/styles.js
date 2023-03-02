@@ -31,6 +31,6 @@ export const styles = StyleSheet.create({
         fontSize: 18,
         paddingVertical: 10,
         textAlign: "center",
-        marginBottom: 30,
+        marginBottom: 70,
     },
 });
