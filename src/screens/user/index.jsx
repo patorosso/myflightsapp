@@ -1,16 +1,43 @@
 import React from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { createUser } from "../../store/actions";
 import { View, Button, TextInput } from "react-native";
 import { styles } from "./styles";
 import { colors } from "../../constants";
+import { REALTIME_DATABASE_URL } from "../../constants/firebase";
 
 const User = () => {
+    
+
+
     const user = useSelector((state) => state.user.users);
     const [enteredName, setEnteredName] = useState("");
     const [enteredLastName, setEnteredLastName] = useState("");
-        
-          
+    
+    
+    
+    const onCreateUser = () => {
+        const data = {
+          firstName: enteredName,
+          lastName: enteredLastName
+        };
+        const url = `${REALTIME_DATABASE_URL}/users.json`;
+        fetch(url, {
+          method: "POST",
+          body: JSON.stringify({
+            date: Date.now().JSON,
+            data})
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.log(error));
+
+        setEnteredLastName("");
+        setEnteredName("");
+      }
+
+
 
     return (
         <View style={styles.container}>
@@ -30,7 +57,7 @@ const User = () => {
                  onChangeText={text => setEnteredLastName(text)}
                  
                  />
-            <Button title= "Create User"  color={colors.primary}/>
+            <Button title= "Create User" onPress={onCreateUser} color={colors.primary}/>
         </View>
     );
 };
