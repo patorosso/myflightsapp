@@ -28,7 +28,7 @@ export const signUp = (email, password) => {
           type: SIGN_UP,
           token: data.idToken,
           userId: data.localId,
-          email: data.email,
+          
         });
       } catch (error) {
         throw error;
@@ -56,7 +56,7 @@ export const signUp = (email, password) => {
           type: SIGN_IN,
           token: data.idToken,
           userId: data.localId,
-          email: data.email,
+          
         });
       } catch (error) {
         throw error;
