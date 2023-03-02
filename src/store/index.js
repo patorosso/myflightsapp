@@ -4,12 +4,14 @@ import {
   
   flightReducer,
   userReducer,
+  authReducer,
  
 } from './reducers';
 
 const rootReducer = combineReducers({
   flight: flightReducer,
   user: userReducer,
+  auth: authReducer,
   
 });
 
