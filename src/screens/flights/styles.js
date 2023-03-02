@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
       },
       title: {
         fontSize: 18,
-        fontFamily: 'Bitter-Bold',
+        fontFamily: 'Nunito-Bold',
         color: colors.title,
         padding: 10,
       },

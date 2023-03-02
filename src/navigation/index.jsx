@@ -7,7 +7,7 @@ const AppNavigator = () => {
     const [userId, setUserId] = useState(null);
     return (
         <NavigationContainer>
-            userId ? <TabNavigator /> : <AuthNavigator />
+            {userId ? <TabNavigator /> : <AuthNavigator />}
         </NavigationContainer>
     )
 }

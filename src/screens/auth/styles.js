@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { THEME } from '../../constants/theme';
+import { colors } from '../../constants';
 
 export const styles = StyleSheet.create({
   keybordContainer: {
@@ -16,27 +16,27 @@ export const styles = StyleSheet.create({
     maxWidth: 400,
     padding: 15,
     margin: 15,
-    borderColor: THEME.colors.primary,
+    borderColor: colors.primary,
     borderWidth: 1,
-    backgroundColor: THEME.colors.white,
+    backgroundColor: colors.white,
     borderRadius: 5,
   },
   title: {
     fontSize: 18,
-    fontFamily: 'Bitter-Medium',
+    fontFamily: 'Nunito-Medium',
     textAlign: 'center',
   },
   label: {
     fontSize: 14,
-    fontFamily: 'Bitter-Regular',
+    fontFamily: 'Nunito-Regular',
     marginVertical: 8,
   },
   input: {
     height: 45,
-    borderBottomColor: THEME.colors.primary,
+    borderBottomColor: colors.primary,
     borderBottomWidth: 1,
     width: '90%',
-    fontFamily: 'Bitter-Regular',
+    fontFamily: 'Nunito-Regular',
     marginBottom: 10,
   },
   buttonContainer: {
@@ -49,9 +49,9 @@ export const styles = StyleSheet.create({
   },
   promptButton: {
     width: '100%',
-    backgroundColor: THEME.colors.secondary,
+    backgroundColor: colors.secondary,
     borderWidth: 1,
-    borderColor: THEME.colors.primary,
+    borderColor: colors.primary,
     padding: 10,
     borderRadius: 5,
     justifyContent: 'center',
@@ -59,7 +59,7 @@ export const styles = StyleSheet.create({
   },
   promptMessage: {
     fontSize: 14,
-    fontFamily: 'Bitter-Medium',
-    color: THEME.colors.text,
+    fontFamily: 'Nunito-Medium',
+    color: colors.text,
   },
 });
