@@ -26,7 +26,7 @@ const User = () => {
         fetch(url, {
           method: "POST",
           body: JSON.stringify({
-            date: Date.now().JSON,
+            date: Date.now(),
             data})
         })
         .then(response => response.json())
