@@ -1,21 +1,15 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { View, Button, TextInput } from "react-native";
 import { styles } from "./styles";
 import { colors } from "../../constants";
 
 const User = () => {
-    
-        const [enteredName, setEnteredName] = useState("");
-        const [enteredLastName, setEnteredLastName] = useState("");
+    const user = useSelector((state) => state.user.users);
+    const [enteredName, setEnteredName] = useState("");
+    const [enteredLastName, setEnteredLastName] = useState("");
         
-        const  onHandlerChangeName = (text) => {
-        setEnteredName(text);
-    }
-
-    const  onHandlerChangeLastName = (text) => {
-        setEnteredLastName(text);
-    }
           
 
     return (
@@ -25,7 +19,7 @@ const User = () => {
                  keyboardType="ascii-capable"
                  style= {styles.inputName} 
                  placeholder="Enter name" 
-                 onChangeText={onHandlerChangeName}
+                 onChangeText={text => setEnteredName(text)}
                  
                  />
             <TextInput 
@@ -33,7 +27,7 @@ const User = () => {
                  keyboardType="ascii-capable"
                  style= {styles.inputLast} 
                  placeholder="Enter Last Name" 
-                 onChangeText={onHandlerChangeLastName}
+                 onChangeText={text => setEnteredLastName(text)}
                  
                  />
             <Button title= "Create User"  color={colors.primary}/>
