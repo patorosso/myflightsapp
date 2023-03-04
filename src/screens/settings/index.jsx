@@ -11,7 +11,7 @@ const Settings = () => {
       const apiKey = FLIGHT_API_KEY;
       const flightNumber = 'AZ681';
   
-      fetch(`https://app.goflightlabs.com/flights?access_key=${apiKey}&flightIata=AZ681`, {
+      fetch(`https://app.goflightlabs.com/flights?access_key=${apiKey}&flightIata=${flightNumber}`, {
         headers: {
           'Authorization': `Bearer ${apiKey}`
         },
