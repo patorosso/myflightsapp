@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Button, TextInput, Keyboard } from "react-native";
+import { View, Text, Button, TextInput, Keyboard, KeyboardAvoidingView } from "react-native";
 import { styles } from "./styles";
 import { colors } from "../../constants";
 import { FLIGHT_API_KEY } from "../../constants/flight_api";
@@ -43,7 +43,13 @@ const Home = ({ navigation }) => {
 
 
     return (
+      <KeyboardAvoidingView
+    style={{ flex: 1 }}
+    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+  >
         <View style={styles.container}>
+      
+
             {/* <Text style={styles.textUser}>{userMail}</Text>  */}
             <TextInput 
             style={styles.input} 
@@ -58,17 +64,21 @@ const Home = ({ navigation }) => {
             onPress={() => navigation.navigate('Flights')}
              /> */}
             <Button title="Get Flight Status" onPress={() => getFlightStatus(enteredValue)} color={colors.primary} disabled={isDisabled}/>
-        
-                {flightStatus && (
+
+            <View style={styles.containerFlightInfo}>
+                  <View style={styles.shadowContainer}>
+                    <View style={styles.contentContainer}>
+                      <Text>Flight Number: </Text>
+                      <Text>Status: </Text>
+                      <Text>Departure Airport: </Text>
+                      <Text>Arrival Airport: </Text>
+            </View>
+            </View>      
+            </View>
             
-                <View style={styles.infoContainer}>
-                    <Text>Flight Number: {flightStatus.data[0].flight.iataNumber}</Text>
-                    <Text>Status: {flightStatus.data[0].status}</Text>
-                    <Text>Departure Airport: {flightStatus.data[0].departure.iataCode}</Text>
-                    <Text>Arrival Airport: {flightStatus.data[0].arrival.iataCode}</Text>
-                </View>
-                )}
         </View>
+        </KeyboardAvoidingView>
+        
     );
 };
 

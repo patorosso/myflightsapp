@@ -27,25 +27,32 @@ export const styles = StyleSheet.create({
         height:50,
     },
 
-    infoContainer: {
-        shadowColor: "#000",
+    
+      contentContainer: {
+        padding: 40,
+        
+        
+      },
+
+      containerFlightInfo: {
+        marginTop: 60,
+        padding: 40,
+        width: '70%',
+        backgroundColor: "#fff",
+        borderRadius: 20,
+        shadowColor: colors.darkblue,
         shadowOffset: {
             width: 0,
-            height: 1,
+            height: 9,
         },
-        shadowOpacity: 0.22,
-        shadowRadius: 2.22,
+        shadowOpacity: 0.50,
+        shadowRadius: 12.35,
 
-        elevation: 3,
-
-        flex: 0.5,
-        borderRadius: 20,
-        borderWidth: 1,
-        marginTop: 40,
-        width: '80%',
-        paddingLeft: 20,
+        elevation: 19,
         
-    },
+      },
+
+    
     
     
 });
