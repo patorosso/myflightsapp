@@ -48,8 +48,8 @@ const Tabs = () => {
           
           tabBarIcon: ({ focused }) => (
             <Ionicons
-              name={focused ? 'home' : 'home-outline'}
-              size={30}
+              name={focused ? 'search' : 'search-outline'}
+              size={33}
               color={colors.primary}
             />
           ),
