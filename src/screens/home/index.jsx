@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, Button, TextInput } from "react-native";
 import { styles } from "./styles";
-import { useSelector } from "react-redux";
 import { colors } from "../../constants";
 
 const Home = ({ navigation }) => {
