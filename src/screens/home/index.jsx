@@ -61,7 +61,7 @@ const Home = ({ navigation }) => {
         
                 {flightStatus && (
             
-                <View>
+                <View style={styles.infoContainer}>
                     <Text>Flight Number: {flightStatus.data[0].flight.iataNumber}</Text>
                     <Text>Status: {flightStatus.data[0].status}</Text>
                     <Text>Departure Airport: {flightStatus.data[0].departure.iataCode}</Text>

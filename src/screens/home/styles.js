@@ -26,6 +26,26 @@ export const styles = StyleSheet.create({
         paddingLeft: 20,
         height:50,
     },
+
+    infoContainer: {
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+
+        elevation: 3,
+
+        flex: 0.5,
+        borderRadius: 20,
+        borderWidth: 1,
+        marginTop: 40,
+        width: '80%',
+        paddingLeft: 20,
+        
+    },
     
     
 });
