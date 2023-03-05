@@ -1,25 +1,31 @@
 import React, { useState } from "react";
-import { View, Text, Button, TextInput } from "react-native";
+import { View, Text, Button, TextInput, Keyboard } from "react-native";
 import { styles } from "./styles";
 import { colors } from "../../constants";
+import { FLIGHT_API_KEY } from "../../constants/flight_api";
 
 const Home = ({ navigation }) => {
     // const userMail = useSelector((state) => state.auth.email);
     const [enteredValue,setEnteredValue] = useState("");
+    const isDisabled = enteredValue.length === 0;
+    const [flightStatus, setFlightStatus] = useState(null);
 
     const onHandlerChange = (text) => {
         setEnteredValue(text.replace(/[^a-zA-Z0-9]/g, ''));
       };
 
-    const isDisabled = enteredValue.length === 0;
-
-      const [flightStatus, setFlightStatus] = useState(null);
-
-      function getFlightStatus() {
-        const apiKey = FLIGHT_API_KEY;
-        const flightNumber = 'AZ681';
     
-        fetch(`https://app.goflightlabs.com/flights?access_key=${apiKey}&flightIata=${flightNumber}`, {
+
+
+
+
+      function getFlightStatus(enteredValue) {
+
+        Keyboard.dismiss();
+        const apiKey = FLIGHT_API_KEY;
+        
+    
+        fetch(`https://app.goflightlabs.com/flights?access_key=${apiKey}&flightIata=${enteredValue}`, {
           headers: {
             'Authorization': `Bearer ${apiKey}`
           },
@@ -51,7 +57,7 @@ const Home = ({ navigation }) => {
             color={colors.primary}
             onPress={() => navigation.navigate('Flights')}
              /> */}
-            <Button title="Get Flight Status" onPress={getFlightStatus} color={colors.primary} disabled={isDisabled}/>
+            <Button title="Get Flight Status" onPress={() => getFlightStatus(enteredValue)} color={colors.primary} disabled={isDisabled}/>
         
                 {flightStatus && (
             

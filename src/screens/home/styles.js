@@ -25,9 +25,6 @@ export const styles = StyleSheet.create({
         width: '80%',
         paddingLeft: 20,
         height:50,
-        
-        
-        
     },
     
     
