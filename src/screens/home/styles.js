@@ -14,30 +14,46 @@ export const styles = StyleSheet.create({
         flex: 1,
       },
 
-    
-    
-    textUser: {
-        fontSize: 40,
-        color: colors.yellow,
-        fontWeight: 'bold',
-        marginBottom: 100,
-        marginTop: 150,
+      containerSearch: {
+        
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        marginHorizontal: 20, //ojo
     },
+
+    
 
     input: {
         borderColor: colors.primary,
         borderRadius: 20,
         borderWidth: 1,
-        marginBottom: 40,
-        width: '60%',
+        width: '63%',
         textAlign: 'center',
-        height:50,
+        height:60,
         backgroundColor: colors.white,
         fontFamily: 'Nunito-Medium',
+        marginRight: 8,
+    },
+
+    searchIconContainer: {
+       
+        backgroundColor: colors.primary,
+        borderRadius: 60,
+        overflow: 'hidden',
+        height: 60,
+        width: 60,
+        justifyContent: 'center',
+        
         
     },
+    icon: {
+        alignSelf: 'center',
+
+    },
+
     
-    containerFlightInfo: {
+    containerFirstFlightInfo: {
         marginTop: 60,
         paddingVertical: 20,
         
