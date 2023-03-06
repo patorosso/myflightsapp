@@ -10,7 +10,7 @@ const Settings = () => {
     return (
       <View style={styles.container}>
         <LinearGradient  
-        colors={[  colors.darkblue, colors.primary ]} 
+        colors={[  colors.darkblue, colors.primary, colors.darkblue ]} 
         style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
             <View style={styles.iconContainer}>
 
