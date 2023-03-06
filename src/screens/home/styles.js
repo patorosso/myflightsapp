@@ -20,32 +20,33 @@ export const styles = StyleSheet.create({
     },
 
     input: {
-        borderColor: colors.black,
+        borderColor: colors.primary,
         borderRadius: 20,
         borderWidth: 1,
         marginBottom: 40,
-        width: '80%',
-        paddingLeft: 20,
+        width: '60%',
+        textAlign: 'center',
         height:50,
         backgroundColor: colors.white,
+        
+        
     },
 
     
       contentContainer: {
-        padding: 40,
-        
-        
+        paddingHorizontal: 40,
       },
 
       gradient: {
         flex: 1,
       },
-      // other styles
+      
 
       containerFlightInfo: {
         marginTop: 60,
-        padding: 40,
-        width: '70%',
+        paddingVertical: 20,
+        
+        width: '90%',
         backgroundColor: "#fff",
         borderRadius: 20,
         shadowColor: colors.darkblue,

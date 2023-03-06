@@ -47,22 +47,16 @@ const Home = ({ navigation }) => {
     return (
       
         
-      <KeyboardAvoidingView
+    <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-      <LinearGradient  colors={[ colors.primary, colors.white]} style={{flex: 1}}>
-        
-      
+      <LinearGradient  colors={[  colors.darkblue, colors.white ]} style={{flex: 1}}>
         <View style={styles.container}>
-        
-        
-      
-
             {/* <Text style={styles.textUser}>{userMail}</Text>  */}
             <TextInput 
             style={styles.input} 
             placeholder="Example: AZ681, BA267 ..."
-            placeholderTextColor={colors.black}
+            
             autoCapitalize="characters"
             keyboardAppearance="light"
             value={enteredValue}
@@ -72,7 +66,7 @@ const Home = ({ navigation }) => {
             color={colors.primary}
             onPress={() => navigation.navigate('Flights')}
              /> */}
-            <Button title="Get Flight Status" onPress={() => getFlightStatus(enteredValue)} color={colors.primary} disabled={isDisabled}/>
+            <Button title="Get Flight Status" onPress={() => getFlightStatus(enteredValue)} color={colors.primary} disabled={isDisabled}/> 
 
             <View style={styles.containerFlightInfo}>
                   <View style={styles.shadowContainer}>
@@ -81,14 +75,12 @@ const Home = ({ navigation }) => {
                       <Text>Status: </Text>
                       <Text>Departure Airport: </Text>
                       <Text>Arrival Airport: </Text>
+                    </View>
+                  </View>      
             </View>
-            </View>      
-            </View>
-            
         </View>
-
-        </LinearGradient>
-        </KeyboardAvoidingView>
+      </LinearGradient>
+    </KeyboardAvoidingView>
         
         
     );
