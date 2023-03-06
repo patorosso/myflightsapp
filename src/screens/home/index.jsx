@@ -55,7 +55,8 @@ const Home = ({ navigation }) => {
         
     <KeyboardAvoidingView
         style={{ flex: 1 }}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        enabled='true'>
       <LinearGradient  colors={[  colors.darkblue, colors.white ]} style={{flex: 1}}>
 
         <View style={styles.container}>
