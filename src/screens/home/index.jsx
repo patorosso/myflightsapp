@@ -71,6 +71,11 @@ const Home = ({ navigation }) => {
             <View style={styles.containerFlightInfo}>
                   <View style={styles.shadowContainer}>
                     <View style={styles.contentContainer}>
+                      <View style={styles.header}>
+                        <Text style={styles.headerLeft}>EZE</Text>
+                        <Text style={styles.headerMid}>on-route</Text>
+                        <Text style={styles.headerRight}>FCO</Text>
+                      </View>
                       <Text>Flight Number: </Text>
                       <Text>Status: </Text>
                       <Text>Departure Airport: </Text>

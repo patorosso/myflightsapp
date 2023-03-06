@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 import { colors } from "../../constants";
 
+
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -8,6 +9,10 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+
+    gradient: {
+        flex: 1,
+      },
 
     
     
@@ -28,21 +33,11 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         height:50,
         backgroundColor: colors.white,
-        
+        fontFamily: 'Nunito-Medium',
         
     },
-
     
-      contentContainer: {
-        paddingHorizontal: 40,
-      },
-
-      gradient: {
-        flex: 1,
-      },
-      
-
-      containerFlightInfo: {
+    containerFlightInfo: {
         marginTop: 60,
         paddingVertical: 20,
         
@@ -60,6 +55,44 @@ export const styles = StyleSheet.create({
         elevation: 19,
         
       },
+    
+      contentContainer: {
+        paddingHorizontal: 27,
+        
+      },
+
+      header: {
+        flexDirection: 'row',
+        marginBottom: 20,
+        
+      },
+      headerRight:{
+        flex:1,
+        textAlign: 'right',
+        fontFamily: 'Nunito-Bold',
+        fontSize: 30,
+      },
+      headerLeft:{
+        flex:1,
+        textAlign: 'left',
+        fontFamily: 'Nunito-Bold',
+        fontSize: 30,
+      },
+      headerMid:{
+        flex:1,
+        textAlign: 'center',
+        fontFamily: 'Nunito-Regular',
+        color: 'green',
+        fontSize: 20,
+        alignSelf: 'center',
+        
+      },
+      
+
+      
+      
+
+      
 
 
     
