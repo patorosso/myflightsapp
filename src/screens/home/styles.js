@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         height:60,
         backgroundColor: colors.white,
-        fontFamily: 'Nunito-Medium',
+        fontFamily: 'Nunito-Regular',
         
     },
 
