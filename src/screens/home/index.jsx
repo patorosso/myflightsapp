@@ -3,6 +3,8 @@ import { View, Text, Button, TextInput, Keyboard, KeyboardAvoidingView } from "r
 import { styles } from "./styles";
 import { colors } from "../../constants";
 import { FLIGHT_API_KEY } from "../../constants/flight_api";
+import { LinearGradient } from "expo-linear-gradient";
+
 
 const Home = ({ navigation }) => {
     // const userMail = useSelector((state) => state.auth.email);
@@ -43,17 +45,24 @@ const Home = ({ navigation }) => {
 
 
     return (
+      
+        
       <KeyboardAvoidingView
-    style={{ flex: 1 }}
-    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-  >
+        style={{ flex: 1 }}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+      <LinearGradient  colors={[ colors.primary, colors.white]} style={{flex: 1}}>
+        
+      
         <View style={styles.container}>
+        
+        
       
 
             {/* <Text style={styles.textUser}>{userMail}</Text>  */}
             <TextInput 
             style={styles.input} 
             placeholder="Example: AZ681, BA267 ..."
+            placeholderTextColor={colors.black}
             autoCapitalize="characters"
             keyboardAppearance="light"
             value={enteredValue}
@@ -77,7 +86,10 @@ const Home = ({ navigation }) => {
             </View>
             
         </View>
+
+        </LinearGradient>
         </KeyboardAvoidingView>
+        
         
     );
 };

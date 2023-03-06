@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, Button } from "react-native";
 import { useState } from "react";
 import {  FLIGHT_API_KEY } from "../../constants/flight_api";
+import { LinearGradient } from "expo-linear-gradient";
 
 
 const Settings = () => {
@@ -26,7 +27,8 @@ const Settings = () => {
     }
   
     return (
-      <View>
+      <View style={{flex:1}}>
+        
         <Button title="Get Flight Status" onPress={getFlightStatus} />
         
         {flightStatus && (
@@ -38,6 +40,7 @@ const Settings = () => {
                 <Text>Arrival Airport: {flightStatus.data[0].arrival.iataCode}</Text>
           </View>
         )}
+        
       </View>
     );
   }

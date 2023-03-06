@@ -4,10 +4,12 @@ import { colors } from "../../constants";
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        
         alignItems: 'center',
         justifyContent: 'center',
     },
+
+    
     
     textUser: {
         fontSize: 40,
@@ -25,6 +27,7 @@ export const styles = StyleSheet.create({
         width: '80%',
         paddingLeft: 20,
         height:50,
+        backgroundColor: colors.white,
     },
 
     
@@ -33,6 +36,11 @@ export const styles = StyleSheet.create({
         
         
       },
+
+      gradient: {
+        flex: 1,
+      },
+      // other styles
 
       containerFlightInfo: {
         marginTop: 60,
@@ -51,6 +59,7 @@ export const styles = StyleSheet.create({
         elevation: 19,
         
       },
+
 
     
     
