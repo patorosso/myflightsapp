@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { createUser } from "../../store/actions";
 import { View, Button, TextInput } from "react-native";
 import { styles } from "./styles";
 import { colors } from "../../constants";
