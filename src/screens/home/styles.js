@@ -61,7 +61,6 @@ export const styles = StyleSheet.create({
     containerFirstFlightInfo: {
         marginTop: 60,
         paddingVertical: 20,
-        
 
 
         backgroundColor: "#fff",

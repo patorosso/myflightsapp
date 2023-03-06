@@ -17,10 +17,6 @@ const Home = ({ navigation }) => {
         setEnteredValue(text.replace(/[^a-zA-Z0-9]/g, ''));
       };
 
-    
-
-
-
 
       function getFlightStatus(enteredValue) {
 
@@ -50,9 +46,7 @@ const Home = ({ navigation }) => {
 
 
 
-    return (
-      
-        
+    return (    
     <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -77,8 +71,8 @@ const Home = ({ navigation }) => {
                 /> */}
 
                 <TouchableHighlight
-                underlayColor={colors.darkblue}  
-                activeOpacity={0.5} 
+                underlayColor={colors.lightblue}  
+                activeOpacity={0.9} 
                 onPress={() => getFlightStatus(enteredValue)}
                 style={styles.searchIconContainer} 
                 >
