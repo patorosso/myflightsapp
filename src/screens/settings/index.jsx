@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text} from "react-native";
+import { View, Text, TouchableHighlight} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { styles } from "./styles";
 import { colors } from "../../constants";
@@ -17,14 +17,25 @@ const Settings = () => {
               <View style={{flex:0.5, flexDirection:'row'}}>
                 
                 <View style={{flex:0.5,borderBottomColor:'white',borderBottomWidth: 3,borderRightColor:'white',borderRightWidth:3,justifyContent: 'center',paddingRight:10}}>
-                <Ionicons
-                    name={'search'}
-                    size={80}
-                    color={colors.white}
-                    style={{alignSelf: 'center'}}
-                  />
-                  <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center', paddingVertical: 10}}>Search by Flight</Text>
+
+
+                <TouchableHighlight underlayColor="rgba(255, 255, 255, 0.2)"  activeOpacity={0.9} onPress={() => {}} style={{borderRadius: 50}}>
+                  <View>
+                      <Ionicons
+                          name={'search'}
+                          size={80}
+                          color={colors.white}
+                          style={{alignSelf: 'center'}}
+                        />
+                
+                        <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center', paddingVertical: 10}}>Search by Flight</Text>
+                  </View>
+                </TouchableHighlight>
+                  
+
                 </View>
+
+
                 <View style={{flex:0.5,borderBottomColor:'white',borderBottomWidth: 3,borderLeftColor:'white',borderLeftWidth:3,justifyContent: 'center',paddingLeft:10}}>
                 <Ionicons
                     name={'book'}
