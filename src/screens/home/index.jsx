@@ -83,7 +83,7 @@ const Home = ({ navigation }) => {
                 >
                   <Ionicons
                     name={'search'}
-                    size={33}
+                    size={30}
                     color={colors.white}
                     style={styles.icon}
                   />
@@ -107,7 +107,8 @@ const Home = ({ navigation }) => {
                           </View>
                         </View>      
                   </View>
-        </View>
+              </View>
+
         </View>
       </LinearGradient>
     </KeyboardAvoidingView>

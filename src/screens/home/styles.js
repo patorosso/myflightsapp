@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         
-        alignItems: 'center',
+        
         justifyContent: 'center',
     },
 
@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'space-around',
-        marginHorizontal: 20, //ojo
+        marginHorizontal: 35, //ojo
     },
 
     
@@ -28,12 +28,12 @@ export const styles = StyleSheet.create({
         borderColor: colors.primary,
         borderRadius: 20,
         borderWidth: 1,
-        width: '63%',
+        width: '70%',
         textAlign: 'center',
         height:60,
         backgroundColor: colors.white,
         fontFamily: 'Nunito-Medium',
-        marginRight: 8,
+        
     },
 
     searchIconContainer: {
@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
         backgroundColor: colors.primary,
         borderRadius: 60,
         overflow: 'hidden',
-        height: 60,
+        height: 59,
         width: 60,
         justifyContent: 'center',
         
@@ -52,12 +52,19 @@ export const styles = StyleSheet.create({
 
     },
 
+
+    containerInfo:{
+        marginHorizontal: 20,
+        
+    },
+
     
     containerFirstFlightInfo: {
         marginTop: 60,
         paddingVertical: 20,
         
-        width: '90%',
+
+
         backgroundColor: "#fff",
         borderRadius: 20,
         shadowColor: colors.darkblue,
@@ -67,7 +74,6 @@ export const styles = StyleSheet.create({
         },
         shadowOpacity: 0.50,
         shadowRadius: 12.35,
-
         elevation: 19,
         
       },
