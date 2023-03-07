@@ -39,7 +39,7 @@ const Auth = ({ navigation }) => {
           <TextInput
             style={styles.input}
             placeholder="enter your email"
-            placeholderTextColor={colors.text}
+            
             autoCapitalize="none"
             autoCorrect={false}
             onChangeText={(text) => setEmail(text)}
@@ -49,7 +49,7 @@ const Auth = ({ navigation }) => {
           <TextInput
             style={styles.input}
             placeholder="enter your password"
-            placeholderTextColor={colors.text}
+            
             secureTextEntry
             autoCapitalize="none"
             autoCorrect={false}
