@@ -8,7 +8,7 @@ const SettingsNavigator = () => {
     return (
         <Stack.Navigator initialRouteName="Settings">
             <Stack.Screen 
-            name='Home' component={Settings} 
+            name='Settings' component={Settings} 
             options={{title: 'Settings', 
                 headerStyle: {
                 backgroundColor: colors.white,

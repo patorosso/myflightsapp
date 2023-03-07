@@ -1,115 +1,89 @@
 import React, { useState } from "react";
-import { View, Text, Button,  TextInput, Keyboard, KeyboardAvoidingView, TouchableHighlight } from "react-native";
+import { View, Text,  TouchableWithoutFeedback} from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import { styles } from "./styles";
 import { colors } from "../../constants";
-import { FLIGHT_API_KEY } from "../../constants/flight_api";
-import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
 
 
-const Home = ({ navigation }) => {
-    // const userMail = useSelector((state) => state.auth.email);
-    const [enteredValue,setEnteredValue] = useState("");
-    const isDisabled = enteredValue.length === 0;
-    const [flightStatus, setFlightStatus] = useState(null);
+const Home = ({navigation}) => {
 
-    const onHandlerChange = (text) => {
-        setEnteredValue(text.replace(/[^a-zA-Z0-9]/g, ''));
-      };
+  const [isPressed, setIsPressed] = useState(false);
 
+  const handlePressIn = () => {
+      setIsPressed(true);
+  };
+  const handlePressOut = () => {
+    setIsPressed(false);
+  };
 
-      function getFlightStatus(enteredValue) {
+const iconColor = isPressed ? colors.yellow : colors.white;
+const textColor = isPressed ? colors.yellow: colors.white;
 
-        if(enteredValue.length === 0)
-          {
-            return null;
-          }
+    return (
+      <View style={styles.container}>
+        <LinearGradient  
+        colors={[  colors.darkblue, colors.primary]} 
+        style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+            <View style={styles.iconContainer}>
 
-        Keyboard.dismiss();
-        const apiKey = FLIGHT_API_KEY;
-        
-    
-        fetch(`https://app.goflightlabs.com/flights-schedules?access_key=${apiKey}&flightIata=${enteredValue}`, {
-          headers: {
-            'Authorization': `Bearer ${apiKey}`
-          },
-          
-        })
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-          setFlightStatus(data);
-        })
-        .catch(error => console.error(error));
-      }
-
-
-
-
-    return (    
-    <KeyboardAvoidingView
-        style={{ flex: 1 }}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        enabled='true'>
-      <LinearGradient  colors={[  colors.darkblue, colors.white ]} style={{flex: 1}}>
-
-        <View style={styles.container}>
-            <View style={styles.containerSearch}>
-                {/* <Text style={styles.textUser}>{userMail}</Text>  */}
-                <TextInput 
-                style={styles.input} 
-                placeholder="Example: AZ681, BA267 ..."
+              <View style={{flex:0.5, flexDirection:'row'}}>
                 
-                autoCapitalize="characters"
-                keyboardAppearance="light"
-                value={enteredValue}
-                onChangeText={onHandlerChange}
-                />
-                {/* <Button title="See my flights"
-                color={colors.primary}
-                onPress={() => navigation.navigate('Flights')}
-                /> */}
+                <View style={{flex:0.5,borderBottomColor:'white',borderBottomWidth: 3,borderRightColor:'white',borderRightWidth:3,justifyContent: 'center',paddingRight:10}}>
 
-                <TouchableHighlight
-                underlayColor={colors.lightblue}  
-                activeOpacity={0.9} 
-                onPress={() => getFlightStatus(enteredValue)}
-                style={styles.searchIconContainer} 
-                >
-                  <Ionicons
-                    name={'search'}
-                    size={30}
-                    color={colors.white}
-                    style={styles.icon}
-                  />
-                </TouchableHighlight>
-            </View>
-        
-
-             <View style={styles.containerInfo}>
-                  <View style={styles.containerFirstFlightInfo}>
-                        <View style={styles.shadowContainer}>
-                          <View style={styles.contentContainer}>
-                            <View style={styles.header}>
-                              <Text style={styles.headerLeft}>EZE</Text>
-                              <Text style={styles.headerMid}>on-route</Text>
-                              <Text style={styles.headerRight}>FCO</Text>
-                            </View>
-                            <Text>Flight Number: </Text>
-                            <Text>Status: </Text>
-                            <Text>Departure Airport: </Text>
-                            <Text>Arrival Airport: </Text>
-                          </View>
-                        </View>      
+                <TouchableWithoutFeedback  onPress={() => navigation.navigate('SearchFlight')} onPressIn={handlePressIn} onPressOut={handlePressOut}>
+                  <View>
+                      <Ionicons
+                          name={'search'}
+                          size={80}
+                          color={iconColor}
+                          style={{alignSelf: 'center'}}
+                        />
+                
+                        <Text style={{fontFamily: 'Nunito-Bold',color: textColor,fontSize: 13,alignSelf: 'center', paddingVertical: 10}}>Search by Flight</Text>
                   </View>
+                </TouchableWithoutFeedback>
+                
+
+                </View>
+
+
+                <View style={{flex:0.5,borderBottomColor:'white',borderBottomWidth: 3,borderLeftColor:'white',borderLeftWidth:3,justifyContent: 'center',paddingLeft:10}}>
+                <Ionicons
+                    name={'book'}
+                    size={80}
+                    color={colors.white}
+                    style={{alignSelf: 'center'}}
+                  />
+                  <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center', paddingVertical: 10}}>History</Text>
+                </View>
+              </View>
+              
+              <View style={{flexDirection: 'row',flex:0.5}}>
+                <View style={{flex:0.5,borderTopColor:'white',borderTopWidth: 3,borderRightColor:'white',borderRightWidth:3,justifyContent: 'center',paddingRight:10}}>
+                <Ionicons
+                    name={'settings'}
+                    size={80}
+                    color={colors.white}
+                    style={{alignSelf: 'center', paddingVertical: 10}}
+                  />
+                  <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center'}}>Search by Flight</Text>
+                </View>
+                <View style={{flex:0.5,borderTopColor:'white',borderTopWidth: 3,borderLeftColor:'white',borderLeftWidth:3,justifyContent: 'center',paddingLeft:10}}>
+                <Ionicons
+                    name={'home'}
+                    size={80}
+                    color={colors.white}
+                    style={{alignSelf: 'center', paddingVertical: 10}}
+                  />
+                  <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center'}}>Search by Flight</Text>
+                </View>
               </View>
 
-        </View>
-      </LinearGradient>
-    </KeyboardAvoidingView>
-        
-        
+            </View>
+        </LinearGradient>
+      </View>
     );
-};
+  }
 
 export default Home;

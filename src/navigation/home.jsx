@@ -1,12 +1,12 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Home, Flights, FlightDetail } from "../screens/index";
+import { Home, SearchFlight } from "../screens/index";
 import { colors } from "../constants";
 
 const Stack = createNativeStackNavigator();
 
 const HomeNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator initialRouteName="Home" screenOptions={{animation:"fade"}}>
             <Stack.Screen 
             name='Home' component={Home} 
             options={{title: 'MyFlightsApp', 
@@ -17,10 +17,9 @@ const HomeNavigator = () => {
                 
                 headerTitleAlign: 'center',
               }}/>
-            <Stack.Screen name='Flights' component={Flights} 
+            <Stack.Screen name='SearchFlight' component={SearchFlight} 
             options= {{headerTintColor: colors.primary,}}/>
-            <Stack.Screen name='FlightDetail' component={FlightDetail}
-            options= {{headerTintColor: colors.primary,}} />
+            
         </Stack.Navigator>
     )
 }
