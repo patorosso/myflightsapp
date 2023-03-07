@@ -4,6 +4,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { styles } from "./styles";
 import { colors } from "../../constants";
 import { Ionicons } from "@expo/vector-icons";
+import { MaterialIcons } from '@expo/vector-icons'; 
 
 
 const Home = ({navigation}) => {
@@ -17,8 +18,8 @@ const Home = ({navigation}) => {
     setIsPressed(false);
   };
 
-const iconColor = isPressed ? colors.yellow : colors.white;
-const textColor = isPressed ? colors.yellow: colors.white;
+const iconColor = isPressed ? colors.purple : colors.white;
+const textColor = isPressed ? colors.purple: colors.white;
 
     return (
       <View style={styles.container}>
@@ -49,8 +50,8 @@ const textColor = isPressed ? colors.yellow: colors.white;
 
 
                 <View style={{flex:0.5,borderBottomColor:'white',borderBottomWidth: 3,borderLeftColor:'white',borderLeftWidth:3,justifyContent: 'center',paddingLeft:10}}>
-                <Ionicons
-                    name={'book'}
+                <MaterialIcons
+                    name={'history'}
                     size={80}
                     color={colors.white}
                     style={{alignSelf: 'center'}}

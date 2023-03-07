@@ -1,2 +1,2 @@
-export { default as FlightItem } from './flight-item/index';
+export { default as FlightInfo } from './flight-info/index';
 export { default as CustomModal} from './custom-modal/index';

@@ -7,7 +7,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
 
 
-const SearchFlight = ({ navigation }) => {
+const SearchFlight = () => {
     // const userMail = useSelector((state) => state.auth.email);
     const [enteredValue,setEnteredValue] = useState("");
     //const isDisabled = enteredValue.length === 0;

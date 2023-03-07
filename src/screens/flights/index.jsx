@@ -9,10 +9,10 @@ const Flights = ({ navigation }) => {
   const dispatch = useDispatch();
   const flights = useSelector((state) => state.flight.flights);
   
-
+// MOMENTANEAMENTE ESTE TIENE HOME, ANTES DE LO DE FLIGHT-DETAIL
   const onSelected = (item) => {
     dispatch(selectFlight(item.id));
-    navigation.navigate('FlightDetail', {
+    navigation.navigate('Home', {
       title: item.title,
       airports: item.airports,
       arrival: item.arrival,

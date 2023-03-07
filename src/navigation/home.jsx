@@ -6,7 +6,7 @@ const Stack = createNativeStackNavigator();
 
 const HomeNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName="Home" screenOptions={{animation:"fade"}}>
+        <Stack.Navigator initialRouteName="Home" screenOptions={{animation:"slide_from_right"}}>
             <Stack.Screen 
             name='Home' component={Home} 
             options={{title: 'MyFlightsApp', 
