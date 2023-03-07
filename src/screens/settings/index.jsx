@@ -1,16 +1,29 @@
-import React from "react";
-import { View, Text, TouchableHighlight} from "react-native";
+import React, { useState } from "react";
+import { View, Text,  TouchableWithoutFeedback} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { styles } from "./styles";
 import { colors } from "../../constants";
 import { Ionicons } from "@expo/vector-icons";
 
 
-const Settings = () => {
+const Settings = (navigation) => {
+
+  const [isPressed, setIsPressed] = useState(false);
+
+  const handlePressIn = () => {
+      setIsPressed(true);
+  };
+  const handlePressOut = () => {
+    setIsPressed(false);
+  };
+
+const iconColor = isPressed ? colors.yellow : colors.white;
+const textColor = isPressed ? colors.yellow: colors.white;
+
     return (
       <View style={styles.container}>
         <LinearGradient  
-        colors={[  colors.darkblue, colors.primary, colors.darkblue ]} 
+        colors={[  colors.darkblue, colors.primary]} 
         style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
             <View style={styles.iconContainer}>
 
@@ -18,20 +31,19 @@ const Settings = () => {
                 
                 <View style={{flex:0.5,borderBottomColor:'white',borderBottomWidth: 3,borderRightColor:'white',borderRightWidth:3,justifyContent: 'center',paddingRight:10}}>
 
-
-                <TouchableHighlight underlayColor="rgba(255, 255, 255, 0.2)"  activeOpacity={0.9} onPress={() => {}} style={{borderRadius: 50}}>
+                <TouchableWithoutFeedback   onPressIn={handlePressIn} onPressOut={handlePressOut}>
                   <View>
                       <Ionicons
                           name={'search'}
                           size={80}
-                          color={colors.white}
+                          color={iconColor}
                           style={{alignSelf: 'center'}}
                         />
                 
-                        <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center', paddingVertical: 10}}>Search by Flight</Text>
+                        <Text style={{fontFamily: 'Nunito-Bold',color: textColor,fontSize: 13,alignSelf: 'center', paddingVertical: 10}}>Search by Flight</Text>
                   </View>
-                </TouchableHighlight>
-                  
+                </TouchableWithoutFeedback>
+                
 
                 </View>
 
