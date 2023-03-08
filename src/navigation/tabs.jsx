@@ -26,7 +26,7 @@ const Tabs = () => {
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.white,
         tabBarShowLabel: false,
-       tabBarStyle: {backgroundColor: colors.black,marginBottom:14}
+       tabBarStyle: {backgroundColor: colors.black, borderTopColor: colors.primary}
         
       }}>
         {/* <BottomTab.Screen
@@ -64,8 +64,8 @@ const Tabs = () => {
         options={{
           title: 'Settings',
           tabBarIcon: ({ focused }) => (
-            <MaterialCommunityIcons
-              name={focused? 'cog' : 'cog-outline' }
+            <Ionicons
+              name={focused? 'settings' : 'settings-outline' }
               size={33}
               color={colors.primary}
             />
