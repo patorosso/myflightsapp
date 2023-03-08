@@ -18,7 +18,7 @@ const Tabs = () => {
       initialRouteName="HomeTab"
       screenOptions={{
         headerShown: false,
-       
+        
         tabBarLabelStyle: {
           fontFamily: 'Nunito-Regular',
           fontSize: 12,
@@ -26,7 +26,7 @@ const Tabs = () => {
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.white,
         tabBarShowLabel: false,
-       
+       tabBarStyle: {backgroundColor: colors.black,marginBottom:14}
         
       }}>
         {/* <BottomTab.Screen

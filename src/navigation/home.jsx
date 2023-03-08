@@ -15,7 +15,8 @@ const HomeNavigator = () => {
             headerTintColor: colors.primary, 
             headerTitleAlign: 'center',
             headerStyle:{backgroundColor: colors.white,},
-            navigationBarColor: colors.secondary,
+            
+            
               }}/>
             <Stack.Screen name='SearchFlight' component={SearchFlight} 
             options= {{title:'Search Flight' ,headerTintColor: colors.primary}}/>
