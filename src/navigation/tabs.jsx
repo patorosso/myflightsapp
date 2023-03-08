@@ -29,7 +29,7 @@ const Tabs = () => {
        
         
       }}>
-        <BottomTab.Screen
+        {/* <BottomTab.Screen
         name="UserTab"
         component={UserNavigator}
         options={{
@@ -42,7 +42,7 @@ const Tabs = () => {
             />
           ),
         }}
-      />
+      /> */}
       <BottomTab.Screen
         name="HomeTab"
         component={HomeNavigator}
