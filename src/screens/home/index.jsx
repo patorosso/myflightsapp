@@ -23,7 +23,7 @@ const textColor = isPressed ? colors.purple: colors.white;
 
     return (
       <View style={styles.container}>
-        <StatusBar hidden={true} />
+        
         <LinearGradient  
         colors={[  colors.darkblue, colors.primary]} 
         style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>

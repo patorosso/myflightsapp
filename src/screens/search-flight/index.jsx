@@ -5,6 +5,7 @@ import { colors } from "../../constants";
 import { FLIGHT_API_KEY } from "../../constants/flight_api";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
+import { StatusBar } from "expo-status-bar";
 
 
 const SearchFlight = () => {
@@ -52,7 +53,7 @@ const SearchFlight = () => {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         enabled='true'>
       <LinearGradient  colors={[  colors.darkblue, colors.white ]} style={{flex: 1}}>
-
+        
         <View style={styles.container}>
             <View style={styles.containerSearch}>
                 {/* <Text style={styles.textUser}>{userMail}</Text>  */}
