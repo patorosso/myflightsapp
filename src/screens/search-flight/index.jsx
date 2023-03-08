@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Keyboard, KeyboardAvoidingView, TouchableHighlight, Button, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, Keyboard, KeyboardAvoidingView, TouchableHighlight } from "react-native";
 import { styles } from "./styles";
 import { colors } from "../../constants";
 import { FLIGHT_API_KEY } from "../../constants/flight_api";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
-import { StatusBar } from "expo-status-bar";
+import FlightInfo from "../../components/flight-info";
 
 
 const SearchFlight = () => {
@@ -88,23 +88,7 @@ const SearchFlight = () => {
             </View>
         
 
-             <View style={styles.containerInfo}>
-                  <View style={styles.containerFirstFlightInfo}>
-                        <View style={styles.shadowContainer}>
-                          <View style={styles.contentContainer}>
-                            <View style={styles.header}>
-                              <Text style={styles.headerLeft}>EZE</Text>
-                              <Text style={styles.headerMid}>on-route</Text>
-                              <Text style={styles.headerRight}>FCO</Text>
-                            </View>
-                            <Text>Flight Number: </Text>
-                            <Text>Status: </Text>
-                            <Text>Departure Airport: </Text>
-                            <Text>Arrival Airport: </Text>
-                          </View>
-                        </View>      
-                  </View>
-              </View>
+             <FlightInfo />
 
               
               <TouchableHighlight onPress={() => {}} underlayColor={colors.lightRedFides}  
