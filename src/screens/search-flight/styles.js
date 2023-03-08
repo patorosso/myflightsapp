@@ -107,6 +107,24 @@ export const styles = StyleSheet.create({
         alignSelf: 'center',
         
       },
+
+      buttonMapContainer:{
+        marginTop: 40,
+        backgroundColor: colors.redFides,
+        borderRadius: 30,
+        width: '50%',
+        alignItems:'center',
+        alignSelf:'center',
+        height: 40,
+        justifyContent: 'center',
+        
+      },
+      buttonMapText:{
+        color: 'white',
+        fontFamily: 'Nunito-Bold',
+        fontSize: 18,
+        
+      },
       
 
       

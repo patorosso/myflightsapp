@@ -18,7 +18,7 @@ const HomeNavigator = () => {
             navigationBarColor: colors.secondary,
               }}/>
             <Stack.Screen name='SearchFlight' component={SearchFlight} 
-            options= {{title:'Search flight' ,headerTintColor: colors.primary}}/>
+            options= {{title:'Search Flight' ,headerTintColor: colors.primary}}/>
             
         </Stack.Navigator>
     )

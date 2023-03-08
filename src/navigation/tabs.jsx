@@ -24,7 +24,7 @@ const Tabs = () => {
           fontSize: 12,
         },
         tabBarActiveTintColor: colors.primary,
-        tabBarInactiveTintColor: colors.gray,
+        tabBarInactiveTintColor: colors.white,
         tabBarShowLabel: false,
        
         

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Keyboard, KeyboardAvoidingView, TouchableHighlight } from "react-native";
+import { View, Text, TextInput, Keyboard, KeyboardAvoidingView, TouchableHighlight, Button, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import { colors } from "../../constants";
 import { FLIGHT_API_KEY } from "../../constants/flight_api";
@@ -55,6 +55,7 @@ const SearchFlight = () => {
       <LinearGradient  colors={[  colors.darkblue, colors.white ]} style={{flex: 1}}>
         
         <View style={styles.container}>
+
             <View style={styles.containerSearch}>
                 {/* <Text style={styles.textUser}>{userMail}</Text>  */}
                 <TextInput 
@@ -104,6 +105,12 @@ const SearchFlight = () => {
                         </View>      
                   </View>
               </View>
+
+              
+              <TouchableHighlight onPress={() => {}} underlayColor={colors.lightRedFides}  
+                activeOpacity={0.9}  style={styles.buttonMapContainer}>
+                <Text style={styles.buttonMapText}>LOCATE ON MAP</Text>
+              </TouchableHighlight>
 
         </View>
       </LinearGradient>

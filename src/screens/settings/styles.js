@@ -6,4 +6,9 @@ export const styles = StyleSheet.create({
     container: {
         flex:1,
     },
+    text: {
+        color: colors.white,
+        fontFamily: 'Nunito-Bold',
+        fontSize: 40,
+    }
 });

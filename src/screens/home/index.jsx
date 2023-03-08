@@ -31,7 +31,7 @@ const textColor = isPressed ? colors.purple: colors.white;
 
               <View style={{flex:0.5, flexDirection:'row'}}>
                 
-                <View style={{flex:0.5,borderBottomColor:'white',borderBottomWidth: 3,borderRightColor:'white',borderRightWidth:3,justifyContent: 'center',paddingRight:10}}>
+                <View style={{flex:0.5,borderBottomColor:colors.purple,borderBottomWidth: 3,borderRightColor:colors.purple,borderRightWidth:3,justifyContent: 'center',paddingRight:10}}>
 
                 <TouchableWithoutFeedback  onPress={() => navigation.navigate('SearchFlight')} onPressIn={handlePressIn} onPressOut={handlePressOut}>
                   <View>
@@ -50,7 +50,7 @@ const textColor = isPressed ? colors.purple: colors.white;
                 </View>
 
 
-                <View style={{flex:0.5,borderBottomColor:'white',borderBottomWidth: 3,borderLeftColor:'white',borderLeftWidth:3,justifyContent: 'center',paddingLeft:10}}>
+                <View style={{flex:0.5,borderBottomColor:colors.purple,borderBottomWidth: 3,borderLeftColor:colors.purple,borderLeftWidth:3,justifyContent: 'center',paddingLeft:10}}>
                 <MaterialIcons
                     name={'history'}
                     size={80}
@@ -62,7 +62,7 @@ const textColor = isPressed ? colors.purple: colors.white;
               </View>
               
               <View style={{flexDirection: 'row',flex:0.5}}>
-                <View style={{flex:0.5,borderTopColor:'white',borderTopWidth: 3,borderRightColor:'white',borderRightWidth:3,justifyContent: 'center',paddingRight:10}}>
+                <View style={{flex:0.5,borderTopColor:colors.purple,borderTopWidth: 3,borderRightColor:colors.purple,borderRightWidth:3,justifyContent: 'center',paddingRight:10}}>
                 <Ionicons
                     name={'settings'}
                     size={80}
@@ -71,7 +71,7 @@ const textColor = isPressed ? colors.purple: colors.white;
                   />
                   <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center'}}>Search by Flight</Text>
                 </View>
-                <View style={{flex:0.5,borderTopColor:'white',borderTopWidth: 3,borderLeftColor:'white',borderLeftWidth:3,justifyContent: 'center',paddingLeft:10}}>
+                <View style={{flex:0.5,borderTopColor:colors.purple,borderTopWidth: 3,borderLeftColor: colors.purple ,borderLeftWidth:3,justifyContent: 'center',paddingLeft:10}}>
                 <Ionicons
                     name={'home'}
                     size={80}
