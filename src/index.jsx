@@ -1,4 +1,4 @@
-import { View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator} from 'react-native';
 import { useFonts } from 'expo-font';
 import { styles } from './styles';
 import store from './store';
@@ -24,11 +24,11 @@ const App = () => {
   )
 
   return (
-    
+      
       <Provider store={store}>
       <AppNavigator />
       </Provider>
-    
+     
     
     
     

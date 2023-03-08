@@ -6,19 +6,13 @@ const Stack = createNativeStackNavigator();
 
 const HomeNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName="Home" screenOptions={{animation:"slide_from_right"}}>
+        <Stack.Navigator initialRouteName="Home" screenOptions={{animation:"fade",headerShown: false}}>
             <Stack.Screen 
             name='Home' component={Home} 
-            options={{title: 'MyFlightsApp', 
-                headerStyle: {
-                backgroundColor: colors.white,
-                },
-                headerTintColor: colors.primary,
-                
-                headerTitleAlign: 'center',
+            options={{title: 'MyFlightsApp' ,  
               }}/>
             <Stack.Screen name='SearchFlight' component={SearchFlight} 
-            options= {{headerTintColor: colors.primary,}}/>
+            options= {{title:'Search flight' ,headerTintColor: colors.primary,}}/>
             
         </Stack.Navigator>
     )
