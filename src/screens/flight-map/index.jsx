@@ -2,33 +2,34 @@ import { View, Text } from "react-native";
 import { styles } from "./styles";
 import { LinearGradient } from "expo-linear-gradient";
 import { colors } from "../../constants";
-import {MapView,Marker} from 'react-native-maps';
+import { LeafletView } from 'react-native-leaflet-maps';
 
 
-const Settings = ({route}) => {
+
+const FlightMap = ({route}) => {
     const {flightNumber,latitude,longitude,altitude} = route.params;
+    const location = {
+        latitude: 37.78825, // default latitude value
+        longitude: -122.4324, // default longitude value
+    };
 
     return (
         <View style={styles.container}>
-            <MapView
-                style={{ flex: 1 }}
-                initialRegion={{
-                    latitude: 40.7128,
-                    longitude: -74.0060,
-                    latitudeDelta: 0.0922,
-                    longitudeDelta: 0.0421,
-                }}
-                provider={MapView.PROVIDER_OSM}
-                >
-                    
-            </MapView>
+            
+            <LeafletView
+            center={location}
+            zoom={13}
+            style={{ flex: 1 }}
+            />
+       
+           
                 
             
         </View>
     )
 }
 
-export default Settings;
+export default FlightMap;
 
 /*
 <LinearGradient  

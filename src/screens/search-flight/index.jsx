@@ -93,16 +93,11 @@ const SearchFlight = ({navigation}) => {
 
             
               <View style={{marginTop: 75}}>
-              <FlightInfo 
-              arrival={flightStatus.data[0].arrival.iataCode}
-              departure={flightStatus.data[0].departure.iataCode}
-              status={flightStatus.data[0].status}
-              flightNumber={flightStatus.data[0].flight.iataNumber}
-              />
+              
               <TouchableHighlight underlayColor={colors.lightRedFides}  
                 activeOpacity={0.9}  style={styles.buttonMapContainer}
                 onPress={() => navigation.navigate('FlightMap', {
-                  flightNumber: AZ681,
+                  flightNumber: 'AZ681',
                   latitude: 40.7128,
                   longitude: -74.0060,
                   altitude: 23,
