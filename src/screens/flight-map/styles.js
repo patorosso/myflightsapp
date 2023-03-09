@@ -10,5 +10,13 @@ export const styles = StyleSheet.create({
         color: colors.white,
         fontFamily: 'Nunito-Bold',
         fontSize: 40,
-    }
+    },
+    map: {
+        ...StyleSheet.absoluteFillObject,
+      },
+      markerImage: {
+        backgroundColor:colors.redFides,
+        size:44,
+        color: colors.redFides,
+      },
 });
