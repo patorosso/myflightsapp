@@ -11,7 +11,6 @@ import { FlightNoInfo, FlightInfo } from "../../components";
 const SearchFlight = ({navigation}) => {
     // const userMail = useSelector((state) => state.auth.email);
     const [enteredValue,setEnteredValue] = useState("");
-    //const isDisabled = enteredValue.length === 0;
     const [flightStatus, setFlightStatus] = useState(null);
 
     const onHandlerChange = (text) => {
@@ -20,13 +19,15 @@ const SearchFlight = ({navigation}) => {
 
 
       function getFlightStatus(enteredValue) {
+        Keyboard.dismiss();
 
         if(enteredValue.length === 0)
           {
+      
             return null;
           }
 
-        Keyboard.dismiss();
+        
         const apiKey = FLIGHT_LABS_API_KEY;
         
     
@@ -57,21 +58,15 @@ const SearchFlight = ({navigation}) => {
         <View style={styles.container}>
 
             <View style={styles.containerSearch}>
-                {/* <Text style={styles.textUser}>{userMail}</Text>  */}
+                
                 <TextInput 
                 style={styles.input} 
                 placeholder="Example: AZ681, BA267 ..."
-                
                 autoCapitalize="characters"
                 keyboardAppearance="light"
                 value={enteredValue}
                 onChangeText={onHandlerChange}
                 />
-                {/* <Button title="See my flights"
-                color={colors.primary}
-                onPress={() => navigation.navigate('Flights')}
-                /> */}
-
                 <TouchableHighlight
                 underlayColor={colors.lightblue}  
                 activeOpacity={0.9} 
@@ -93,22 +88,22 @@ const SearchFlight = ({navigation}) => {
 
             {flightStatus && (
               <View style={{marginTop: 75}}>
-              <FlightInfo 
-              arrival={flightStatus.data[0].arrival.iataCode}
-              departure={flightStatus.data[0].departure.iataCode}
-              status={flightStatus.data[0].status}
-              flightNumber={flightStatus.data[0].flight.iataNumber}
-              />
-              <TouchableHighlight underlayColor={colors.lightRedFides}  
-                activeOpacity={0.9}  style={styles.buttonMapContainer}
-                onPress={() => navigation.navigate('FlightMap', {
-                  flightNumber: flightStatus.data[0].flight.iataNumber,
-                  latitude: flightStatus.data[0].geography.latitude,
-                  longitude: flightStatus.data[0].geography.longitude,
-                  altitude: flightStatus.data[0].geography.altitude,
-                })}>
-                <Text style={styles.buttonMapText}>LOCATE ON MAP</Text>
-              </TouchableHighlight> 
+                <FlightInfo 
+                arrival={flightStatus.data[0].arrival.iataCode}
+                departure={flightStatus.data[0].departure.iataCode}
+                status={flightStatus.data[0].status}
+                flightNumber={flightStatus.data[0].flight.iataNumber}
+                />
+                <TouchableHighlight underlayColor={colors.lightRedFides}  
+                  activeOpacity={0.9}  style={styles.buttonMapContainer}
+                  onPress={() => navigation.navigate('FlightMap', {
+                    flightNumber: flightStatus.data[0].flight.iataNumber,
+                    latitude: flightStatus.data[0].geography.latitude,
+                    longitude: flightStatus.data[0].geography.longitude,
+                    altitude: flightStatus.data[0].geography.altitude,
+                  })}>
+                  <Text style={styles.buttonMapText}>LOCATE ON MAP</Text>
+                </TouchableHighlight> 
             </View>
             )}
 
