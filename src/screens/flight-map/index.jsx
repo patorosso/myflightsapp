@@ -2,28 +2,28 @@ import { View, Text } from "react-native";
 import { styles } from "./styles";
 import { LinearGradient } from "expo-linear-gradient";
 import { colors } from "../../constants";
-import { LeafletView } from 'react-native-leaflet-maps';
+import MapView, { Polyline, Marker } from 'react-native-maps';
+
+
 
 
 
 const FlightMap = ({route}) => {
     const {flightNumber,latitude,longitude,altitude} = route.params;
-    const location = {
-        latitude: 37.78825, // default latitude value
-        longitude: -122.4324, // default longitude value
-    };
+    
 
     return (
         <View style={styles.container}>
+           <MapView 
             
-            <LeafletView
-            center={location}
-            zoom={13}
-            style={{ flex: 1 }}
-            />
-       
-           
-                
+        
+            initialRegion={{latitude, longitude, latitudeDelta: 0.001, longitudeDelta:0.01}}
+            provider="google" style={styles.map}>
+                <Marker  coordinate={{latitude, longitude}}>
+                   
+                    </Marker>
+                <Polyline coordinate={{latitude, longitude}} strokeColor="#f2b659" strokeWidth={10}/>
+            </MapView>
             
         </View>
     )
