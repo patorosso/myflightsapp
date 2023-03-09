@@ -19,7 +19,7 @@ const FlightInfo = ({
                               <Text style={styles.headerMid}>{status}</Text>
                               <Text style={styles.headerRight}>{arrival}</Text>
                             </View>
-                            <Text>Flight Number: </Text>
+                            <Text>Flight Number:{flightNumber} </Text>
                             <Text>Status: </Text>
                             <Text>Departure Airport: </Text>
                             <Text>Arrival Airport: </Text>

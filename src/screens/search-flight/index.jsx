@@ -30,7 +30,7 @@ const SearchFlight = () => {
         const apiKey = FLIGHT_LABS_API_KEY;
         
     
-        fetch(`https://app.goflightlabs.com/flights-schedules?access_key=${apiKey}&flightIata=${enteredValue}`, {
+        fetch(`https://app.goflightlabs.com/flights?access_key=${apiKey}&flightIata=${enteredValue}`, {
           headers: {
             'Authorization': `Bearer ${apiKey}`
           },
@@ -94,10 +94,10 @@ const SearchFlight = () => {
               {flightStatus?
               <View style={{marginTop: 75}}>
               <FlightInfo 
-              arrival="EZE"
-              departure="FCO"
-              status="en-route"
-              flightNumber="AZ681"
+              arrival={flightStatus.data[0].arrival.iataCode}
+              departure={flightStatus.data[0].departure.iataCode}
+              status={flightStatus.data[0].status}
+              flightNumber={flightStatus.data[0].flight.iataNumber}
               />
               <TouchableHighlight onPress={() => {}} underlayColor={colors.lightRedFides}  
                 activeOpacity={0.9}  style={styles.buttonMapContainer}>
