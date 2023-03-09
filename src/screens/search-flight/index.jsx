@@ -96,7 +96,10 @@ const SearchFlight = ({navigation}) => {
                     latitude: 40.7128,
                     longitude: -74.0060,
                     altitude: 123,
-                  })}>
+                    
+                  })
+                  
+                  }>
                   <Text style={styles.buttonMapText}>LOCATE ON MAP</Text>
                 </TouchableHighlight> 
             </View>

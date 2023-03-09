@@ -13,11 +13,10 @@ import { MaterialIcons } from '@expo/vector-icons';
 const FlightMap = ({route}) => {
     const {flightNumber,latitude,longitude,altitude} = route.params;
     
-
     return (
         <View style={styles.container}>
            <MapView 
-            initialRegion={{latitude, longitude, latitudeDelta: 37,longitudeDelta: 37}}
+            initialRegion={{latitude, longitude, latitudeDelta: 67,longitudeDelta: 67}}
             provider="google" style={styles.map}>
                 
                 <Marker  coordinate={{latitude, longitude}}   imageStyle={{ width: 40, height: 40 }}>

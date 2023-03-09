@@ -21,7 +21,7 @@ const HomeNavigator = () => {
             options= {{title:'Search Flight' ,headerTintColor: colors.primary}}/>
 
             <Stack.Screen name='FlightMap' component={FlightMap} 
-            options= {{title:'Flight Map' ,headerTintColor: colors.primary}}/>
+            options= {{ headerTintColor: colors.primary}}/>
             
         </Stack.Navigator>
     )
