@@ -6,12 +6,28 @@ import { FLIGHT_LABS_API_KEY } from "../../constants/flight_api";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
 import { FlightNoInfo, FlightInfo } from "../../components";
-
+import { useDispatch } from 'react-redux';
+import {  } from '../../store/actions';
+import { selectFlight } from "../../store/actions";
 
 const SearchFlight = ({navigation}) => {
+     const dispatch = useDispatch();
+    
     // const userMail = useSelector((state) => state.auth.email);
     const [enteredValue,setEnteredValue] = useState("");
     const [flightStatus, setFlightStatus] = useState(null);
+    const onHandlerLocate = () => {
+        navigation.navigate('FlightMap', {
+        flightNumber: 'AZ681',
+        latitude: 40.7128,
+        longitude: -74.0060,
+        altitude: 123,
+      })
+
+      dispatch(selectFlight('AZ681'));
+    };
+
+
 
     const onHandlerChange = (text) => {
         setEnteredValue(text.replace(/[^a-zA-Z0-9]/g, ''));
@@ -91,14 +107,8 @@ const SearchFlight = ({navigation}) => {
                 
                 <TouchableHighlight underlayColor={colors.lightRedFides}  
                   activeOpacity={0.9}  style={styles.buttonMapContainer}
-                  onPress={() => navigation.navigate('FlightMap', {
-                    flightNumber: 'AZ681',
-                    latitude: 40.7128,
-                    longitude: -74.0060,
-                    altitude: 123,
-                    
-                  })
-                  
+                  onPress={
+                  onHandlerLocate
                   }>
                   <Text style={styles.buttonMapText}>LOCATE ON MAP</Text>
                 </TouchableHighlight> 

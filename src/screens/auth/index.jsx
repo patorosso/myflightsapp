@@ -8,11 +8,11 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import { useDispatch } from 'react-redux';
+
 
 import { styles } from './styles';
 import { colors } from "../../constants";
-
+import { useDispatch } from 'react-redux';
 import { signIn, signUp } from '../../store/actions';
 
 const Auth = ({ navigation }) => {

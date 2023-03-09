@@ -1,12 +1,16 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Home, SearchFlight, FlightMap } from "../screens/index";
 import { colors } from "../constants";
+import { useSelector } from "react-redux";
 
 
 
 const Stack = createNativeStackNavigator();
 
+
 const HomeNavigator = () => {
+    const flightId = useSelector((state) => state.flight.flightId);
+    
     return (
         <Stack.Navigator initialRouteName="Home" screenOptions={{animation:"fade"}}>
             <Stack.Screen 
@@ -21,7 +25,7 @@ const HomeNavigator = () => {
             options= {{title:'Search Flight' ,headerTintColor: colors.primary}}/>
 
             <Stack.Screen name='FlightMap' component={FlightMap} 
-            options= {{ headerTintColor: colors.primary}}/>
+            options= {{ title:`Flight Map - ${flightId}`  ,headerTintColor: colors.primary}}/>
             
         </Stack.Navigator>
     )
