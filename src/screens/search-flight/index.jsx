@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Keyboard, KeyboardAvoidingView, TouchableHighlight } from "react-native";
 import { styles } from "./styles";
 import { colors } from "../../constants";
-import { FLIGHT_API_KEY } from "../../constants/flight_api";
+import { FLIGHT_LABS_API_KEY } from "../../constants/flight_api";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
-import FlightInfo from "../../components/flight-info";
+import { FlightNoInfo, FlightInfo } from "../../components";
 
 
 const SearchFlight = () => {
@@ -27,7 +27,7 @@ const SearchFlight = () => {
           }
 
         Keyboard.dismiss();
-        const apiKey = FLIGHT_API_KEY;
+        const apiKey = FLIGHT_LABS_API_KEY;
         
     
         fetch(`https://app.goflightlabs.com/flights-schedules?access_key=${apiKey}&flightIata=${enteredValue}`, {
@@ -87,15 +87,26 @@ const SearchFlight = () => {
                 </TouchableHighlight>
             </View>
         
+            
+            
+            
 
-             <FlightInfo />
-
-              
+              {flightStatus?
+              <View style={{marginTop: 75}}>
+              <FlightInfo 
+              arrival="EZE"
+              departure="FCO"
+              status="en-route"
+              flightNumber="AZ681"
+              />
               <TouchableHighlight onPress={() => {}} underlayColor={colors.lightRedFides}  
                 activeOpacity={0.9}  style={styles.buttonMapContainer}>
                 <Text style={styles.buttonMapText}>LOCATE ON MAP</Text>
-              </TouchableHighlight>
-
+              </TouchableHighlight> 
+            </View>
+            :
+            <FlightNoInfo/>
+              }
         </View>
       </LinearGradient>
     </KeyboardAvoidingView>

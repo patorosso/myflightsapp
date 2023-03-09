@@ -56,7 +56,7 @@ containerFirstFlightInfo: {
     flex:1,
     textAlign: 'center',
     fontFamily: 'Nunito-Regular',
-    color: 'green',
+    color: 'gray',
     fontSize: 20,
     alignSelf: 'center',
     

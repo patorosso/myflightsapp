@@ -1,11 +1,8 @@
 import { View, Text} from 'react-native';
 import { styles } from './styles';
 
-const FlightInfo = ({
-  flightNumber,
-  status,
-  departure,
-  arrival,
+const FlightNoInfo = ({
+  
 
 }) => {
   return (
@@ -15,9 +12,9 @@ const FlightInfo = ({
                           <View style={styles.contentContainer}>
                             
                             <View style={styles.header}>
-                              <Text style={styles.headerLeft}>{departure}</Text>
-                              <Text style={styles.headerMid}>{status}</Text>
-                              <Text style={styles.headerRight}>{arrival}</Text>
+                              <Text style={styles.headerLeft}>---</Text>
+                              <Text style={styles.headerMid}>unknown</Text>
+                              <Text style={styles.headerRight}>---</Text>
                             </View>
                             <Text>Flight Number: </Text>
                             <Text>Status: </Text>
@@ -30,10 +27,4 @@ const FlightInfo = ({
   );
 };
 
-export default FlightInfo;
-
-
-/* <Text>Flight Number: {flightStatus.data[0].flight.iataNumber}</Text>
-<Text>Status: {flightStatus.data[0].status}</Text>
-<Text>Departure Airport: {flightStatus.data[0].departure.iataCode}</Text>
-<Text>Arrival Airport: {flightStatus.data[0].arrival.iataCode}</Text> */
+export default FlightNoInfo;

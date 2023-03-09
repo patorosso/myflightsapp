@@ -15,10 +15,14 @@ export const styles = StyleSheet.create({
 
       containerSearch: {
         
-        alignItems: 'center',
+        position: 'absolute',
+        top: 150,
+        
         flexDirection: 'row',
         justifyContent: 'space-around',
-        marginHorizontal: 35, //ojo
+        alignSelf: 'center',
+        width: '80%',
+        
     },
 
     

@@ -26,7 +26,7 @@ const Tabs = () => {
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.white,
         tabBarShowLabel: false,
-       tabBarStyle: {backgroundColor: colors.black, borderTopColor: colors.primary}
+       tabBarStyle: {backgroundColor: colors.black}
         
       }}>
         {/* <BottomTab.Screen
