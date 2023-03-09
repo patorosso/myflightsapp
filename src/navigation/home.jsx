@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Home, SearchFlight } from "../screens/index";
+import { Home, SearchFlight, FlightMap } from "../screens/index";
 import { colors } from "../constants";
 
 
@@ -15,11 +15,13 @@ const HomeNavigator = () => {
             headerTintColor: colors.primary, 
             headerTitleAlign: 'center',
             headerStyle:{backgroundColor: colors.white,},
-            
-            
               }}/>
+              
             <Stack.Screen name='SearchFlight' component={SearchFlight} 
             options= {{title:'Search Flight' ,headerTintColor: colors.primary}}/>
+
+            <Stack.Screen name='FlightMap' component={FlightMap} 
+            options= {{title:'Flight Map' ,headerTintColor: colors.primary}}/>
             
         </Stack.Navigator>
     )

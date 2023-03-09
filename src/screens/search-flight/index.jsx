@@ -8,7 +8,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { FlightNoInfo, FlightInfo } from "../../components";
 
 
-const SearchFlight = () => {
+const SearchFlight = ({navigation}) => {
     // const userMail = useSelector((state) => state.auth.email);
     const [enteredValue,setEnteredValue] = useState("");
     //const isDisabled = enteredValue.length === 0;
@@ -91,7 +91,7 @@ const SearchFlight = () => {
             
             
 
-              {flightStatus?
+            {flightStatus && (
               <View style={{marginTop: 75}}>
               <FlightInfo 
               arrival={flightStatus.data[0].arrival.iataCode}
@@ -99,14 +99,21 @@ const SearchFlight = () => {
               status={flightStatus.data[0].status}
               flightNumber={flightStatus.data[0].flight.iataNumber}
               />
-              <TouchableHighlight onPress={() => {}} underlayColor={colors.lightRedFides}  
-                activeOpacity={0.9}  style={styles.buttonMapContainer}>
+              <TouchableHighlight underlayColor={colors.lightRedFides}  
+                activeOpacity={0.9}  style={styles.buttonMapContainer}
+                onPress={() => navigation.navigate('FlightMap', {
+                  flightNumber: flightStatus.data[0].flight.iataNumber,
+                  latitude: flightStatus.data[0].geography.latitude,
+                  longitude: flightStatus.data[0].geography.longitude,
+                  altitude: flightStatus.data[0].geography.altitude,
+                })}>
                 <Text style={styles.buttonMapText}>LOCATE ON MAP</Text>
               </TouchableHighlight> 
             </View>
-            :
-            <FlightNoInfo/>
-              }
+            )}
+
+
+
         </View>
       </LinearGradient>
     </KeyboardAvoidingView>
