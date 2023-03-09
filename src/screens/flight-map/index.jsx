@@ -22,7 +22,7 @@ const FlightMap = ({route}) => {
                 <Marker  coordinate={{latitude, longitude}}>
                    
                     </Marker>
-                <Polyline coordinate={{latitude, longitude}} strokeColor="#f2b659" strokeWidth={10}/>
+                
             </MapView>
             
         </View>
