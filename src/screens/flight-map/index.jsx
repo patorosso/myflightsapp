@@ -60,8 +60,9 @@ const FlightMap = ({route, navigation}) => {
     const latFCO = 41.771530;
     const longFCO = 12.230000;
 
-    
-      
+    const onHandleAirportPosition = () => {
+        console.warn(region);
+    }      
     
     
     return (
@@ -101,11 +102,12 @@ const FlightMap = ({route, navigation}) => {
                     </View>
                     
                     
-                    <FlightInfo 
-                   
+                    <FlightInfo              
                     arrival={arrival}
                     departure={departure}
                     status={status}
+                    interactive={true}
+                    onHandleAirportPosition={onHandleAirportPosition}
                     />
             </View>
             )}

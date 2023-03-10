@@ -1,4 +1,4 @@
-import { View, Text} from 'react-native';
+import { View, Text, TouchableHighlightBase, TouchableOpacity} from 'react-native';
 import { styles } from './styles';
 
 const FlightInfo = ({
@@ -6,8 +6,16 @@ const FlightInfo = ({
   status,
   departure,
   arrival,
+  interactive,
 
 }) => {
+
+  const onHandleAirportPosition = () => {
+    
+  }
+
+
+
   return (
     <View style={styles.containerInfo}>
                   <View style={styles.containerFirstFlightInfo}>
@@ -15,9 +23,17 @@ const FlightInfo = ({
                           <View style={styles.contentContainer}>
                             
                             <View style={styles.header}>
-                              <Text style={styles.headerLeft}>{departure}</Text>
+
+                              <TouchableOpacity onPress={interactive? onHandleAirportPosition : () => {}}>
+                                <Text style={styles.airportText}>{departure}</Text>
+                              </TouchableOpacity>
+                              
                               <Text style={styles.headerMid}>{status}</Text>
-                              <Text style={styles.headerRight}>{arrival}</Text>
+
+                              <TouchableOpacity onPress={interactive? onHandleAirportPosition : () => {}}>
+                                <Text style={styles.airportText}>{arrival}</Text>
+                              </TouchableOpacity>
+                              
                             </View>
                             <Text>Flight Number:{flightNumber} </Text>
                             <Text>Status: </Text>

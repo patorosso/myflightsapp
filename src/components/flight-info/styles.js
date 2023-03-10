@@ -40,18 +40,13 @@ containerFirstFlightInfo: {
     
     
   },
-  headerRight:{
-    flex:1,
+  airportText: {
     textAlign: 'right',
     fontFamily: 'Nunito-Bold',
     fontSize: 30,
   },
-  headerLeft:{
-    flex:1,
-    textAlign: 'left',
-    fontFamily: 'Nunito-Bold',
-    fontSize: 30,
-  },
+
+ 
   headerMid:{
     flex:1,
     textAlign: 'center',
