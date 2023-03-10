@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
 
 
 containerFirstFlightInfo: {
-    marginTop: 60,
+    marginTop: 15,
     paddingVertical: 20,
 
 

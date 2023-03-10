@@ -19,4 +19,22 @@ export const styles = StyleSheet.create({
         size:44,
         color: colors.redFides,
       },
+    flightNumberContainer: {
+      
+      alignItems: 'center',
+      borderRadius: 20,
+      borderColor: colors.redFides,
+      borderWidth: 2,
+      },
+    flightNumberText: {
+      backgroundColor: colors.darkblue, 
+      color: colors.white, 
+      borderRadius: 20, 
+      fontFamily: 'Nunito-Bold',
+      textAlign: 'center',
+      padding: 4,
+      paddingHorizontal: 23,
+      fontSize: 22,
+    },
+    
 });
