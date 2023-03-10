@@ -71,7 +71,7 @@ const FlightMap = ({route, navigation}) => {
             initialRegion={region}
             region={region}
             toolbarEnabled={false} // removes google maps button
-            loadingEnabled={false}
+            loadingEnabled={true}
             provider="google" style={styles.map}>
 
                 <Marker coordinate={{latitude: -34.812931,longitude: -58.541489 }} />
@@ -95,14 +95,14 @@ const FlightMap = ({route, navigation}) => {
                         <View style={{flexDirection: 'row', justifyContent:'space-around'}}>
                         <TouchableOpacity style={styles.flightNumberContainer} onPress={() => onHandleMoveMap(latitude,longitude)}>
                                 <Text style={styles.flightNumberText}>{flightNumber}</Text>
-                            </TouchableOpacity>
+                        </TouchableOpacity>
                             
                         </View>
                     </View>
                     
                     
                     <FlightInfo 
-                    flightNumber={flightNumber}
+                   
                     arrival={arrival}
                     departure={departure}
                     status={status}
