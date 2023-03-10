@@ -16,12 +16,15 @@ const SearchFlight = ({navigation}) => {
     // const userMail = useSelector((state) => state.auth.email);
     const [enteredValue,setEnteredValue] = useState("");
     const [flightStatus, setFlightStatus] = useState(null);
+
     const onHandlerLocate = () => {
         navigation.navigate('FlightMap', {
         flightNumber: 'AZ681',
         latitude: -29.0105,
         longitude: -49.6868,
         altitude: 123,
+        arrival: 'FCO',
+        departure: 'EZE',
       })
 
       dispatch(selectFlight('AZ681'));
