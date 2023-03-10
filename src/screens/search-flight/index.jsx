@@ -19,8 +19,8 @@ const SearchFlight = ({navigation}) => {
     const onHandlerLocate = () => {
         navigation.navigate('FlightMap', {
         flightNumber: 'AZ681',
-        latitude: 40.7128,
-        longitude: -74.0060,
+        latitude: -29.0105,
+        longitude: -49.6868,
         altitude: 123,
       })
 
