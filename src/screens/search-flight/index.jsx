@@ -25,6 +25,7 @@ const SearchFlight = ({navigation}) => {
         altitude: 123,
         arrival: 'FCO',
         departure: 'EZE',
+        status: 'en-route',
       })
 
       dispatch(selectFlight('AZ681'));

@@ -14,7 +14,7 @@ import { useLayoutEffect, useState } from "react";
 
 const FlightMap = ({route, navigation}) => {
 
-    const {flightNumber,latitude,longitude,altitude,arrival,departure} = route.params;
+    const {flightNumber,latitude,longitude,altitude,arrival,departure,status} = route.params;
     const [flightInfoBox, setFlightInfoBox] = useState(false);
 
     
@@ -89,6 +89,7 @@ const FlightMap = ({route, navigation}) => {
                 flightNumber={flightNumber}
                 arrival={arrival}
                 departure={departure}
+                status={status}
                 />
             </View>
             )}
