@@ -137,12 +137,16 @@ const SearchFlight = ({navigation}) => {
                 </TouchableHighlight>
             </View>
         
-            
+            <View style={{marginTop: 175}}>
+              <FlightInfo arrival='FCO' departure='EZE'
+              status='en-route' departureRegion='Buenos Aires' arrivalRegion='Roma'
+              />
+            </View>
             
             
 
             
-            {flightStatus && (
+            {/* {flightStatus && (
               <View style={{marginTop: 175}}>
                 <FlightInfo 
                 arrival={flightStatus.data[0].arrival.iataCode}
@@ -157,7 +161,7 @@ const SearchFlight = ({navigation}) => {
                   <Text style={styles.buttonMapText}>LOCATE ON MAP</Text>
                 </TouchableHighlight> 
               </View>
-            )}
+            )} */}
             
 
 

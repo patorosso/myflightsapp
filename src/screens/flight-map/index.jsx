@@ -28,7 +28,9 @@ const FlightMap = ({route, navigation}) => {
 
 
     const onHandleMoveMap = (latitude, longitude) => {
-        const newLatitudeDelta = latitudeDelta + 0.00000001; //doing this so everytime i click on the button its a "newer" number haha. pato was here. srry for anyone reading.
+        //doing this so everytime i click on the button its a "newer" number haha.
+        //otherwise, if it's the same number, it wont change the map.
+        const newLatitudeDelta = latitudeDelta + 0.00000001; 
         const newRegion = {
             latitude: latitude ,
             longitude: longitude,
