@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import {  } from '../../store/actions';
 import { selectFlight } from "../../store/actions";
 
+
 const SearchFlight = ({navigation}) => {
      const dispatch = useDispatch();
     
@@ -37,16 +38,16 @@ const SearchFlight = ({navigation}) => {
         setEnteredValue(text.replace(/[^a-zA-Z0-9]/g, ''));
       };
 
-
+    
       function getFlightStatus(enteredValue) {
         Keyboard.dismiss();
-
+    
         if(enteredValue.length === 0)
           {
-      
+    
             return null;
           }
-
+    
         
         const apiKey = FLIGHT_LABS_API_KEY;
         
@@ -64,6 +65,7 @@ const SearchFlight = ({navigation}) => {
         })
         .catch(error => console.error(error));
       }
+     
 
 
 
@@ -107,16 +109,34 @@ const SearchFlight = ({navigation}) => {
             
 
             
-              <View style={{marginTop: 75}}>
-                
+            {flightStatus && (
+              <View style={{marginTop: 175}}>
+                <FlightInfo 
+                arrival={flightStatus.data[0].arrival.iataCode}
+                departure={flightStatus.data[0].departure.iataCode}
+                status={flightStatus.data[0].status}
+                flightNumber={flightStatus.data[0].flight.iataNumber}
+                />
+
                 <TouchableHighlight underlayColor={colors.lightRedFides}  
                   activeOpacity={0.9}  style={styles.buttonMapContainer}
-                  onPress={
-                  onHandlerLocate
-                  }>
+                  onPress={() => navigation.navigate('FlightMap', {
+
+                    flightNumber: flightStatus.data[0].flight.iataNumber,
+                    latitude: flightStatus.data[0].geography.latitude,
+                    longitude: flightStatus.data[0].geography.longitude,
+                    altitude: flightStatus.data[0].geography.altitude,
+                    arrivalIata: flightStatus.data[0].arrival.iataCode,
+                    departureIata: flightStatus.data[0].departure.iataCode,
+                    arrivalIcao: flightStatus.data[0].arrival.icaoCode,
+                    departureIcao: flightStatus.data[0].departure.icaoCode,
+                    status: flightStatus.data[0].status,
+
+                  })}>
                   <Text style={styles.buttonMapText}>LOCATE ON MAP</Text>
                 </TouchableHighlight> 
-            </View>
+              </View>
+            )}
             
 
 
