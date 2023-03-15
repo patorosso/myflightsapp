@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Keyboard, KeyboardAvoidingView, TouchableHighlight } from "react-native";
+import { View, Text, TextInput, Keyboard, KeyboardAvoidingView, TouchableHighlight, ActivityIndicator } from "react-native";
 import { styles } from "./styles";
 import { colors } from "../../constants";
 import { FLIGHT_LABS_API_KEY,AIRPORT_DB_TOKEN} from "../../constants/flight_api";
@@ -19,6 +19,7 @@ const SearchFlight = ({navigation}) => {
     const [flightStatus, setFlightStatus] = useState(null);
     const [arrivalData,setArrivalData] = useState(null);
     const [departureData,setDepartureData] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const onHandlerLocate = async () => {
       //controlar null
@@ -56,13 +57,15 @@ const SearchFlight = ({navigation}) => {
       //FlightLabs API
       function getFlightStatus(enteredValue) {
         Keyboard.dismiss();
+        
     
         if(enteredValue.length === 0)
           {
-    
+            
             return null;
           }
-    
+
+        setLoading(true);
         const apiKey = FLIGHT_LABS_API_KEY;
         fetch(`https://app.goflightlabs.com/flights?access_key=${apiKey}&flightIata=${enteredValue}`, {
           headers: {
@@ -75,7 +78,9 @@ const SearchFlight = ({navigation}) => {
           console.log(data);
           setFlightStatus(data);
         })
-        .catch(error => console.error(error));
+        .catch(error => console.error(error))
+        .finally(() => setLoading(false));
+        
       }
 
       //airportDB API
@@ -136,28 +141,39 @@ const SearchFlight = ({navigation}) => {
                   />
                 </TouchableHighlight>
             </View>
+
+            {loading && (
+              <View style={{marginTop: 175}}>
+                <ActivityIndicator size="large" color={colors.primary}/>
+              </View>
+            )}
         
-            <View style={{marginTop: 175}}>
-              <FlightInfo arrival='FCO' departure='EZE'
-              status='en-route' departureRegion='Buenos Aires' arrivalRegion='Roma'
-              />
-            </View>
+
+            {flightStatus && (
+              <>
+                <View style={{marginTop: 175}}>
+                  <FlightInfo arrival='FCO' departure='EZE'
+                  status='en-route' departureRegion='Buenos Aires' arrivalRegion='Roma'
+                  />
+                </View>
 
 
-            <View style={{flexDirection: 'row', justifyContent: 'flex-end', marginRight:27}}>
-              <TouchableHighlight underlayColor={colors.lightRedFides}  
-                    activeOpacity={0.9}  style={styles.buttonMapContainer}
-                    onPress={() => onHandlerLocate()}>
-                    <Text style={styles.buttonMapText}>LOCATE ON MAP</Text>
-              </TouchableHighlight> 
+                <View style={{flexDirection: 'row', justifyContent: 'flex-end', marginRight:27}}>
+                  <TouchableHighlight underlayColor={colors.lightRedFides}  
+                        activeOpacity={0.9}  style={styles.buttonMapContainer}
+                        onPress={() => onHandlerLocate()}>
+                        <Text style={styles.buttonMapText}>LOCATE ON MAP</Text>
+                  </TouchableHighlight> 
+                
+
+                </View>
+              </>
+            )} 
+            
             
 
-            </View>
             
-            
-
-            
-            {/* {flightStatus && (
+            {/*
               <View style={{marginTop: 175}}>
                 <FlightInfo 
                 arrival={flightStatus.data[0].arrival.iataCode}
@@ -168,7 +184,7 @@ const SearchFlight = ({navigation}) => {
 
                 
               </View>
-            )} */}
+            */}
             
 
 
