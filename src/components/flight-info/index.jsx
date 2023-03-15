@@ -9,7 +9,7 @@ const FlightInfo = ({
   departureRegion,
   arrivalRegion,
   detailedView,
-  
+
 
 }) => {
   return (
@@ -29,6 +29,7 @@ const FlightInfo = ({
                                 <Text style={{ paddingRight: 27, textAlign: 'center'}}>{departureRegion}</Text>
                                 
                               </View>
+                              
                               <View style={styles.rightRegion}>
                                 <Text style={{ paddingLeft: 27, textAlign: 'center'}}>{arrivalRegion}</Text>
                                 

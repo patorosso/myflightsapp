@@ -53,9 +53,12 @@ const SearchFlight = ({navigation}) => {
     const onHandlerChange = (text) => {
         setEnteredValue(text.replace(/[^a-zA-Z0-9]/g, ''));
       };
+
+
+
  
       //FlightLabs API
-      function getFlightStatus(enteredValue) {
+      async function getFlightStatus(enteredValue) {
         Keyboard.dismiss();
         
     
@@ -65,23 +68,24 @@ const SearchFlight = ({navigation}) => {
             return null;
           }
 
-        setLoading(true);
-        const apiKey = FLIGHT_LABS_API_KEY;
-        fetch(`https://app.goflightlabs.com/flights?access_key=${apiKey}&flightIata=${enteredValue}`, {
-          headers: {
-            'Authorization': `Bearer ${apiKey}`
-          },
-          
-        })
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-          setFlightStatus(data);
-        })
-        .catch(error => console.error(error))
-        .finally(() => setLoading(false));
         
-      }
+        const apiKey = FLIGHT_LABS_API_KEY;
+        try {
+          const response = await fetch(`https://app.goflightlabs.com/flights?access_key=${apiKey}&flightIata=${enteredValue}`, {
+            headers: {
+              'Authorization': `Bearer ${apiKey}`
+            },
+          });
+        const data = await response.json();
+        console.log(data);
+        setFlightStatus(data);
+          }
+          catch (error) {
+            console.error(error);
+          }
+        }
+
+    
 
       //airportDB API
       async function getAirportInfo(airportIcao, detail) {
