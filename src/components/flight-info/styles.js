@@ -62,6 +62,21 @@ containerFirstFlightInfo: {
     alignSelf: 'center',
     
   },
+
+  body: {
+    flexDirection: 'row',
+    
+  },
+  leftRegion: {
+    flex: 0.5,
+    borderRightWidth: 0.3,
+    
+  },
+  rightRegion: {
+    borderLeftWidth: 0.3,
+    flex: 0.5,
+    
+  },
   
   
 });

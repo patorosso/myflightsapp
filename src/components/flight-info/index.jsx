@@ -6,6 +6,10 @@ const FlightInfo = ({
   status,
   departure,
   arrival,
+  departureRegion,
+  arrivalRegion,
+  detailedView,
+
 
 }) => {
   return (
@@ -19,10 +23,19 @@ const FlightInfo = ({
                               <Text style={styles.headerMid}>{status}</Text>
                               <Text style={styles.headerRight}>{arrival}</Text>
                             </View>
-                            <Text>Flight Number:{flightNumber} </Text>
-                            <Text>Status: </Text>
-                            <Text>Departure Airport: </Text>
-                            <Text>Arrival Airport: </Text>
+                            
+                            <View style={styles.body}>
+                              <View style={styles.leftRegion}>
+                                <Text style={{ paddingRight: 27, textAlign: 'center'}}>{departureRegion}</Text>
+                                
+                              </View>
+                              
+                              <View style={styles.rightRegion}>
+                                <Text style={{ paddingLeft: 27, textAlign: 'center'}}>{arrivalRegion}</Text>
+                                
+                              </View>
+
+                            </View>
                           </View>
                         </View>      
                   </View>
@@ -31,9 +44,3 @@ const FlightInfo = ({
 };
 
 export default FlightInfo;
-
-
-/* <Text>Flight Number: {flightStatus.data[0].flight.iataNumber}</Text>
-<Text>Status: {flightStatus.data[0].status}</Text>
-<Text>Departure Airport: {flightStatus.data[0].departure.iataCode}</Text>
-<Text>Arrival Airport: {flightStatus.data[0].arrival.iataCode}</Text> */
