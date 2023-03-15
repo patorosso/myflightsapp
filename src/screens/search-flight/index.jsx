@@ -142,6 +142,17 @@ const SearchFlight = ({navigation}) => {
               status='en-route' departureRegion='Buenos Aires' arrivalRegion='Roma'
               />
             </View>
+
+
+            <View style={{flexDirection: 'row', justifyContent: 'flex-end', marginRight:27}}>
+              <TouchableHighlight underlayColor={colors.lightRedFides}  
+                    activeOpacity={0.9}  style={styles.buttonMapContainer}
+                    onPress={() => onHandlerLocate()}>
+                    <Text style={styles.buttonMapText}>LOCATE ON MAP</Text>
+              </TouchableHighlight> 
+            
+
+            </View>
             
             
 
@@ -155,11 +166,7 @@ const SearchFlight = ({navigation}) => {
                 flightNumber={flightStatus.data[0].flight.iataNumber}
                 />
 
-                <TouchableHighlight underlayColor={colors.lightRedFides}  
-                  activeOpacity={0.9}  style={styles.buttonMapContainer}
-                  onPress={() => onHandlerLocate()}>
-                  <Text style={styles.buttonMapText}>LOCATE ON MAP</Text>
-                </TouchableHighlight> 
+                
               </View>
             )} */}
             
