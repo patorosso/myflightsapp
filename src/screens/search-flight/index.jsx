@@ -50,7 +50,7 @@ const SearchFlight = ({navigation}) => {
       };
 
     async function searchFlightFunction(enteredValue){
-      setFlightStatus(null);
+      
       Keyboard.dismiss();
         if(enteredValue.length === 0)
           {
@@ -63,7 +63,8 @@ const SearchFlight = ({navigation}) => {
       } catch (error) {
         console.error(error);
       }
-
+      
+      //waits for flightStatus to update, otherwise i wouldnt get access to the data
       let intervalId = setInterval(() => {
         if (flightStatus !== null) {
           clearInterval(intervalId);
@@ -163,12 +164,12 @@ const SearchFlight = ({navigation}) => {
 
             {loading && (
               <View style={{marginTop: 175}}>
-                <ActivityIndicator size="large" color={colors.primary}/>
+                <ActivityIndicator size="large" color={colors.black}/>
               </View>
             )}
         
 
-            {flightStatus && (
+            {flightStatus && !loading  && (
               <>
                 <View style={{marginTop: 175}}>
                   <FlightInfo 
@@ -191,8 +192,6 @@ const SearchFlight = ({navigation}) => {
                 </View>
               </>
             )} 
-            
-            
 
         </View>
       </LinearGradient>
