@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Keyboard, KeyboardAvoidingView, TouchableHighlight, ActivityIndicator } from "react-native";
+import { View, Text, TextInput, Keyboard, KeyboardAvoidingView, TouchableHighlight, ActivityIndicator, Alert } from "react-native";
 import { styles } from "./styles";
 import { colors } from "../../constants";
 import { FLIGHT_LABS_API_KEY,AIRPORT_DB_TOKEN} from "../../constants/flight_api";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
-import { FlightNoInfo, FlightInfo } from "../../components";
+import { FlightInfo } from "../../components";
 import { useDispatch } from 'react-redux';
-import {  } from '../../store/actions';
 import { selectFlight } from "../../store/actions";
 
 
 const SearchFlight = ({navigation}) => {
-     const dispatch = useDispatch();
+    const dispatch = useDispatch();
     
     
     const [enteredValue,setEnteredValue] = useState("");
@@ -22,11 +21,7 @@ const SearchFlight = ({navigation}) => {
     const [loading, setLoading] = useState(false);
 
     const onHandlerLocate = async () => {
-      //controlar null
-      const arrivalPromise = getAirportInfo(flightStatus.data[0].arrival.icaoCode, 'arrival');
-      const departurePromise = getAirportInfo(flightStatus.data[0].departure.icaoCode,'departure');
-      await Promise.all([arrivalPromise, departurePromise]);
-    
+      
       dispatch(selectFlight(flightStatus.data[0].flight.iataNumber));
     
       if(arrivalData && departureData) {
@@ -54,21 +49,41 @@ const SearchFlight = ({navigation}) => {
         setEnteredValue(text.replace(/[^a-zA-Z0-9]/g, ''));
       };
 
+    async function searchFlightFunction(enteredValue){
+      setFlightStatus(null);
+      Keyboard.dismiss();
+        if(enteredValue.length === 0)
+          {
+            Alert.alert("Please enter a flight number ...");
+            return ;
+          }
+      setLoading(true);
+      try {
+        await getFlightStatus(enteredValue);
+      } catch (error) {
+        console.error(error);
+      }
 
+      let intervalId = setInterval(() => {
+        if (flightStatus !== null) {
+          clearInterval(intervalId);
+        }
+      }, 100);
+      
+      
+      try {
+        await getAirportInfo(flightStatus.data[0].arrival.icaoCode, 'arrival');
+        await getAirportInfo(flightStatus.data[0].departure.icaoCode,'departure');
+      } catch (error) {
+        console.error(error);
+      }finally {
+        setLoading(false);
+      }
+    }
 
  
       //FlightLabs API
       async function getFlightStatus(enteredValue) {
-        Keyboard.dismiss();
-        
-    
-        if(enteredValue.length === 0)
-          {
-            
-            return null;
-          }
-
-        
         const apiKey = FLIGHT_LABS_API_KEY;
         try {
           const response = await fetch(`https://app.goflightlabs.com/flights?access_key=${apiKey}&flightIata=${enteredValue}`, {
@@ -134,7 +149,7 @@ const SearchFlight = ({navigation}) => {
                 <TouchableHighlight
                 underlayColor={colors.lightblue}  
                 activeOpacity={0.9} 
-                onPress={() => getFlightStatus(enteredValue)}
+                onPress={() => searchFlightFunction(enteredValue)}
                 style={styles.searchIconContainer} 
                 >
                   <Ionicons
@@ -156,8 +171,11 @@ const SearchFlight = ({navigation}) => {
             {flightStatus && (
               <>
                 <View style={{marginTop: 175}}>
-                  <FlightInfo arrival='FCO' departure='EZE'
-                  status='en-route' departureRegion='Buenos Aires' arrivalRegion='Roma'
+                  <FlightInfo 
+                  arrival={flightStatus.data[0].arrival.iataCode}
+                  departure={flightStatus.data[0].departure.iataCode}
+                  status={flightStatus.data[0].status}
+                  departureRegion='Buenos Aires' arrivalRegion='Roma'
                   />
                 </View>
 
@@ -175,23 +193,6 @@ const SearchFlight = ({navigation}) => {
             )} 
             
             
-
-            
-            {/*
-              <View style={{marginTop: 175}}>
-                <FlightInfo 
-                arrival={flightStatus.data[0].arrival.iataCode}
-                departure={flightStatus.data[0].departure.iataCode}
-                status={flightStatus.data[0].status}
-                flightNumber={flightStatus.data[0].flight.iataNumber}
-                />
-
-                
-              </View>
-            */}
-            
-
-
 
         </View>
       </LinearGradient>
