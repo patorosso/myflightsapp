@@ -51,12 +51,13 @@ const SearchFlight = ({navigation}) => {
 
     async function searchFlightFunction(enteredValue){
       
-      Keyboard.dismiss();
+      
         if(enteredValue.length === 0)
           {
-            Alert.alert("Please enter a flight number ...");
+            Alert.alert("Alert: empty search.","\nPlease enter a flight number. \n\nExample: AZ681, BA267 ...");
             return ;
           }
+      Keyboard.dismiss();
       setLoading(true);
       try {
         await getFlightStatus(enteredValue);

@@ -54,7 +54,6 @@ const Home = ({navigation}) => {
                   </TouchableWithoutFeedback>
                 </View>
 
-
                 <View style={styles.topRight}>
                 <TouchableWithoutFeedback  onPress={() => navigation.navigate('History')} onPressIn={historyIn} onPressOut={historyOut}>
                     <View>
@@ -73,13 +72,14 @@ const Home = ({navigation}) => {
               <View style={styles.bottomContainer}>
                 <View style={styles.bottomLeft}>
                 <Ionicons
-                    name={'settings'}
+                    name={'md-today-outline'}
                     size={80}
                     color={colors.white}
                     style={{alignSelf: 'center', paddingVertical: 10}}
                   />
-                  <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center'}}>Search by Flight</Text>
+                  <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center'}}>Schedule by Airline</Text>
                 </View>
+                
                 <View style={styles.bottomRight}>
                 <Ionicons
                     name={'home'}
@@ -87,7 +87,7 @@ const Home = ({navigation}) => {
                     color={colors.white}
                     style={{alignSelf: 'center', paddingVertical: 10}}
                   />
-                  <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center'}}>Search by Flight</Text>
+                  <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center'}}>--------</Text>
                 </View>
               </View>
             </View>
