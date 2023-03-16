@@ -1,3 +1,4 @@
+//function to rotate plane on the map.
 export function getRotation(flightLatitude,flightLongitude,airportLatitude,airportLongitude) {
     // helper function to convert degrees to radians
     function toRadians(degrees) {
