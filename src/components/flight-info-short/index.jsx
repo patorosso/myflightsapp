@@ -1,7 +1,7 @@
 import { View, Text} from 'react-native';
 import { styles } from './styles';
 
-const FlightNoInfo = ({
+const FlightInfoShort = ({
   
 
 }) => {
@@ -27,4 +27,4 @@ const FlightNoInfo = ({
   );
 };
 
-export default FlightNoInfo;
+export default FlightInfoShort;
