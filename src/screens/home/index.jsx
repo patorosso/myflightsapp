@@ -90,7 +90,6 @@ const Home = ({navigation}) => {
                   <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center'}}>Search by Flight</Text>
                 </View>
               </View>
-
             </View>
         </LinearGradient>
        
