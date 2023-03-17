@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Home, SearchFlight, FlightMap } from "../screens/index";
+import { Home, SearchFlight, FlightMap, History } from "../screens/index";
 import { colors } from "../constants";
 import { useSelector } from "react-redux";
 
@@ -26,6 +26,9 @@ const HomeNavigator = () => {
 
             <Stack.Screen name='FlightMap' component={FlightMap} 
             options= {{ title:`Flight Map - ${flightId}`  ,headerTintColor: colors.primary}}/>
+
+            <Stack.Screen name='History' component={History} 
+            options= {{title:'Flight History' ,headerTintColor: colors.primary}}/>
             
         </Stack.Navigator>
     )

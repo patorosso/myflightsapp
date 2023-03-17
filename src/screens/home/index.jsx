@@ -9,79 +9,87 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 const Home = ({navigation}) => {
 
-  const [isPressed, setIsPressed] = useState(false);
+  const [searchPressed, setSearchPressed] = useState(false);
+  const [historyPressed, setHistoryPressed] = useState(false);
 
-  const handlePressIn = () => {
-      setIsPressed(true);
+  const searchIn = () => {
+      setSearchPressed(true);
   };
-  const handlePressOut = () => {
-    setIsPressed(false);
+  const searchOut = () => {
+    setSearchPressed(false);
   };
 
-const iconColor = isPressed ? colors.purple : colors.white;
-const textColor = isPressed ? colors.purple: colors.white;
+  const historyIn = () => {
+    setHistoryPressed(true);
+};
+  const historyOut = () => {
+    setHistoryPressed(false);
+  };
+
+  const searchColor = searchPressed ? colors.purple : colors.white;
+  const historyColor = historyPressed ? colors.purple : colors.white;
+
+
 
     return (
       <View style={styles.container}>
         
         <LinearGradient  
         colors={[  colors.darkblue, colors.primary]} 
-        style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        style={styles.gradientContainer}>
             <View style={styles.iconContainer}>
 
-              <View style={{flex:0.5, flexDirection:'row'}}>
-                
-                <View style={{flex:0.5,borderBottomColor:colors.purple,borderBottomWidth: 3,borderRightColor:colors.purple,borderRightWidth:3,justifyContent: 'center',paddingRight:10}}>
-
-                <TouchableWithoutFeedback  onPress={() => navigation.navigate('SearchFlight')} onPressIn={handlePressIn} onPressOut={handlePressOut}>
-                  <View>
-                      <Ionicons
-                          name={'search'}
-                          size={80}
-                          color={iconColor}
-                          style={{alignSelf: 'center'}}
-                        />
-                
-                        <Text style={{fontFamily: 'Nunito-Bold',color: textColor,fontSize: 13,alignSelf: 'center', paddingVertical: 10}}>Search by Flight</Text>
-                  </View>
-                </TouchableWithoutFeedback>
-                
-
+              <View style={styles.topContainer}>
+                <View style={styles.topLeft}>
+                  <TouchableWithoutFeedback  onPress={() => navigation.navigate('SearchFlight')} onPressIn={searchIn} onPressOut={searchOut}>
+                    <View>
+                        <Ionicons
+                            name={'search'}
+                            size={80}
+                            color={searchColor}
+                            style={{alignSelf: 'center'}}
+                          />
+                          <Text style={{fontFamily: 'Nunito-Bold',color: searchColor,fontSize: 13,alignSelf: 'center', paddingVertical: 10}}>Search by Flight</Text>
+                    </View>
+                  </TouchableWithoutFeedback>
                 </View>
 
-
-                <View style={{flex:0.5,borderBottomColor:colors.purple,borderBottomWidth: 3,borderLeftColor:colors.purple,borderLeftWidth:3,justifyContent: 'center',paddingLeft:10}}>
-                <MaterialIcons
-                    name={'history'}
-                    size={80}
-                    color={colors.white}
-                    style={{alignSelf: 'center'}}
-                  />
-                  <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center', paddingVertical: 10}}>History</Text>
+                <View style={styles.topRight}>
+                <TouchableWithoutFeedback  onPress={() => navigation.navigate('History')} onPressIn={historyIn} onPressOut={historyOut}>
+                    <View>
+                      <MaterialIcons
+                          name={'history'}
+                          size={80}
+                          color={historyColor}
+                          style={{alignSelf: 'center'}}
+                        />
+                      <Text style={{fontFamily: 'Nunito-Bold',color: historyColor,fontSize: 13,alignSelf: 'center', paddingVertical: 10}}>History</Text>
+                    </View>
+                  </TouchableWithoutFeedback>
                 </View>
               </View>
               
-              <View style={{flexDirection: 'row',flex:0.5}}>
-                <View style={{flex:0.5,borderTopColor:colors.purple,borderTopWidth: 3,borderRightColor:colors.purple,borderRightWidth:3,justifyContent: 'center',paddingRight:10}}>
+              <View style={styles.bottomContainer}>
+                <View style={styles.bottomLeft}>
                 <Ionicons
-                    name={'settings'}
+                    name={'md-today-outline'}
                     size={80}
                     color={colors.white}
                     style={{alignSelf: 'center', paddingVertical: 10}}
                   />
-                  <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center'}}>Search by Flight</Text>
+                  <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center'}}>Schedule by Airline</Text>
                 </View>
-                <View style={{flex:0.5,borderTopColor:colors.purple,borderTopWidth: 3,borderLeftColor: colors.purple ,borderLeftWidth:3,justifyContent: 'center',paddingLeft:10}}>
+                
+                <View style={styles.bottomRight}>
                 <Ionicons
                     name={'home'}
                     size={80}
                     color={colors.white}
                     style={{alignSelf: 'center', paddingVertical: 10}}
                   />
-                  <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center'}}>Search by Flight</Text>
+                  <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center'}}>--------</Text>
                 </View>
               </View>
-
             </View>
         </LinearGradient>
        

@@ -5,7 +5,6 @@ import MapView, {Marker} from 'react-native-maps';
 import { MaterialIcons, Ionicons ,FontAwesome5} from '@expo/vector-icons'; 
 import { FlightInfo } from "../../components";
 import { useLayoutEffect, useState } from "react";
-import { getRotation } from "../../functions/index";
 
 
 
@@ -13,14 +12,14 @@ import { getRotation } from "../../functions/index";
 const FlightMap = ({route, navigation}) => {
 
     const {flightNumber,latitude,longitude,altitude,arrivalIata,
-           departureIata,arrivalIcao,departureIcao,status,arrivalLatitude,
+           departureIata,arrivalIcao,departureIcao,status,direction,arrivalLatitude,
            arrivalLongitude,departureLatitude, departureLongitude,
             } = route.params;
     const [flightInfoBox, setFlightInfoBox] = useState(true);
     const [latitudeDelta, setLatitudeDelta] = useState(34); // before initial 4
 
     const [region, setRegion] = useState({
-        latitude: latitude,
+        latitude: latitude -8,
         longitude: longitude +1.5, //to put the icon on the middle of the screen
         latitudeDelta: 34,
         longitudeDelta: 34,
@@ -56,9 +55,6 @@ const FlightMap = ({route, navigation}) => {
         setFlightInfoBox(!flightInfoBox);
       };
     
-    
-
-    
     return (
         <View style={styles.container}>
             
@@ -72,7 +68,7 @@ const FlightMap = ({route, navigation}) => {
                 
                 <Marker coordinate={{latitude: departureLatitude ,longitude: departureLongitude}}/> 
                 <Marker  pinColor='navy' coordinate={{latitude: arrivalLatitude,longitude: arrivalLongitude}}/>
-                <Marker  rotation= {getRotation(latitude,longitude,arrivalLatitude,arrivalLongitude)} coordinate={{latitude, longitude}} imageStyle={{ width: 40, height: 40 }}>
+                <Marker  rotation= {direction} coordinate={{latitude, longitude}} imageStyle={{ width: 40, height: 40 }}>
                     <View>
                         <MaterialIcons 
                         name={'airplanemode-active'}
