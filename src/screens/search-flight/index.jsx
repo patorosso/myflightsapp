@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Keyboard, KeyboardAvoidingView, TouchableHighlight, ActivityIndicator, Alert } from "react-native";
 import { styles } from "./styles";
 import { colors } from "../../constants";
-import { FLIGHT_LABS_API_KEY,AIRPORT_DB_TOKEN} from "../../constants/flight_api";
+import { AIR_LABS_API_KEY,AIRPORT_DB_TOKEN} from "../../constants/flight_api";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
-import { FlightInfo } from "../../components";
+import { CustomModal, FlightInfo } from "../../components";
 import { useDispatch } from 'react-redux';
 import { selectFlight } from "../../store/actions";
 
@@ -21,20 +21,19 @@ const SearchFlight = ({navigation}) => {
     const [loading, setLoading] = useState(false);
 
     const onHandlerLocate = async () => {
-      
-      dispatch(selectFlight(flightStatus.data[0].flight.iataNumber));
-    
+      dispatch(selectFlight(flightStatus.response.flight_iata));
+
       if(arrivalData && departureData) {
         navigation.navigate('FlightMap', {
-          flightNumber: flightStatus.data[0].flight.iataNumber,
-          latitude: flightStatus.data[0].geography.latitude,
-          longitude: flightStatus.data[0].geography.longitude,
-          altitude: flightStatus.data[0].geography.altitude,
-          arrivalIata: flightStatus.data[0].arrival.iataCode,
-          departureIata: flightStatus.data[0].departure.iataCode,
-          arrivalIcao: flightStatus.data[0].arrival.icaoCode,
-          departureIcao: flightStatus.data[0].departure.icaoCode,
-          status: flightStatus.data[0].status,
+          flightNumber: flightStatus.response.flight_iata,
+          latitude: flightStatus.response.lat,
+          longitude: flightStatus.response.lng,
+          altitude: flightStatus.response.alt,
+          arrivalIata: flightStatus.response.arr_iata,
+          departureIata: flightStatus.response.dep_iata,
+          arrivalIcao: flightStatus.response.arr_icao,
+          departureIcao: flightStatus.response.dep_icao,
+          status: flightStatus.response.status,
           arrivalLatitude: arrivalData.latitude_deg,
           arrivalLongitude: arrivalData.longitude_deg,
           departureLatitude: departureData.latitude_deg,
@@ -70,12 +69,15 @@ const SearchFlight = ({navigation}) => {
         if (flightStatus !== null) {
           clearInterval(intervalId);
         }
-      }, 100);
+      }, 5000);
+
+      
+        
       
       
       try {
-        await getAirportInfo(flightStatus.data[0].arrival.icaoCode, 'arrival');
-        await getAirportInfo(flightStatus.data[0].departure.icaoCode,'departure');
+        await getAirportInfo(flightStatus.response.arr_icao, 'arrival');
+        await getAirportInfo(flightStatus.response.dep_icao,'departure');
       } catch (error) {
         console.error(error);
       }finally {
@@ -84,11 +86,11 @@ const SearchFlight = ({navigation}) => {
     }
 
  
-      //FlightLabs API
+      //AirLabs API
       async function getFlightStatus(enteredValue) {
-        const apiKey = FLIGHT_LABS_API_KEY;
+        const apiKey = AIR_LABS_API_KEY;
         try {
-          const response = await fetch(`https://app.goflightlabs.com/flights?access_key=${apiKey}&flightIata=${enteredValue}`, {
+          const response = await fetch(`https://airlabs.co/api/v9/flight?flight_iata=${enteredValue}&api_key=${apiKey}`, {
             headers: {
               'Authorization': `Bearer ${apiKey}`
             },
@@ -174,9 +176,9 @@ const SearchFlight = ({navigation}) => {
               <>
                 <View style={{marginTop: 175}}>
                   <FlightInfo 
-                  arrival={flightStatus.data[0].arrival.iataCode}
-                  departure={flightStatus.data[0].departure.iataCode}
-                  status={flightStatus.data[0].status}
+                  arrival={flightStatus.response.arr_iata}
+                  departure={flightStatus.response.dep_iata}
+                  status={flightStatus.response.status}
                   departureRegion='Buenos Aires' arrivalRegion='Roma'
                   />
                 </View>
