@@ -11,9 +11,8 @@ import { selectFlight } from "../../store/actions";
 
 
 const SearchFlight = ({navigation}) => {
+
     const dispatch = useDispatch();
-    
-    
     const [enteredValue,setEnteredValue] = useState("");
     const [flightStatus, setFlightStatus] = useState(null);
     const [arrivalData,setArrivalData] = useState(null);
@@ -34,6 +33,7 @@ const SearchFlight = ({navigation}) => {
           arrivalIcao: flightStatus.response.arr_icao,
           departureIcao: flightStatus.response.dep_icao,
           status: flightStatus.response.status,
+          direction: flightStatus.response.dir,
           arrivalLatitude: arrivalData.latitude_deg,
           arrivalLongitude: arrivalData.longitude_deg,
           departureLatitude: departureData.latitude_deg,
@@ -42,53 +42,22 @@ const SearchFlight = ({navigation}) => {
       }
     };
 
-
-
     const onHandlerChange = (text) => {
         setEnteredValue(text.replace(/[^a-zA-Z0-9]/g, ''));
-      };
+    };
 
-    async function searchFlightFunction(enteredValue){
-      
-      
+    //AirLabs API
+    async function getFlightInfo(enteredValue) {
         if(enteredValue.length === 0)
           {
             Alert.alert("Alert: empty search.","\nPlease enter a flight number. \n\nExample: AZ681, BA267 ...");
             return ;
           }
-      Keyboard.dismiss();
-      setLoading(true);
-      try {
-        await getFlightStatus(enteredValue);
-      } catch (error) {
-        console.error(error);
-      }
-      
-      //waits for flightStatus to update, otherwise i wouldnt get access to the data
-      let intervalId = setInterval(() => {
-        if (flightStatus !== null) {
-          clearInterval(intervalId);
-        }
-      }, 5000);
 
-      
-        
-      
-      
-      try {
-        await getAirportInfo(flightStatus.response.arr_icao, 'arrival');
-        await getAirportInfo(flightStatus.response.dep_icao,'departure');
-      } catch (error) {
-        console.error(error);
-      }finally {
-        setLoading(false);
-      }
-    }
-
- 
-      //AirLabs API
-      async function getFlightStatus(enteredValue) {
         const apiKey = AIR_LABS_API_KEY;
+        Keyboard.dismiss();
+        setLoading(true);
+
         try {
           const response = await fetch(`https://airlabs.co/api/v9/flight?flight_iata=${enteredValue}&api_key=${apiKey}`, {
             headers: {
@@ -96,18 +65,34 @@ const SearchFlight = ({navigation}) => {
             },
           });
         const data = await response.json();
-        console.log(data);
+
+        if(data.error)
+          {
+            Alert.alert("Error","Wrong flight number, check for the IATA code of the flight.");
+            return ;
+          }
+
         setFlightStatus(data);
-          }
-          catch (error) {
-            console.error(error);
-          }
+        try {
+          await getAirportInfo(data.response.arr_icao, 'arrival');
+          await getAirportInfo(data.response.dep_icao,'departure');
+        } catch (error) {
+          console.log("error with airport info.");
+          console.error(error);
         }
 
-    
+          }
+          catch (error) {
+            console.log("error with flight info.");
+            console.error(error);
+          }
+          finally {
+            setLoading(false);
+          }
+    }
 
-      //airportDB API
-      async function getAirportInfo(airportIcao, detail) {
+    //AirportDB API
+    async function getAirportInfo(airportIcao, detail) {
         const apiToken = AIRPORT_DB_TOKEN;
         try {
           const response = await fetch(`https://airportdb.io/api/v1/airport/${airportIcao}?apiToken=${apiToken}`, {
@@ -125,11 +110,8 @@ const SearchFlight = ({navigation}) => {
         } catch (error) {
           console.error(error);
         }
-      }
+    }
      
-
-
-
 
     return (    
     <KeyboardAvoidingView
@@ -153,7 +135,7 @@ const SearchFlight = ({navigation}) => {
                 <TouchableHighlight
                 underlayColor={colors.lightblue}  
                 activeOpacity={0.9} 
-                onPress={() => searchFlightFunction(enteredValue)}
+                onPress={() => getFlightInfo(enteredValue)}
                 style={styles.searchIconContainer} 
                 >
                   <Ionicons
