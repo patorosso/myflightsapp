@@ -1,7 +1,10 @@
 class Flight{
-    constructor(id, coords) {
+    constructor(id, flight_iata, dep_iata, arr_iata, time) {
         this.id = id;
-        this.coords = coords;
+        this.flight_iata = flight_iata;
+        this.dep_iata = dep_iata;
+        this.arr_iata = arr_iata;
+        this.time = time;
       }
 }
 

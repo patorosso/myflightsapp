@@ -77,7 +77,16 @@ const SearchFlight = ({navigation}) => {
         try {
           await getAirportInfo(data.response.arr_icao, 'arrival');
           await getAirportInfo(data.response.dep_icao,'departure');
-          dispatch(saveFlight(data.response.flight_iata));
+
+          const options = { hour12: false };
+          const time = new Date().toLocaleString(options);
+          dispatch(saveFlight(
+            data.response.flight_iata,
+            data.response.dep_iata,
+            data.response.arr_iata,
+            time,
+            )); //storing info on db
+
         } catch (error) {
           console.log("error with airport info.");
           console.error(error);
@@ -90,7 +99,7 @@ const SearchFlight = ({navigation}) => {
           }
           finally {
             setLoading(false);
-             //storing info on db
+             
           }
     }
 

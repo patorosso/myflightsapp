@@ -2,15 +2,14 @@ import { View, Text} from 'react-native';
 import { styles } from './styles';
 
 const FlightInfoShort = ({
-    coords,
-    flightNumber,
+    flight_iata,
+    dep_iata,
+    arr_iata,
+    time,
     status,
-    departure,
-    arrival,
     departureRegion,
     arrivalRegion,
-    detailedView,
-
+   
 
 }) => {
   
@@ -22,11 +21,11 @@ const FlightInfoShort = ({
                           <View style={styles.contentContainer}>
                             
                             <View style={styles.header}>
-                              <Text style={styles.headerLeft}>---</Text>
-                              <Text style={styles.headerMid}>unknown</Text>
-                              <Text style={styles.headerRight}>---</Text>
+                              <Text style={styles.headerLeft}>{dep_iata}</Text>
+                              <Text style={styles.headerMid}>{flight_iata}</Text>
+                              <Text style={styles.headerRight}>{arr_iata}</Text>
                             </View>
-                            <Text>LAT: {coords} </Text>
+                            <Text>Searched: {time}</Text>
                           </View>
                         </View>      
                   </View>

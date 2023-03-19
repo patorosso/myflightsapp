@@ -14,7 +14,10 @@ const flightSlice = createSlice({
     addFlight: (state, action) => {
       const newFlight = new Flight(
         action.payload.id.toString(),
-        action.payload.coords
+        action.payload.flight_iata,
+        action.payload.dep_iata,
+        action.payload.arr_iata,
+        action.payload.time,
       );
       state.flights.push(newFlight);
     },
@@ -26,15 +29,15 @@ const flightSlice = createSlice({
 
 export const { addFlight, setFlights } = flightSlice.actions;
 
-export const saveFlight = (coords) => {
+export const saveFlight = (flight_iata, dep_iata, arr_iata, time) => {
   
   return async (dispatch) => {
     try {
       
       
-      const result = await insertFlight(coords);
+      const result = await insertFlight(flight_iata, dep_iata, arr_iata, time);
       console.warn("result", result);
-      dispatch(addFlight({ id: result.insertId, coords }));
+      dispatch(addFlight({ id: result.insertId, flight_iata, dep_iata, arr_iata, time}));
     } catch (error) {
       console.log(error);
     }
