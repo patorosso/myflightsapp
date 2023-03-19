@@ -8,6 +8,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { CustomModal, FlightInfo } from "../../components";
 import { useDispatch } from 'react-redux';
 import { selectFlight } from "../../store/actions";
+import { saveFlight } from "../../store/flight.slice";
 
 
 const SearchFlight = ({navigation}) => {
@@ -88,6 +89,7 @@ const SearchFlight = ({navigation}) => {
           }
           finally {
             setLoading(false);
+            dispatch(saveFlight(data.response.lat)); //storing info on db
           }
     }
 
