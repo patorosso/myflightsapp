@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { } from "../db";
+import { getFlights, insertFlight } from "../db";
 import Flight from "../models/flights";
 
 const initialState = {

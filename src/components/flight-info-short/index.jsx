@@ -2,9 +2,19 @@ import { View, Text} from 'react-native';
 import { styles } from './styles';
 
 const FlightInfoShort = ({
-  
+    coords,
+    flightNumber,
+    status,
+    departure,
+    arrival,
+    departureRegion,
+    arrivalRegion,
+    detailedView,
+
 
 }) => {
+  
+
   return (
     <View style={styles.containerInfo}>
                   <View style={styles.containerFirstFlightInfo}>
@@ -16,10 +26,7 @@ const FlightInfoShort = ({
                               <Text style={styles.headerMid}>unknown</Text>
                               <Text style={styles.headerRight}>---</Text>
                             </View>
-                            <Text>Flight Number: </Text>
-                            <Text>Status: </Text>
-                            <Text>Departure Airport: </Text>
-                            <Text>Arrival Airport: </Text>
+                            <Text>LAT: {coords} </Text>
                           </View>
                         </View>      
                   </View>

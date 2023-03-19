@@ -66,7 +66,7 @@ const SearchFlight = ({navigation}) => {
             },
           });
         const data = await response.json();
-
+        console.log(data);
         if(data.error)
           {
             Alert.alert("Error","Wrong flight number, check for the IATA code of the flight.");
@@ -77,6 +77,7 @@ const SearchFlight = ({navigation}) => {
         try {
           await getAirportInfo(data.response.arr_icao, 'arrival');
           await getAirportInfo(data.response.dep_icao,'departure');
+          dispatch(saveFlight(data.response.flight_iata));
         } catch (error) {
           console.log("error with airport info.");
           console.error(error);
@@ -89,7 +90,7 @@ const SearchFlight = ({navigation}) => {
           }
           finally {
             setLoading(false);
-            dispatch(saveFlight(data.response.lat)); //storing info on db
+             //storing info on db
           }
     }
 
