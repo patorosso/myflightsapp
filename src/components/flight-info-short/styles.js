@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
 
 
 containerFirstFlightInfo: {
-    marginTop: 40,
+    marginTop: 60,
     paddingVertical: 20,
 
 
@@ -29,7 +29,7 @@ containerFirstFlightInfo: {
 
   contentContainer: {
     paddingHorizontal: 27,
-    flexDirection: 'row',
+    
     
   },
 
