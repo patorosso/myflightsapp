@@ -4,6 +4,8 @@ import { FlatList, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { FlightInfoShort } from "../../components";
 import { loadFlights } from "../../store/flight.slice";
+import { LinearGradient } from "expo-linear-gradient";
+import { colors } from "../../constants";
 
 
 const History = () => {
@@ -24,12 +26,18 @@ const History = () => {
 
     return (
         <View style={styles.container}>
+        
+        
+            
             <FlatList
             data={descSortedFlights}
             style={styles.container}
             keyExtractor={keyExtractor}
             renderItem={renderItem}
             />
+            
+        
+        
         </View>
     )
 }
