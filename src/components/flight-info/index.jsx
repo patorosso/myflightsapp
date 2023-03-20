@@ -1,5 +1,6 @@
 import { View, Text} from 'react-native';
 import { styles } from './styles';
+import { getStatusColor } from '../../functions';
 
 const FlightInfo = ({
   flightNumber,
@@ -8,10 +9,20 @@ const FlightInfo = ({
   arrival,
   departureRegion,
   arrivalRegion,
-  detailedView,
+  departureTime,
+  arrivalTime,
+  departureCountry,
+  arrivalCountry,
+  departureTerminal,
+  arrivalTerminal,
+  departureGate,
+  arrivalGate,
+
 
 
 }) => {
+
+  const color = getStatusColor(status);
   return (
     <View style={styles.containerInfo}>
                   <View style={styles.containerFirstFlightInfo}>
@@ -20,18 +31,23 @@ const FlightInfo = ({
                             
                             <View style={styles.header}>
                               <Text style={styles.headerLeft}>{departure}</Text>
-                              <Text style={styles.headerMid}>{status}</Text>
+                              <Text style={{flex:1,textAlign: 'center',fontFamily: 'Nunito-Medium',fontSize: 20,borderBottomWidth: 2, borderBottomColor: color, alignSelf: 'center', color: color}}>{status}</Text>
                               <Text style={styles.headerRight}>{arrival}</Text>
                             </View>
                             
                             <View style={styles.body}>
                               <View style={styles.leftRegion}>
-                                <Text style={{ paddingRight: 27, textAlign: 'center'}}>{departureRegion}</Text>
-                                
+                                <Text style={styles.depRegion}>{departureRegion}, {departureCountry}</Text>
+                                <Text style={styles.departureTime}>{departureTime}</Text>
+                                <Text style={styles.departureTerminal}>Terminal: {departureTerminal ? departureTerminal : '-' }</Text>
+                                <Text style={styles.departureGate}>Gate: {departureGate ? departureGate : '-' }</Text>
                               </View>
                               
                               <View style={styles.rightRegion}>
-                                <Text style={{ paddingLeft: 27, textAlign: 'center'}}>{arrivalRegion}</Text>
+                                <Text style={styles.arrRegion}>{arrivalRegion}, {arrivalCountry}</Text>
+                                <Text style={styles.arrivalTime}>{arrivalTime}</Text>
+                                <Text style={styles.arrivalTerminal}>Terminal: {arrivalTerminal ? arrivalTerminal : '-' }</Text>
+                                <Text style={styles.arrivalGate}>Gate: {arrivalGate ? arrivalGate : '-' }</Text>
                                 
                               </View>
 

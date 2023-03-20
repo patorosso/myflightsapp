@@ -8,6 +8,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { CustomModal, FlightInfo } from "../../components";
 import { useDispatch } from 'react-redux';
 import { selectFlight } from "../../store/actions";
+import { saveFlight } from "../../store/flight.slice";
 
 
 const SearchFlight = ({navigation}) => {
@@ -23,6 +24,11 @@ const SearchFlight = ({navigation}) => {
       dispatch(selectFlight(flightStatus.response.flight_iata));
 
       if(arrivalData && departureData) {
+        if(!flightStatus.response.lat || !flightStatus.response.lng )
+        {
+          Alert.alert("Alert: no coords found.","\nCan't access coordinates, please try another flight. \n\nExample: AF228, LA477 ...");
+          return ;
+        }
         navigation.navigate('FlightMap', {
           flightNumber: flightStatus.response.flight_iata,
           latitude: flightStatus.response.lat,
@@ -65,7 +71,7 @@ const SearchFlight = ({navigation}) => {
             },
           });
         const data = await response.json();
-
+        console.log(data);
         if(data.error)
           {
             Alert.alert("Error","Wrong flight number, check for the IATA code of the flight.");
@@ -76,6 +82,16 @@ const SearchFlight = ({navigation}) => {
         try {
           await getAirportInfo(data.response.arr_icao, 'arrival');
           await getAirportInfo(data.response.dep_icao,'departure');
+
+          const options = { hour12: false };
+          const time = new Date().toLocaleString(options);
+          dispatch(saveFlight(
+            data.response.flight_iata,
+            data.response.dep_iata,
+            data.response.arr_iata,
+            time,
+            )); //storing info on db
+
         } catch (error) {
           console.log("error with airport info.");
           console.error(error);
@@ -88,6 +104,7 @@ const SearchFlight = ({navigation}) => {
           }
           finally {
             setLoading(false);
+             
           }
     }
 
@@ -111,6 +128,7 @@ const SearchFlight = ({navigation}) => {
           console.error(error);
         }
     }
+
      
 
     return (    
@@ -161,7 +179,16 @@ const SearchFlight = ({navigation}) => {
                   arrival={flightStatus.response.arr_iata}
                   departure={flightStatus.response.dep_iata}
                   status={flightStatus.response.status}
-                  departureRegion='Buenos Aires' arrivalRegion='Roma'
+                  departureCountry={flightStatus.response.dep_country}
+                  arrivalCountry={flightStatus.response.arr_country}
+                  departureRegion={flightStatus.response.dep_city} 
+                  arrivalRegion={flightStatus.response.arr_city}
+                  departureTime={flightStatus.response.dep_time}
+                  arrivalTime={flightStatus.response.arr_time}
+                  departureTerminal={flightStatus.response.dep_terminal}
+                  arrivalTerminal={flightStatus.response.arr_terminal}
+                  departureGate={flightStatus.response.dep_gate}
+                  arrivalGate={flightStatus.response.arr_gate}
                   />
                 </View>
 

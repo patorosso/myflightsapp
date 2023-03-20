@@ -1,17 +1,15 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import {
-  
-  flightReducer,
-  
-  authReducer,
- 
-} from './reducers';
+import { configureStore } from "@reduxjs/toolkit";
 
-const rootReducer = combineReducers({
-  flight: flightReducer,
-  auth: authReducer,
-  
+import flightReducer from "./flight.slice";
+import authReducer from "./reducers/auth.reducer";
+
+export const store = configureStore({
+  reducer: {
+    flight: flightReducer,
+    //auth: authReducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
-
-export default createStore(rootReducer, applyMiddleware(thunk));
