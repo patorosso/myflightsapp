@@ -36,7 +36,7 @@ export const saveFlight = (flight_iata, dep_iata, arr_iata, time) => {
       
       
       const result = await insertFlight(flight_iata, dep_iata, arr_iata, time);
-      console.warn("result", result);
+      
       dispatch(addFlight({ id: result.insertId, flight_iata, dep_iata, arr_iata, time}));
     } catch (error) {
       console.log(error);

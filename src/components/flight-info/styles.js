@@ -28,7 +28,7 @@ containerFirstFlightInfo: {
   },
 
   contentContainer: {
-    paddingHorizontal: 27,
+    paddingHorizontal: 24,
     
   },
 
@@ -75,8 +75,27 @@ containerFirstFlightInfo: {
   rightRegion: {
     borderLeftWidth: 0.3,
     flex: 0.5,
+   
+  },
+  depRegion: {
+    fontFamily: 'Nunito-Medium',
     
   },
+  arrRegion: {
+    
+    paddingHorizontal: 20 ,
+    fontFamily: 'Nunito-Medium',
+ 
+  },
+  departureTime: {
+
+  },
+  arrivalTime: {
+    paddingHorizontal: 20 ,
+    
+  },
+  
+
   
   
 });

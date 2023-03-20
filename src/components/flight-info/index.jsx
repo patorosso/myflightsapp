@@ -8,7 +8,11 @@ const FlightInfo = ({
   arrival,
   departureRegion,
   arrivalRegion,
-  detailedView,
+  departureTime,
+  arrivalTime,
+  departureCountry,
+  arrivalCountry
+
 
 
 }) => {
@@ -26,12 +30,14 @@ const FlightInfo = ({
                             
                             <View style={styles.body}>
                               <View style={styles.leftRegion}>
-                                <Text style={{ paddingRight: 27, textAlign: 'center'}}>{departureRegion}</Text>
+                                <Text style={styles.depRegion}>{departureRegion}, {departureCountry}</Text>
+                                <Text style={styles.departureTime}>{departureTime}</Text>
                                 
                               </View>
                               
                               <View style={styles.rightRegion}>
-                                <Text style={{ paddingLeft: 27, textAlign: 'center'}}>{arrivalRegion}</Text>
+                                <Text style={styles.arrRegion}>{arrivalRegion}, {arrivalCountry}</Text>
+                                <Text style={styles.arrivalTime}>{arrivalTime}</Text>
                                 
                               </View>
 
