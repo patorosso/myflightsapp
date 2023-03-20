@@ -9,9 +9,9 @@ const Settings = () => {
     return (
         <LinearGradient  
         colors={[  colors.darkblue, colors.primary]} 
-        style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        style={{flex: 1 }}>
             <View style={styles.container}>
-                
+                <Text style={{color: 'white', fontFamily: 'Nunito-Bold', fontSize: 30}}>Coming up: {'\n'}-Language {'\n'}-Light/Dark mode</Text>
             </View>
         </LinearGradient>
     )

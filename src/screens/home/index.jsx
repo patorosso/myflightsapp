@@ -11,6 +11,7 @@ const Home = ({navigation}) => {
 
   const [searchPressed, setSearchPressed] = useState(false);
   const [historyPressed, setHistoryPressed] = useState(false);
+  const [schedulePressed, setSchedulePressed] = useState(false);
 
   const searchIn = () => {
       setSearchPressed(true);
@@ -21,13 +22,21 @@ const Home = ({navigation}) => {
 
   const historyIn = () => {
     setHistoryPressed(true);
-};
+  };
   const historyOut = () => {
     setHistoryPressed(false);
   };
 
+  const scheduleIn = () => {
+    setSchedulePressed(true);
+  };
+  const scheduleOut = () => {
+  setSchedulePressed(false);
+  };
+
   const searchColor = searchPressed ? colors.purple : colors.white;
   const historyColor = historyPressed ? colors.purple : colors.white;
+  const scheduleColor = schedulePressed ? colors.purple : colors.white;
 
 
 
@@ -71,13 +80,17 @@ const Home = ({navigation}) => {
               
               <View style={styles.bottomContainer}>
                 <View style={styles.bottomLeft}>
-                <Ionicons
-                    name={'md-today-outline'}
-                    size={80}
-                    color={colors.white}
-                    style={{alignSelf: 'center', paddingVertical: 10}}
-                  />
-                  <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center'}}>Schedule by Airline</Text>
+                <TouchableWithoutFeedback  onPress={() => navigation.navigate('Schedule')} onPressIn={scheduleIn} onPressOut={scheduleOut}>
+                  <View>
+                    <Ionicons
+                        name={'md-today-outline'}
+                        size={80}
+                        color={scheduleColor}
+                        style={{alignSelf: 'center', paddingVertical: 10}}
+                      />
+                      <Text style={{fontFamily: 'Nunito-Bold',color: scheduleColor,fontSize: 13,alignSelf: 'center'}}>Schedule by Airline</Text>
+                    </View>
+                  </TouchableWithoutFeedback>
                 </View>
                 
                 <View style={styles.bottomRight}>
