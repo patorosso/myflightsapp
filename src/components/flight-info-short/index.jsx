@@ -19,10 +19,11 @@ const FlightInfoShort = ({
   
 
   return (
-    <TouchableOpacity onPress={() => {}}>
+    
     <View style={styles.containerInfo}>
                   <View style={styles.containerFirstFlightInfo}>
-                        <View style={styles.shadowContainer}>
+                  <TouchableOpacity onPress={() => {}}>
+                        
                           <View style={styles.contentContainer}>
 
                             
@@ -33,11 +34,12 @@ const FlightInfoShort = ({
                               </View>
                               <Text>Searched: {time}</Text>
       
-                          </View>
-                        </View>      
+                          
+                        </View>    
+                        </TouchableOpacity>  
                   </View>
               </View>
-    </TouchableOpacity>
+   
   );
 };
 

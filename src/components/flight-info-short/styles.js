@@ -5,12 +5,13 @@ import { colors } from '../../constants';
 export const styles = StyleSheet.create({
   containerInfo:{
     marginHorizontal: 20,
+    marginBottom: 20,
     
 },
 
 
 containerFirstFlightInfo: {
-    marginTop: 60,
+    marginTop: 40,
     paddingVertical: 20,
 
 
