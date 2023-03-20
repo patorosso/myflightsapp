@@ -47,38 +47,6 @@ const SearchFlight = ({navigation}) => {
         setEnteredValue(text.replace(/[^a-zA-Z0-9]/g, ''));
     };
 
-    function getDayName(date = new Date(), locale = 'en-US') {
-      return date.toLocaleDateString(locale, {weekday: 'short'});
-    }
-
-    
-
-    function getDayNameWrapper(dateStr,lng) {
-      var i = 0;
-      while(dateStr.charAt(i) != ' ')
-        {
-          i++;
-        }
-      var slicedDate = dateStr.slice(0,i);
-      console.log(slicedDate);
-      
-      return(getDayName(new Date(slicedDate)));
-       
-    }
-
-    function getDayNameFromDateStr(dateStr) {
-      const dateArray = dateStr.split('-'); // split dateStr into an array of year, month, and day
-      const year = parseInt(dateArray[0]);
-      const month = parseInt(dateArray[1]) - 1; // JavaScript months are 0-based (0 = January, 1 = February, etc.)
-      const day = parseInt(dateArray[2]);
-      const date = new Date(year, month, day);
-      
-      return date.toLocaleDateString('en-US', {weekday: 'long'});
-    }
-    
-    // Example usage
-   
-
     //AirLabs API
     async function getFlightInfo(enteredValue) {
         if(enteredValue.length === 0)
@@ -210,8 +178,12 @@ const SearchFlight = ({navigation}) => {
                   arrivalCountry={flightStatus.response.arr_country}
                   departureRegion={flightStatus.response.dep_city} 
                   arrivalRegion={flightStatus.response.arr_city}
-                  departureTime={getDayNameWrapper(flightStatus.response.dep_time)}
-                  arrivalTime={getDayNameWrapper(flightStatus.response.arr_time)}
+                  departureTime={flightStatus.response.dep_time}
+                  arrivalTime={flightStatus.response.arr_time}
+                  departureTerminal={flightStatus.response.dep_terminal}
+                  arrivalTerminal={flightStatus.response.arr_terminal}
+                  departureGate={flightStatus.response.dep_gate}
+                  arrivalGate={flightStatus.response.arr_gate}
                   />
                 </View>
 
