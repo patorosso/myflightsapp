@@ -1,11 +1,9 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { FontAwesome } from '@expo/vector-icons'; 
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { colors } from '../constants';
 
 import HomeNavigator from './home';
-import UserNavigator from './user';
+
 import SettingsNavigator from './settings';
 
 
@@ -29,20 +27,6 @@ const Tabs = () => {
        tabBarStyle: {backgroundColor: colors.black}
         
       }}>
-        {/* <BottomTab.Screen
-        name="UserTab"
-        component={UserNavigator}
-        options={{
-          title: 'User',
-          tabBarIcon: ({ focused }) => (
-            <FontAwesome
-              name={focused ? 'user' : 'user-o'}
-              size={30}
-              color={colors.primary}
-            />
-          ),
-        }}
-      /> */}
       <BottomTab.Screen
         name="HomeTab"
         component={HomeNavigator}

@@ -44,9 +44,9 @@ const FlightMap = ({route, navigation}) => {
     useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => (
-                <TouchableOpacity onPress={onHandlerInfo}>
-                    <Ionicons name="information-circle-outline" size={36} color={colors.primary} />
-                </TouchableOpacity>
+                    <TouchableOpacity onPress={onHandlerInfo}>
+                        <Ionicons name="information-circle-outline" size={36} color={colors.primary} />
+                    </TouchableOpacity>
             )
         })
     });

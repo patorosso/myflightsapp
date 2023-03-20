@@ -28,7 +28,7 @@ containerFirstFlightInfo: {
   },
 
   contentContainer: {
-    paddingHorizontal: 27,
+    paddingHorizontal: 24,
     
   },
 
@@ -57,7 +57,6 @@ containerFirstFlightInfo: {
     flex:1,
     textAlign: 'center',
     fontFamily: 'Nunito-Regular',
-    color: 'green',
     fontSize: 20,
     alignSelf: 'center',
     
@@ -66,17 +65,53 @@ containerFirstFlightInfo: {
   body: {
     flexDirection: 'row',
     
+    
   },
   leftRegion: {
     flex: 0.5,
     borderRightWidth: 0.3,
+    
     
   },
   rightRegion: {
     borderLeftWidth: 0.3,
     flex: 0.5,
     
+   
   },
+  depRegion: {
+    fontFamily: 'Nunito-Medium',
+    marginBottom: 8,
+  },
+  arrRegion: {
+    
+    paddingHorizontal: 20 ,
+    fontFamily: 'Nunito-Medium',
+    marginBottom: 8,
+  },
+  departureTime: {
+    marginBottom: 8,
+  },
+  arrivalTime: {
+    paddingHorizontal: 20 ,
+    marginBottom: 8,
+  },
+  departureTerminal: {
+    marginBottom: 8,
+  },
+  arrivalTerminal : {
+    paddingHorizontal: 20 ,
+    marginBottom: 8,
+  },
+  departureGate: {
+    marginBottom: 8,
+  },
+  arrivalGate: {
+    paddingHorizontal: 20,
+    marginBottom: 8,
+  }
+  
+
   
   
 });
