@@ -81,36 +81,34 @@ containerFirstFlightInfo: {
   },
   depRegion: {
     fontFamily: 'Nunito-Medium',
-    marginBottom: 5,
-    fontSize: 18
+    marginBottom: 8,
   },
   arrRegion: {
     
     paddingHorizontal: 20 ,
     fontFamily: 'Nunito-Medium',
-    marginBottom: 5,
-    fontSize: 18
+    marginBottom: 8,
   },
   departureTime: {
-    marginBottom: 5,
+    marginBottom: 8,
   },
   arrivalTime: {
     paddingHorizontal: 20 ,
-    marginBottom: 5,
+    marginBottom: 8,
   },
   departureTerminal: {
-    marginBottom: 5,
+    marginBottom: 8,
   },
   arrivalTerminal : {
     paddingHorizontal: 20 ,
-    marginBottom: 5,
+    marginBottom: 8,
   },
   departureGate: {
-    marginBottom: 5,
+    marginBottom: 8,
   },
   arrivalGate: {
     paddingHorizontal: 20,
-    marginBottom: 5,
+    marginBottom: 8,
   }
   
 

@@ -24,6 +24,11 @@ const SearchFlight = ({navigation}) => {
       dispatch(selectFlight(flightStatus.response.flight_iata));
 
       if(arrivalData && departureData) {
+        if(!flightStatus.response.lat || !flightStatus.response.lng )
+        {
+          Alert.alert("Alert: no coords found.","\nCan't access coordinates, please try another flight. \n\nExample: AF228, LA477 ...");
+          return ;
+        }
         navigation.navigate('FlightMap', {
           flightNumber: flightStatus.response.flight_iata,
           latitude: flightStatus.response.lat,

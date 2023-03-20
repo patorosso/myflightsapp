@@ -15,6 +15,9 @@ export function getStatusColor(status){
           case 'landed':
             color = colors.primary;
             break;
+          case 'scheduled':
+            color = 'green'
+            break;
           default:
             color = 'black';
             break;

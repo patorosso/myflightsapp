@@ -31,7 +31,7 @@ const FlightInfo = ({
                             
                             <View style={styles.header}>
                               <Text style={styles.headerLeft}>{departure}</Text>
-                              <Text style={{flex:1,textAlign: 'center',fontFamily: 'Nunito-Medium',fontSize: 20,alignSelf: 'center', color: color}}>{status}</Text>
+                              <Text style={{flex:1,textAlign: 'center',fontFamily: 'Nunito-Medium',fontSize: 20,borderBottomWidth: 2, borderBottomColor: color, alignSelf: 'center', color: color}}>{status}</Text>
                               <Text style={styles.headerRight}>{arrival}</Text>
                             </View>
                             
