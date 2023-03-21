@@ -88,7 +88,7 @@ const Home = ({navigation}) => {
                         color={scheduleColor}
                         style={{alignSelf: 'center', paddingVertical: 10}}
                       />
-                      <Text style={{fontFamily: 'Nunito-Bold',color: scheduleColor,fontSize: 13,alignSelf: 'center'}}>Schedule by Airline</Text>
+                      <Text style={{fontFamily: 'Nunito-Bold',color: scheduleColor,fontSize: 13,alignSelf: 'center'}}>Schedule by Airport</Text>
                     </View>
                   </TouchableWithoutFeedback>
                 </View>

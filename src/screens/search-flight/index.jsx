@@ -87,10 +87,10 @@ const SearchFlight = ({navigation}) => {
             },
           });
         const data = await response.json();
-        
+        console.log(data);
         if(data.error)
           {
-            Alert.alert("Error","Couldn't find the flight. Check for the IATA code of the flight. If the problem doesn't go away please try again later or search other flights.");
+            Alert.alert("Error","Couldn't find the flight. Verify if it's the correct IATA code. If the problem doesn't go away please try again later or search other flights.");
             return ;
           }
 
