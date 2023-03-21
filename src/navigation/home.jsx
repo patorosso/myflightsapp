@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator();
 
 
 const HomeNavigator = () => {
-    const flightId = useSelector((state) => state.flight.flightId);
+    const flightId = useSelector((state) => state.flight.selectedFlight);
     
     return (
         <Stack.Navigator initialRouteName="Home" screenOptions={{animation:"fade"}}>

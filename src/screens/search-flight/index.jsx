@@ -8,7 +8,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { CustomModal, FlightInfo } from "../../components";
 import { useDispatch } from 'react-redux';
 import { selectFlight } from "../../store/actions";
-import { saveFlight } from "../../store/flight.slice";
+import { currentFlight, saveFlight } from "../../store/flight.slice";
 
 
 const SearchFlight = ({navigation}) => {
@@ -21,7 +21,7 @@ const SearchFlight = ({navigation}) => {
     const [loading, setLoading] = useState(false);
 
     const onHandlerLocate = async () => {
-      dispatch(selectFlight(flightStatus.response.flight_iata));
+      
 
       if(flightStatus.response.status == 'cancelled')
       {
@@ -87,7 +87,7 @@ const SearchFlight = ({navigation}) => {
             },
           });
         const data = await response.json();
-        console.log(data);
+        
         if(data.error)
           {
             Alert.alert("Error","Couldn't find the flight. Check for the IATA code of the flight. If the problem doesn't go away please try again later or search other flights.");
@@ -107,7 +107,7 @@ const SearchFlight = ({navigation}) => {
             data.response.arr_iata,
             time,
             )); //storing info on db
-
+          dispatch(currentFlight(data.response.flight_iata));
         } catch (error) {
           console.log("error with airport info.");
           console.error(error);
@@ -134,7 +134,7 @@ const SearchFlight = ({navigation}) => {
             },
           });
           const data = await response.json();
-          console.log(data);
+
           if (detail === 'arrival') {
             setArrivalData(data);
           } else {
