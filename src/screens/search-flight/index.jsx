@@ -23,10 +23,16 @@ const SearchFlight = ({navigation}) => {
     const onHandlerLocate = async () => {
       dispatch(selectFlight(flightStatus.response.flight_iata));
 
+      if(flightStatus.response.status == 'cancelled')
+      {
+        Alert.alert("Alert: flight cancelled.","\nSorry, please try another flight. \n\nExample: AF228, LA477 ...");
+        return ;
+      }
+
       if(arrivalData && departureData) {
         if(!flightStatus.response.lat || !flightStatus.response.lng )
         {
-          Alert.alert("Alert: no coords found.","\nCan't access coordinates, please try another flight. \n\nExample: AF228, LA477 ...");
+          Alert.alert("Alert: no coords found.","\nSorry, can't access current flight coordinates. Please try another flight. \n\nExample: AF228, LA477 ...");
           return ;
         }
         navigation.navigate('FlightMap', {
@@ -74,7 +80,7 @@ const SearchFlight = ({navigation}) => {
         console.log(data);
         if(data.error)
           {
-            Alert.alert("Error","Wrong flight number, check for the IATA code of the flight.");
+            Alert.alert("Error","Couldn't find the flight. Check for the IATA code of the flight. If the problem doesn't go away please try again later or search other flights.");
             return ;
           }
 
