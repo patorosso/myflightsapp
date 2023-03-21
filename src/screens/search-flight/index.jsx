@@ -50,6 +50,16 @@ const SearchFlight = ({navigation}) => {
           arrivalLongitude: arrivalData.longitude_deg,
           departureLatitude: departureData.latitude_deg,
           departureLongitude: departureData.longitude_deg,
+          arrivalCountry: flightStatus.response.arr_country,
+          departureCountry: flightStatus.response.dep_country,
+          arrivalGate: flightStatus.response.arr_gate,
+          departureGate:flightStatus.response.dep_gate,
+          arrivalTerminal:flightStatus.response.arr_terminal,
+          departureTerminal: flightStatus.response.dep_terminal,
+          arrivalRegion: flightStatus.response.arr_city,
+          departureRegion: flightStatus.response.dep_city,
+          arrivalTime: flightStatus.response.arr_time,
+          departureTime: flightStatus.response.dep_time,
         });
       }
     };

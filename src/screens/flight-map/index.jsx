@@ -13,7 +13,8 @@ const FlightMap = ({route, navigation}) => {
 
     const {flightNumber,latitude,longitude,altitude,arrivalIata,
            departureIata,arrivalIcao,departureIcao,status,direction,arrivalLatitude,
-           arrivalLongitude,departureLatitude, departureLongitude,
+           arrivalLongitude,departureLatitude, departureLongitude,arrivalCountry, departureCountry,arrivalGate ,
+            departureGate, arrivalTerminal,departureTerminal,arrivalRegion,departureRegion,arrivalTime,departureTime,
             } = route.params;
     const [flightInfoBox, setFlightInfoBox] = useState(true);
     const [latitudeDelta, setLatitudeDelta] = useState(34); // before initial 4
@@ -105,6 +106,16 @@ const FlightMap = ({route, navigation}) => {
                     arrival={arrivalIata}
                     departure={departureIata}
                     status={status}
+                    arrivalCountry={arrivalCountry}
+                    departureCountry={departureCountry}
+                    arrivalRegion={arrivalRegion}
+                    departureRegion={departureRegion}
+                    arrivalGate={arrivalGate}
+                    departureGate={departureGate}
+                    arrivalTerminal={arrivalTerminal}
+                    departureTerminal={departureTerminal}
+                    arrivalTime={arrivalTime}
+                    departureTime={departureTime}
                     
             
                     />
