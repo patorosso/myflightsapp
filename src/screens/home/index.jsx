@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text,  TouchableWithoutFeedback,StatusBar} from "react-native";
+import { View, Text,  TouchableWithoutFeedback} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { styles } from "./styles";
 import { colors } from "../../constants";

@@ -7,7 +7,6 @@ import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
 import { CustomModal, FlightInfo } from "../../components";
 import { useDispatch } from 'react-redux';
-import { selectFlight } from "../../store/actions";
 import { currentFlight, saveFlight } from "../../store/flight.slice";
 
 
@@ -192,7 +191,7 @@ const SearchFlight = ({navigation}) => {
             {flightStatus && !loading  && (
               <>
                 <View style={{marginTop: 175}}>
-                  <FlightInfo 
+                  <FlightInfo
                   arrival={flightStatus.response.arr_iata}
                   departure={flightStatus.response.dep_iata}
                   status={flightStatus.response.status}

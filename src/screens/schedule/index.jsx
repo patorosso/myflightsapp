@@ -20,11 +20,7 @@ const Schedule = () => {
     return (
         <View style={styles.container}>
             <View style={{width: '80%', alignSelf: 'center', marginTop: 40}}>
-                <SelectList 
-                setSelected={(val) => setSelected(val)} 
-                data={data} 
-                save="value"
-                />
+                
             </View>
         </View>
     );
