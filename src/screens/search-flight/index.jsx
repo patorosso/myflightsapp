@@ -95,6 +95,7 @@ const SearchFlight = ({navigation}) => {
           }
 
         setFlightStatus(data);
+        dispatch(currentFlight(data.response.flight_iata));
         try {
           await getAirportInfo(data.response.arr_icao, 'arrival');
           await getAirportInfo(data.response.dep_icao,'departure');
@@ -107,7 +108,7 @@ const SearchFlight = ({navigation}) => {
             data.response.arr_iata,
             time,
             )); //storing info on db
-          dispatch(currentFlight(data.response.flight_iata));
+          
         } catch (error) {
           console.log("error with airport info.");
           console.error(error);
