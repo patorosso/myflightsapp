@@ -3,6 +3,10 @@ import { colors } from "../../constants";
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        marginHorizontal: 20,
+        marginBottom: 20,
+        backgroundColor: colors.red,
+        flexDirection: 'row',
+        justifyContent: 'space-evenly'
     },
 });
