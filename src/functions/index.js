@@ -7,16 +7,16 @@ export function getStatusColor(status){
             color = 'orange';
             break;
           case 'en-route':
-            color = 'green';
+            color = 'blue';
             break;
           case 'cancelled':
             color = colors.red;
             break;
           case 'landed':
-            color = colors.primary;
+            color = colors.green;
             break;
           case 'scheduled':
-            color = 'green'
+            color = colors.lightblue
             break;
           default:
             color = 'black';

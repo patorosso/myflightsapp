@@ -5,9 +5,11 @@ import { colors } from "../../constants";
 import { SelectList } from 'react-native-dropdown-select-list';
 import { AIR_LABS_API_KEY } from "../../constants/flight_api";
 import ScheduleItem from "../../components/schedule-item";
+import { LinearGradient } from "expo-linear-gradient";
 
 const Schedule = () => {
     const [arrData,setArrData] = useState([]);
+    const [page, setPage] = useState(1);
        
     async function onHandleAirportSchedule() {
         const apiKey = AIR_LABS_API_KEY;
@@ -33,42 +35,52 @@ const Schedule = () => {
             }
     }
 
+    const handleNextPage = () => {
+        setPage(page + 1);
+      }
+
     const renderItem = ({ item }) => (
-        
-        // Render your list item here
-        <ScheduleItem flightNumber={item.flight_iata} status={item.status} />
-        
+        <ScheduleItem flightNumber={item.flight_iata} status={item.status}  time={'18:50'} destination={item.arr_iata} />
       );
-      
     
+   
+
 
 
     return (
         <View style={styles.container}>
 
             <View style={styles.buttonContainer}>
-                <Button color={colors.red} onPress={onHandleAirportSchedule} title='get schedule'/>
+                <Button color={colors.primary} onPress={onHandleAirportSchedule} title='get schedule'/>
             </View>
 
-            <View style={styles.topBar}>
-                <Text style={{width: 60}}>Time</Text>
-                <Text style={{width: 60}}>Carrier</Text>
-                <Text style={{width: 60}}>Flight</Text>
-                <Text style={{width: 90}}>Destination</Text>
-                <Text style={{width: 60}}>Status</Text>
+            <View style={styles.listContainer}>
+                
+                <View style={styles.topBar}>
+                    <View style={styles.topBarContent}>
+                        <Text style={{width: 60,}}>Time</Text>
+                        <Text style={{width: 60}}>Flight</Text>
+                        <Text style={{width: 60}}>Dest.</Text>
+                        <Text style={{width: 75}}>Status</Text>
+                    </View>
+                    
+                </View>
+
+            
+            
+                {(arrData &&
+                    <FlatList
+                    data={arrData.response && arrData.response.slice(0, page * 10)}
+                    renderItem={renderItem}
+                    keyExtractor={(item, index) => index.toString()}
+                    onEndReached={handleNextPage}
+                    onEndReachedThreshold={0.5}
+                    pagingEnabled={true}
+                    />
+                )}
+               
             </View>
-
-            <ScheduleItem flightNumber={'AZ681'} status={'delayed'} destination={'FCO'} company={'AA'} time={'18:50'} />
-
-            {(arrData &&
-            <FlatList
-            data={arrData.response}
-            renderItem={renderItem}
-            keyExtractor={item => item.flight_iata}
-            />
-        )}
         
-
         </View>
     );
 } 

@@ -3,9 +3,11 @@ import { colors } from "../../constants";
 
 export const styles = StyleSheet.create({
     container: {
+        paddingTop: 10,
         marginHorizontal: 20,
-        marginBottom: 20,
-        backgroundColor: colors.red,
+        marginBottom: 3,
+        paddingBottom: 10,
+        borderBottomWidth: 1,
         flexDirection: 'row',
         justifyContent: 'space-evenly'
     },
