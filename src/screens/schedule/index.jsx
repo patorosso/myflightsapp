@@ -3,7 +3,7 @@ import { View , Button, FlatList, Text} from "react-native";
 import { styles } from "./styles";
 import { colors } from "../../constants";
 import { SelectList } from 'react-native-dropdown-select-list';
-import { AIR_LABS_API_KEY } from "../../constants/flight_api";
+import { AIR_LABS_API_KEY } from "../../constants/flight_api_keys";
 import ScheduleItem from "../../components/schedule-item";
 import { LinearGradient } from "expo-linear-gradient";
 

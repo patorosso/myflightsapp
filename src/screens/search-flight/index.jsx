@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Keyboard, KeyboardAvoidingView, TouchableHighlight, ActivityIndicator, Alert } from "react-native";
 import { styles } from "./styles";
 import { colors } from "../../constants";
-import { AIR_LABS_API_KEY,AIRPORT_DB_TOKEN} from "../../constants/flight_api";
+import { AIR_LABS_API_KEY,AIRPORT_DB_TOKEN} from "../../constants/flight_api_keys";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
 import { CustomModal, FlightInfo } from "../../components";
@@ -89,7 +89,7 @@ const SearchFlight = ({navigation}) => {
         console.log(data);
         if(data.error)
           {
-            Alert.alert("Error","Couldn't find the flight. Verify if it's the correct IATA code. If the problem doesn't go away please try again later or search other flights.");
+            Alert.alert("Error",`Flight not available. Check if the IATA code is correct or try the code: '${enteredValue}' again later.`);
             return ;
           }
 
