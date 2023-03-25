@@ -160,7 +160,7 @@ const SearchFlight = ({navigation}) => {
                 
                 <TextInput 
                 style={styles.input} 
-                placeholder="Example: AZ681, BA267 ..."
+                placeholder="Example: AZ681, AA954 ..."
                 autoCapitalize="characters"
                 keyboardAppearance="light"
                 value={enteredValue}

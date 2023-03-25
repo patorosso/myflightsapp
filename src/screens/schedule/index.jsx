@@ -14,7 +14,7 @@ const Schedule = () => {
     async function onHandleAirportSchedule() {
         const apiKey = AIR_LABS_API_KEY;
         try {
-            const response = await fetch(`https://airlabs.co/api/v9/schedules?dep_iata=SIN&api_key=${apiKey}`, {
+            const response = await fetch(`https://airlabs.co/api/v9/schedules?dep_iata=EZE&api_key=${apiKey}`, {
             headers: {
                 'Authorization': `Bearer ${apiKey}`
             },
@@ -40,7 +40,8 @@ const Schedule = () => {
       }
 
     const renderItem = ({ item }) => (
-        <ScheduleItem flightNumber={item.flight_iata} status={item.status}  time={'18:50'} destination={item.arr_iata} />
+        
+        <ScheduleItem flightNumber={item.flight_iata} status={item.status}  time={item.dep_actual} destination={item.arr_iata} />
       );
     
    
@@ -49,7 +50,7 @@ const Schedule = () => {
 
     return (
         <View style={styles.container}>
-
+            <LinearGradient  colors={[  colors.darkblue, colors.white ]} style={{flex: 1}}>
             <View style={styles.buttonContainer}>
                 <Button color={colors.primary} onPress={onHandleAirportSchedule} title='get schedule'/>
             </View>
@@ -58,16 +59,16 @@ const Schedule = () => {
                 
                 <View style={styles.topBar}>
                     <View style={styles.topBarContent}>
-                        <Text style={{width: 60,}}>Time</Text>
-                        <Text style={{width: 60}}>Flight</Text>
-                        <Text style={{width: 60}}>Dest.</Text>
-                        <Text style={{width: 75}}>Status</Text>
+                        <Text style={{width: 60,fontFamily:'Nunito-Regular'}}>Time</Text>
+                        <Text style={{width: 60,fontFamily:'Nunito-Regular'}}>Flight</Text>
+                        <Text style={{width: 60,fontFamily:'Nunito-Regular'}}>Dest.</Text>
+                        <Text style={{width: 75,fontFamily:'Nunito-Regular'}}>Status</Text>
                     </View>
                     
                 </View>
 
             
-            
+                <View style={styles.flatList}>
                 {(arrData &&
                     <FlatList
                     data={arrData.response && arrData.response.slice(0, page * 10)}
@@ -78,9 +79,9 @@ const Schedule = () => {
                     pagingEnabled={true}
                     />
                 )}
-               
+               </View>
             </View>
-        
+            </LinearGradient>
         </View>
     );
 } 

@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
         backgroundColor:'#E2E2E2',
         borderTopStartRadius: 15,
         borderTopEndRadius: 15,
-        borderBottomWidth: 2,
+        borderBottomWidth: 1,
     },
     topBarContent: {
         flexDirection: 'row',
@@ -29,8 +29,16 @@ export const styles = StyleSheet.create({
     listContainer: {
         marginHorizontal:20,
         marginBottom: 20,
-        borderWidth: 3,
+        borderWidth: 1,
         borderRadius: 15,
+       
+        
+    },
+    flatList: {
+        backgroundColor: colors.white,
+        borderBottomStartRadius: 15,
+        borderBottomEndRadius: 15,
+        
     },
     
 });
