@@ -57,9 +57,8 @@ const Home = ({navigation}) => {
         colors={[  colors.darkblue, colors.primary]} 
         style={styles.gradientContainer}>
             <View style={styles.iconContainer}>
-
               <View style={styles.topContainer}>
-                
+
                 <View style={styles.topLeft}>
                   <TouchableWithoutFeedback  onPress={() => navigation.navigate('SearchFlight')} onPressIn={searchIn} onPressOut={searchOut}>
                     <View>
@@ -106,7 +105,7 @@ const Home = ({navigation}) => {
                 </View>
                 
                 <View style={styles.bottomRight}>
-                <TouchableWithoutFeedback  onPress={() => navigation.navigate('Schedule')} onPressIn={locationIn} onPressOut={locationOut}>
+                <TouchableWithoutFeedback  onPress={() => navigation.navigate('Location')} onPressIn={locationIn} onPressOut={locationOut}>
                   <View>
                     <Ionicons
                         name={'home'}
