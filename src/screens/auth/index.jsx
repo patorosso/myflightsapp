@@ -13,7 +13,7 @@ import {
 import { styles } from './styles';
 import { colors } from "../../constants";
 import { useDispatch } from 'react-redux';
-import { signIn, signUp } from '../../store/actions';
+import { signInFirebase, signUpFirebase } from '../../store/auth.slice';
 
 const Auth = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const Auth = ({ navigation }) => {
   const messageButton = isLogin ? 'Login' : 'Register';
 
   const onHandlerSubmit = () => {
-    dispatch(isLogin ? signIn(email, password) : signUp(email, password));
+    dispatch(isLogin ? signInFirebase(email, password) : signUpFirebase(email, password));
   };
   return (
     <KeyboardAvoidingView
