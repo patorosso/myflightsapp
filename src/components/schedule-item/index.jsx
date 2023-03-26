@@ -14,7 +14,7 @@ const ScheduleItem = ({flightNumber,status,origin,destination, time}) => {
             <TouchableOpacity style={styles.container} onPress={() => {}}>
                 
                     <Text style={{width: 60, fontFamily:'Nunito-Bold', fontSize:15,alignSelf:'center'}}>{time}</Text>
-                    <Text style={{width: 60,fontFamily:'Nunito-Regular',alignSelf:'center'}}>{flightNumber}</Text>
+                    <Text style={{width: 75,fontFamily:'Nunito-Regular',alignSelf:'center'}}>{flightNumber}</Text>
 
                     {(origin? 
                     <Text style={{width: 60,fontFamily:'Nunito-Regular'}}>{origin}</Text> : 

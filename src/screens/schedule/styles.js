@@ -40,5 +40,47 @@ export const styles = StyleSheet.create({
         borderBottomEndRadius: 15,
         
     },
+
+
+    containerSearch: {
+        
+        marginTop: 50,
+        marginBottom: 50,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignSelf: 'center',
+        width: '80%',
+        
+    },
+
+    
+
+    input: {
+        borderColor: colors.primary,
+        borderRadius: 20,
+        borderWidth: 1,
+        width: '70%',
+        textAlign: 'center',
+        height:60,
+        backgroundColor: colors.white,
+        fontFamily: 'Nunito-Regular',
+        
+    },
+
+    searchIconContainer: {
+       
+        backgroundColor: colors.primary,
+        borderRadius: 60,
+        overflow: 'hidden',
+        height: 59,
+        width: 60,
+        justifyContent: 'center',
+        
+        
+    },
+    icon: {
+        alignSelf: 'center',
+
+    },
     
 });
