@@ -4,12 +4,12 @@
     "slug": "myflightsapp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/flight_search.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/flight_search.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#78C0E0"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
