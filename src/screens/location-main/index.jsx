@@ -7,8 +7,6 @@ import { colors } from '../../constants';
 
 const LocationMain = ({navigation})  => {
     
-
-
     const onHandleLocation = async () => {
         const isLocationAllowed = await verifyPermissions();
         if (!isLocationAllowed) return;
@@ -22,7 +20,7 @@ const LocationMain = ({navigation})  => {
             longitude: longitude,
           };
           console.log(coords);
-          //navigation.navigate('MapScreen', { coords });
+          navigation.navigate('LocationMap', { coords });
         } catch (error) {
           console.log(error);
           Alert.alert('Error', 'Error al pedir ubicación.');

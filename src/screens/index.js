@@ -6,3 +6,4 @@ export {default as FlightMap} from './flight-map';
 export {default as History} from './history';
 export {default as Schedule} from './schedule';
 export {default as LocationMain} from './location-main';
+export {default as LocationMap} from './location-map';
