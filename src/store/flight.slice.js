@@ -34,13 +34,9 @@ const flightSlice = createSlice({
 export const { addFlight, setFlights, selectFlight } = flightSlice.actions;
 
 export const saveFlight = (flight_iata, dep_iata, arr_iata, time) => {
-  
   return async (dispatch) => {
     try {
-      
-      
       const result = await insertFlight(flight_iata, dep_iata, arr_iata, time);
-      
       dispatch(addFlight({ id: result.insertId, flight_iata, dep_iata, arr_iata, time}));
     } catch (error) {
       console.log(error);
