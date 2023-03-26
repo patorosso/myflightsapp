@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Keyboard, KeyboardAvoidingView, TouchableHighlight, ActivityIndicator, Alert } from "react-native";
 import { styles } from "./styles";
 import { colors } from "../../constants";
-import { AIR_LABS_API_KEY,AIRPORT_DB_TOKEN} from "../../constants/flight_api";
+import { AIR_LABS_API_KEY,AIRPORT_DB_TOKEN} from "../../constants/flight_api_keys";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
 import { CustomModal, FlightInfo } from "../../components";
 import { useDispatch } from 'react-redux';
-import { selectFlight } from "../../store/actions";
-import { saveFlight } from "../../store/flight.slice";
+import { currentFlight, saveFlight } from "../../store/flight.slice";
 
 
 const SearchFlight = ({navigation}) => {
@@ -21,12 +20,18 @@ const SearchFlight = ({navigation}) => {
     const [loading, setLoading] = useState(false);
 
     const onHandlerLocate = async () => {
-      dispatch(selectFlight(flightStatus.response.flight_iata));
+      
+
+      if(flightStatus.response.status == 'cancelled')
+      {
+        Alert.alert("Alert: flight cancelled.","\nSorry, please try another flight. \n\nExample: AF228, LA477 ...");
+        return ;
+      }
 
       if(arrivalData && departureData) {
         if(!flightStatus.response.lat || !flightStatus.response.lng )
         {
-          Alert.alert("Alert: no coords found.","\nCan't access coordinates, please try another flight. \n\nExample: AF228, LA477 ...");
+          Alert.alert("Alert: no coords found.","\nSorry, can't access current flight coordinates. Please try another flight. \n\nExample: AF228, LA477 ...");
           return ;
         }
         navigation.navigate('FlightMap', {
@@ -44,6 +49,16 @@ const SearchFlight = ({navigation}) => {
           arrivalLongitude: arrivalData.longitude_deg,
           departureLatitude: departureData.latitude_deg,
           departureLongitude: departureData.longitude_deg,
+          arrivalCountry: flightStatus.response.arr_country,
+          departureCountry: flightStatus.response.dep_country,
+          arrivalGate: flightStatus.response.arr_gate,
+          departureGate:flightStatus.response.dep_gate,
+          arrivalTerminal:flightStatus.response.arr_terminal,
+          departureTerminal: flightStatus.response.dep_terminal,
+          arrivalRegion: flightStatus.response.arr_city,
+          departureRegion: flightStatus.response.dep_city,
+          arrivalTime: flightStatus.response.arr_time,
+          departureTime: flightStatus.response.dep_time,
         });
       }
     };
@@ -74,11 +89,12 @@ const SearchFlight = ({navigation}) => {
         console.log(data);
         if(data.error)
           {
-            Alert.alert("Error","Wrong flight number, check for the IATA code of the flight.");
+            Alert.alert("Error",`Flight not available. Check if the IATA code is correct or try the code: '${enteredValue}' again later.`);
             return ;
           }
 
         setFlightStatus(data);
+        dispatch(currentFlight(data.response.flight_iata));
         try {
           await getAirportInfo(data.response.arr_icao, 'arrival');
           await getAirportInfo(data.response.dep_icao,'departure');
@@ -91,7 +107,7 @@ const SearchFlight = ({navigation}) => {
             data.response.arr_iata,
             time,
             )); //storing info on db
-
+          
         } catch (error) {
           console.log("error with airport info.");
           console.error(error);
@@ -118,7 +134,7 @@ const SearchFlight = ({navigation}) => {
             },
           });
           const data = await response.json();
-          console.log(data);
+
           if (detail === 'arrival') {
             setArrivalData(data);
           } else {
@@ -144,7 +160,7 @@ const SearchFlight = ({navigation}) => {
                 
                 <TextInput 
                 style={styles.input} 
-                placeholder="Example: AZ681, BA267 ..."
+                placeholder="Example: AZ681, AA954 ..."
                 autoCapitalize="characters"
                 keyboardAppearance="light"
                 value={enteredValue}
@@ -175,7 +191,7 @@ const SearchFlight = ({navigation}) => {
             {flightStatus && !loading  && (
               <>
                 <View style={{marginTop: 175}}>
-                  <FlightInfo 
+                  <FlightInfo
                   arrival={flightStatus.response.arr_iata}
                   departure={flightStatus.response.dep_iata}
                   status={flightStatus.response.status}

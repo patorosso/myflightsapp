@@ -5,6 +5,7 @@ import Flight from "../models/flights";
 
 const initialState = {
   flights: [],
+  selectedFlight: null,
 };
 
 const flightSlice = createSlice({
@@ -24,10 +25,13 @@ const flightSlice = createSlice({
     setFlights: (state, action) => {
       state.flights = action.payload;
     },
+    selectFlight: (state,action) => {
+      state.selectedFlight = action.payload;
+    }
   },
 });
 
-export const { addFlight, setFlights } = flightSlice.actions;
+export const { addFlight, setFlights, selectFlight } = flightSlice.actions;
 
 export const saveFlight = (flight_iata, dep_iata, arr_iata, time) => {
   
@@ -49,6 +53,18 @@ export const loadFlights = () => {
     try {
       const result = await getFlights();
       dispatch(setFlights(result?.rows?._array));
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  };
+};
+
+export const currentFlight = (flight_iata) => {
+  return async (dispatch) => {
+    try {
+      
+      dispatch(selectFlight(flight_iata));
     } catch (error) {
       console.log(error);
       throw error;

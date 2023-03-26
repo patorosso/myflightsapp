@@ -1,8 +1,5 @@
 import { View, Text, TouchableOpacity} from 'react-native';
 import { styles } from './styles';
-import { MaterialIcons } from '@expo/vector-icons'; 
-import { Ionicons } from '@expo/vector-icons'; 
-import { colors } from '../../constants';
 
 
 const FlightInfoShort = ({

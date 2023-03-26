@@ -25,7 +25,7 @@ export const init = () => {
 
 
 export const insertFlight = (flight_iata, dep_iata, arr_iata, time) => {
-  console.log(flight_iata, dep_iata, arr_iata, time);
+  
     const promise = new Promise((resolve, reject) => {
       db.transaction((tx) => {
         
