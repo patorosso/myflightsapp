@@ -12,6 +12,7 @@ const Home = ({navigation}) => {
   const [searchPressed, setSearchPressed] = useState(false);
   const [historyPressed, setHistoryPressed] = useState(false);
   const [schedulePressed, setSchedulePressed] = useState(false);
+  const [locationPressed, setLocationPressed] = useState(false);
 
   const searchIn = () => {
       setSearchPressed(true);
@@ -34,9 +35,18 @@ const Home = ({navigation}) => {
   setSchedulePressed(false);
   };
 
+  const locationIn = () => {
+    setLocationPressed(true);
+  };
+  const locationOut = () => {
+  setLocationPressed(false);
+  };
+
   const searchColor = searchPressed ? colors.purple : colors.white;
   const historyColor = historyPressed ? colors.purple : colors.white;
   const scheduleColor = schedulePressed ? colors.purple : colors.white;
+  const locationColor = locationPressed ? colors.purple : colors.white;
+
 
 
 
@@ -49,6 +59,7 @@ const Home = ({navigation}) => {
             <View style={styles.iconContainer}>
 
               <View style={styles.topContainer}>
+                
                 <View style={styles.topLeft}>
                   <TouchableWithoutFeedback  onPress={() => navigation.navigate('SearchFlight')} onPressIn={searchIn} onPressOut={searchOut}>
                     <View>
@@ -79,6 +90,7 @@ const Home = ({navigation}) => {
               </View>
               
               <View style={styles.bottomContainer}>
+
                 <View style={styles.bottomLeft}>
                 <TouchableWithoutFeedback  onPress={() => navigation.navigate('Schedule')} onPressIn={scheduleIn} onPressOut={scheduleOut}>
                   <View>
@@ -94,13 +106,17 @@ const Home = ({navigation}) => {
                 </View>
                 
                 <View style={styles.bottomRight}>
-                <Ionicons
-                    name={'home'}
-                    size={80}
-                    color={colors.white}
-                    style={{alignSelf: 'center', paddingVertical: 10}}
-                  />
-                  <Text style={{fontFamily: 'Nunito-Bold',color: 'white',fontSize: 13,alignSelf: 'center'}}>--------</Text>
+                <TouchableWithoutFeedback  onPress={() => navigation.navigate('Schedule')} onPressIn={locationIn} onPressOut={locationOut}>
+                  <View>
+                    <Ionicons
+                        name={'home'}
+                        size={80}
+                        color={locationColor}
+                        style={{alignSelf: 'center', paddingVertical: 10}}
+                      />
+                    <Text style={{fontFamily: 'Nunito-Bold',color: {locationColor},fontSize: 13,alignSelf: 'center'}}>--------</Text>
+                  </View>
+                  </TouchableWithoutFeedback>
                 </View>
               </View>
             </View>
