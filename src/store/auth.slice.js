@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { URL_AUTH_SIGN_IN, URL_AUTH_SIGN_UP } from "../../constants/firebase";
+import { URL_AUTH_SIGN_IN, URL_AUTH_SIGN_UP } from "../constants/firebase"
 
 const initialState = {
     token: null,
@@ -12,9 +12,9 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     signIn: (state, action) => {
-        state.token = action.payload,
-        state.userId = action.payload,
-        state.email = action.payload
+        state.token = action.payload.token,
+        state.userId = action.payload.userId,
+        state.email = action.payload.email
     },
     signUp: (state, action) => {
         state.token = action.payload.token,
@@ -76,3 +76,5 @@ export const signUpFirebase = (email, password) => {
       }
     };
   };
+
+  export default authSlice.reducer;
