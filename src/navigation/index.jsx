@@ -5,10 +5,11 @@ import TabNavigator from "./tabs";
 import { StatusBar } from "react-native";
 
 const AppNavigator = () => {
-    const userId = useSelector((state) => state.auth.userId);
+    // const userId = useSelector((state) => state.auth.userId);
     return (
         <NavigationContainer>
-           {userId ? <TabNavigator /> : <AuthNavigator />}
+            <TabNavigator />
+           {/* {userId ? <TabNavigator /> : <AuthNavigator />} */}
         </NavigationContainer>
         
     )
