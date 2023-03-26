@@ -32,6 +32,8 @@ const HomeNavigator = () => {
 
             <Stack.Screen name='Schedule' component={Schedule} 
             options= {{title:'Schedule' ,headerTintColor: colors.primary}}/>
+
+           
             
         </Stack.Navigator>
     )
