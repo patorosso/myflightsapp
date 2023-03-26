@@ -8,7 +8,7 @@
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/flight_search.png",
-      "resizeMode": "contain",
+      "resizeMode": "center",
       "backgroundColor": "#78C0E0"
     },
     "updates": {
