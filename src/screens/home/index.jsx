@@ -113,7 +113,7 @@ const Home = ({navigation}) => {
                         color={locationColor}
                         style={{alignSelf: 'center', paddingVertical: 10}}
                       />
-                    <Text style={{fontFamily: 'Nunito-Bold',color: locationColor,fontSize: 13,alignSelf: 'center'}}>Current location</Text>
+                    <Text style={{fontFamily: 'Nunito-Bold',color: locationColor,fontSize: 13,alignSelf: 'center'}}>Current Location</Text>
                   </View>
                   </TouchableWithoutFeedback>
                 </View>

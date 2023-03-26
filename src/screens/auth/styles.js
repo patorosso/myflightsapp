@@ -5,6 +5,7 @@ import { colors } from '../../constants';
 export const styles = StyleSheet.create({
   keybordContainer: {
     flex: 1,
+    backgroundColor: colors.darkblue
   },
   container: {
     flex: 1,
