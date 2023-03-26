@@ -28,9 +28,9 @@ export const styles = StyleSheet.create({
     },
     listContainer: {
         marginHorizontal:20,
-        marginBottom: 20,
         borderWidth: 1,
         borderRadius: 15,
+        
        
         
     },

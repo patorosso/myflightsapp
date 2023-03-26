@@ -1,6 +1,6 @@
 import React , {useState} from "react";
-import { View , Button, FlatList, Text, KeyboardAvoidingView, TextInput,TouchableHighlight, Keyboard, Alert,ActivityIndicator} from "react-native";
-
+import { View , FlatList, Text, KeyboardAvoidingView, TextInput,TouchableHighlight, Keyboard, Alert,ActivityIndicator, TouchableOpacity} from "react-native";
+import { useLayoutEffect } from "react";
 import { styles } from "./styles";
 import { colors } from "../../constants";
 import { SelectList } from 'react-native-dropdown-select-list';
@@ -10,11 +10,13 @@ import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
 
 
-const Schedule = () => {
+const Schedule = ({navigation}) => {
     const [arrData,setArrData] = useState([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
     const [enteredValue,setEnteredValue] = useState("");
+    const [departures, setDepartures] = useState(true);
+    const [arrivals, setArrivals] = useState(false);
        
     async function onHandleAirportSchedule(enteredValue) {
         if(enteredValue.length === 0)
@@ -26,13 +28,12 @@ const Schedule = () => {
         setLoading(true);
         const apiKey = AIR_LABS_API_KEY;
         try {
-            const response = await fetch(`https://airlabs.co/api/v9/schedules?dep_iata=${enteredValue}&api_key=${apiKey}`, {
+            const response = await fetch(`https://airlabs.co/api/v9/schedules?${arrivals? 'arr' : 'dep'}_iata=${enteredValue}&api_key=${apiKey}`, {
             headers: {
                 'Authorization': `Bearer ${apiKey}`
             },
         });
         const data = await response.json();
-        console.log(data);
         
         if(data.error)
         {
@@ -50,17 +51,44 @@ const Schedule = () => {
         }
     }
 
+    const handleDep = () => {
+        setArrivals(false);
+        setDepartures(true);
+    }
+
+    const handleArr = () => {
+        setArrivals(true);
+        setDepartures(false);
+    }
+
     const handleNextPage = () => {
         setPage(page + 1);
       }
 
     const renderItem = ({ item }) => (
-        <ScheduleItem flightNumber={item.flight_iata} status={item.status}  time={'19:40'} destination={item.arr_iata} />
+        <ScheduleItem flightNumber={item.flight_iata? item.flight_iata : item.flight_icao} status={item.status}  time={item.dep_actual? item.dep_actual : item.dep_time} destination={item.arr_iata} />
       );
     
       const onHandlerChange = (text) => {
         setEnteredValue(text.replace(/[^a-zA-Z]/g, ''));
     };
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerRight: () => (
+                <View style={{flexDirection: 'row',}}>
+                    <TouchableOpacity onPress={handleDep} style={departures? {borderBottomColor: colors.primary, borderBottomWidth:2} : {}}>
+                        <Text>Departures</Text>
+                    </TouchableOpacity>
+                        <View><Text>    </Text></View> 
+                    <TouchableOpacity onPress={handleArr} style={arrivals?  {borderBottomColor: colors.primary, borderBottomWidth:2} : {} } >
+                        <Text>Arrivals</Text>
+                    </TouchableOpacity>
+                </View>
+            )
+        })
+    });
+
 
 
 
@@ -116,12 +144,9 @@ const Schedule = () => {
 
                 <View style={styles.flatList}>
                     <FlatList
-                    data={arrData.response && arrData.response.slice(0, page * 10)}
+                    data={arrData.response && arrData.response.slice(0,10)}
                     renderItem={renderItem}
                     keyExtractor={(item, index) => index.toString()}
-                    onEndReached={handleNextPage}
-                    onEndReachedThreshold={0.5}
-                    pagingEnabled={true}
                     />
                 </View>
             </View>

@@ -24,3 +24,12 @@ export function getStatusColor(status){
     }
     return color;
 }
+
+export function timeToHour(time){
+  if (typeof time === 'string') {
+    const hour = time.split(" ")[1];
+    return hour;
+  } else {
+    return 'UNK';
+  }
+}
