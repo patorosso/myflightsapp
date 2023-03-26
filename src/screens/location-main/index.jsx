@@ -19,7 +19,6 @@ const LocationMain = ({navigation})  => {
             latitude: latitude,
             longitude: longitude,
           };
-          console.log(coords);
           navigation.navigate('LocationMap', { coords });
         } catch (error) {
           console.log(error);
@@ -40,7 +39,7 @@ const LocationMain = ({navigation})  => {
 
   return (
     <View style={styles.container}>
-      <Button color={colors.purple} title='Ver mi ubicación' onPress={onHandleLocation}/>
+      <Button color={colors.purple} title='Show me on the map' onPress={onHandleLocation}/>
     </View>
   );
 }

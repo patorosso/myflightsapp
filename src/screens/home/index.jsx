@@ -108,12 +108,12 @@ const Home = ({navigation}) => {
                 <TouchableWithoutFeedback  onPress={() => navigation.navigate('Location')} onPressIn={locationIn} onPressOut={locationOut}>
                   <View>
                     <Ionicons
-                        name={'home'}
+                        name={'location'}
                         size={80}
                         color={locationColor}
                         style={{alignSelf: 'center', paddingVertical: 10}}
                       />
-                    <Text style={{fontFamily: 'Nunito-Bold',color: {locationColor},fontSize: 13,alignSelf: 'center'}}>--------</Text>
+                    <Text style={{fontFamily: 'Nunito-Bold',color: locationColor,fontSize: 13,alignSelf: 'center'}}>Current location</Text>
                   </View>
                   </TouchableWithoutFeedback>
                 </View>
