@@ -28,6 +28,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/flight_search.png",
         "backgroundColor": "#78C0E0"
+      },
+      "config": {
+        "googleMaps" : {
+          "apiKey" : "AIzaSyA5-NodWlPPJw82cCKpKYKHAZx0xYD4UFw"
+        }
       }
     },
     "web": {
