@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import { colors } from "../../constants";
-import MapView, {Marker} from 'react-native-maps';
+import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import { MaterialIcons, Ionicons ,FontAwesome5} from '@expo/vector-icons'; 
 import { FlightInfo } from "../../components";
 import { useLayoutEffect, useState } from "react";

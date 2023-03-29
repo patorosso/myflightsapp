@@ -1,5 +1,5 @@
 import { View} from 'react-native';
-import MapView , {Marker} from 'react-native-maps';
+import MapView , {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import { styles } from './styles';
 
 
