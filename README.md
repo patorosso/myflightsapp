@@ -14,7 +14,7 @@ API's used <u>(huge thanks for their freemium option, it helps small devs like m
 ---
 
 ## Main menu
-![](https://github.com/patorosso/myflightsapp/blob/main/assets/home.png?raw=true | width=360)
+![](https://github.com/patorosso/myflightsapp/blob/main/assets/home.png?raw=true){:height="36px" width="36px"}
 
 ---
 
