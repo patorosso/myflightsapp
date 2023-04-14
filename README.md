@@ -29,14 +29,12 @@ API's used <u>(huge thanks for their freemium option, it helps small devs like m
 
 ---
 
-## Airport schedule
-<img src="https://github.com/patorosso/myflightsapp/blob/main/assets/schedule.png?raw=true" width="360">
+## Airport schedule && search history
 
----
-
-## Flight history
-<img src="https://github.com/patorosso/myflightsapp/blob/main/assets/history.png?raw=true" width="360">
-
-
-
+<div style="text-align:center;">
+  <p float="left">
+    <img src="https://github.com/patorosso/myflightsapp/blob/main/assets/schedule.png?raw=true" style="margin-right: 30px" width="360" />
+    <img src="https://github.com/patorosso/myflightsapp/blob/main/assets/history.png?raw=true" style="margin-left: 30px" width="360" />
+  </p>
+</div>
 
