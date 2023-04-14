@@ -16,7 +16,7 @@ export function getStatusColor(status){
             color = colors.green;
             break;
           case 'scheduled':
-            color = colors.lightblue
+            color = colors.green
             break;
           default:
             color = 'black';
