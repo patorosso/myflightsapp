@@ -29,7 +29,7 @@ API's used <u>(huge thanks for their freemium option, it helps small devs like m
 
 ---
 
-## Airport schedule && search history
+## Airport schedule and Search history
 
 <div style="text-align:center;">
   <p float="left">
