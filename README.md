@@ -18,13 +18,12 @@ API's used <u>(huge thanks for their freemium option, it helps small devs like m
 
 ---
 
-## Flight search
-<img src="https://github.com/patorosso/myflightsapp/blob/main/assets/flight_search_screen.png?raw=true" width="360">
+## Flight track
 
----
-
-## Flight track-map
-<img src="https://github.com/patorosso/myflightsapp/blob/main/assets/flight_map.png?raw=true" width="360">
+<p float="left">
+  <img src="https://github.com/patorosso/myflightsapp/blob/main/assets/flight_search_screen.png?raw=true" style="margin-right: 10px" width="360" />
+  <img src="https://github.com/patorosso/myflightsapp/blob/main/assets/flight_map.png?raw=true" style="margin-left: 10px" width="360" />
+</p>
 
 ---
 
