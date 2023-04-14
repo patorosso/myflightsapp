@@ -1,3 +1,4 @@
+<img src="https://github.com/patorosso/myflightsapp/blob/main/assets/home.png?raw=true" width="48">
 ## Overview
 * myflightsapp it's a react-native app to GET realtime flight related data. It was designed using Javascript, Expo, SQLite, Redux, Firebase realtime-database and authentication.
 
