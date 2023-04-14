@@ -13,12 +13,12 @@ API's used <u>(huge thanks for their freemium option, it helps small devs like m
 * Register and login using Firebase Auth.
 ---
 
-## Main menu
+## Home
 <img src="https://github.com/patorosso/myflightsapp/blob/main/assets/home.png?raw=true" width="360">
 
 ---
 
-## Flight track
+## Flight Track
 
 <div style="text-align:center;">
   <p float="left">
@@ -29,7 +29,7 @@ API's used <u>(huge thanks for their freemium option, it helps small devs like m
 
 ---
 
-## Airport schedule and Search history
+## Airport Schedule and Search History
 
 <div style="text-align:center;">
   <p float="left">
