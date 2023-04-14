@@ -19,22 +19,22 @@ API's used <u>(huge thanks for their freemium option, it helps small devs like m
 ---
 
 ## Flight search
-![](https://github.com/patorosso/myflightsapp/blob/main/assets/flight_search_screen.png?raw=true)
+<img src="https://github.com/patorosso/myflightsapp/blob/main/assets/flight_search_screen.png?raw=true" width="360">
 
 ---
 
 ## Flight track-map
-![](https://github.com/patorosso/myflightsapp/blob/main/assets/flight_map.png?raw=true)
+<img src="https://github.com/patorosso/myflightsapp/blob/main/assets/flight_map.png?raw=true" width="360">
 
 ---
 
 ## Airport schedule
-![](https://github.com/patorosso/myflightsapp/blob/main/assets/schedule.png?raw=true)
+<img src="https://github.com/patorosso/myflightsapp/blob/main/assets/schedule.png?raw=true" width="360">
 
 ---
 
 ## Flight history
-![](https://github.com/patorosso/myflightsapp/blob/main/assets/history.png?raw=true)
+<img src="https://github.com/patorosso/myflightsapp/blob/main/assets/history.png?raw=true" width="360">
 
 
 
