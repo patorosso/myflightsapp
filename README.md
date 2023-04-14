@@ -1,5 +1,5 @@
 ## Overview
-* myflightsapp it's a react-native app to GET realtime flight related data. It was designed using Javascript, Expo, SQLite, Redux, Firebase realtime-database and authentication.
+myflightsapp it's a react-native app to GET realtime flight related data. It was designed using Javascript, Expo, SQLite, Redux, Firebase realtime-database and authentication.
 
 API's used <u>(huge thanks for their freemium option, it helps small devs like me):</u>
 * [AirLabs Data API](https://airlabs.co/)
