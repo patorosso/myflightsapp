@@ -14,12 +14,12 @@ API's used <u>(huge thanks for their freemium option, it helps small devs like m
 ---
 
 ## Main menu
-![](https://github.com/patorosso/myflightsapp/blob/main/assets/home.png?raw=true | width=360 | height=640)
+![](https://github.com/patorosso/myflightsapp/blob/main/assets/home.png?raw=true | width=360)
 
 ---
 
 ## Flight search
-![]("https://github.com/patorosso/myflightsapp/blob/main/assets/flight_search_screen.png?raw=true")
+![](https://github.com/patorosso/myflightsapp/blob/main/assets/flight_search_screen.png?raw=true)
 
 ---
 
